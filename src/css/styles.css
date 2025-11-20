@@ -2,3 +2,75 @@
     margin: 0em;
     padding: 0em;
 }
+:root {
+    --txtcolor: #fff;
+    --bgcolor: linear-gradient(135deg, #181725, #242440);
+    --headerbgcolor: #181725;
+    --highlightcolor: #29C183;
+}
+
+body {
+    width: 100%;
+    margin: auto;
+}
+
+html, body {
+    font-size: 1em;
+    font-family: "Verdana",sans-serif;
+    line-height: 1.5em;
+    margin: auto;
+    color: var(--txtcolor);
+    background: var(--bgcolor);
+}
+
+/* HEADER */
+header {
+    background-color: var(--headerbgcolor);
+    color: var(--txtcolor);
+    overflow: hidden;
+    padding: 1rem 5% 1rem 5%;
+}
+
+header h1 {
+    padding: 10px 10px;   
+    float: left;
+}
+
+#menu {
+    font-size: 1.5em;
+    float: right;
+}
+
+#menu ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+#login {
+    margin-left: 5rem; /* spazio verso la sinistra */
+}
+
+#menu li {
+    display: inline-block;
+    padding: 10px 10px;   
+}
+
+#reg {
+    background-color: var(--highlightcolor);
+    border-radius: 8px;
+}
+
+/* MAIN */
+main h1 {
+    text-align: center;
+    padding-top: 10rem;
+    padding-bottom: 1.5rem;
+    font-size: 4em;
+}
+
+main h2 {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 10rem;
+    font-size: 2em;
+}
