@@ -4,8 +4,8 @@
 }
 :root {
     --txtcolor: #fff;
-    --bgcolor: linear-gradient(135deg, #181725, #242440);
-    --headerbgcolor: #181725;
+    --bgcolor: linear-gradient(135deg, #101112, #242440);
+    --headerbgcolor: #101112;
     --highlightcolor: #29C183;
 }
 
@@ -60,17 +60,39 @@ header h1 {
     border-radius: 8px;
 }
 
+#acc {
+    border: 1px solid var(--highlightcolor);
+    border-radius: 8px;
+}
+
+#acc a:link {
+    color:var(--highlightcolor);
+    font-weight: bold;
+}
+
+#reg a:link {
+    color:var(--headerbgcolor);
+    font-weight: bold;
+}
+
 /* MAIN */
 main h1 {
-    text-align: center;
-    padding-top: 10rem;
+    width: 40%;
+    text-align: left;
+    margin-left: 5%;
+    padding-left: 10px;
+    padding-top: 8rem;
     padding-bottom: 1.5rem;
-    font-size: 4em;
+    font-size: 3em;
+    line-height: 1.5em;
 }
 
 main h2 {
-    text-align: center;
-    padding-top: 1.5rem;
-    padding-bottom: 10rem;
-    font-size: 2em;
+    width: 40%;
+    text-align: left;
+    margin-left: 5%;
+    padding-left: 10px;
+    padding-bottom: 8rem;
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
