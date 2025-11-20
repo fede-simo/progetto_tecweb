@@ -13,8 +13,8 @@ MAIN PAGE
 */
 
 :root{
-    --txtcolor: rgba(255, 255, 255); 
-    --bgcolor: rgba(0, 0, 0);     /* background */
+    --txtcolor: rgba(225, 240, 240); 
+    --bgcolor: linear-gradient(135deg, rgba(24, 23, 37, 1), rgba(36, 36, 64, 1));     /* background */
     --s2bgcolor: rgba(9, 9, 10);
     --s3bgcolor: rgba(16, 17, 18);
     --bordercontcolor: rgba(76,33,128,1);
@@ -28,7 +28,7 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: lighter;
     color: var(--txtcolor);
-    background-color: var(--bgcolor);
+    background: var(--bgcolor);
     
 }
 
@@ -54,7 +54,7 @@ header {
 }
 
 #logo {
-    margin-left: 20%;
+    padding-left: 20%;
     padding-right: 3rem;
 }
 
@@ -85,11 +85,6 @@ header a:visited {
     text-underline-offset: 0.8rem;
 }
 
-.right-container {
-    display: flex;
-    gap: 1.5rem;
-    margin-right: 20%;
-}
 
 
 /*
