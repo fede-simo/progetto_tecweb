@@ -14,6 +14,7 @@ MAIN PAGE
 
 :root{
     --txtcolor: rgba(225, 240, 240); 
+    --sbgcolor: #29C183;
     --bgcolor: linear-gradient(135deg, rgba(24, 23, 37, 1), rgba(36, 36, 64, 1));     /* background */
     --s2bgcolor: rgba(9, 9, 10);
     --s3bgcolor: rgba(16, 17, 18);
@@ -24,12 +25,12 @@ MAIN PAGE
 }
 
 body {
+    overflow-x: hidden; /* sennò lo slide orizzontale causa la pagina di avere dimensione maggiore fino a quando avviene lo slide (section3) */
     font-size: 1em;
     font-family: "Inter", sans-serif;
     font-weight: lighter;
     color: var(--txtcolor);
-    background: var(--bgcolor);
-    
+    background: var(--bgcolor);  
 }
 
 /*
@@ -93,6 +94,35 @@ MAIN SECTION
 ====================================
 */
 
+#back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 9rem;
+  z-index: 1; /* per metterlo sopra il contenuto */
+  width: 3rem;
+  height: 3rem;
+
+  border: none;
+  border-radius: 10%;
+  background: var(--sbgcolor);
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity 2s ease, transform 0.3s;
+  pointer-events: 0;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 section {
     text-align: center;
@@ -100,37 +130,89 @@ section {
 
 
 #section1 {
+    /*background-image: url('../../img/backgroundimg.png');  gemini continua a darmi l'immagine in 1024x1024
+    background-repeat: no-repeat;           
+    background-size: cover;                  
+    background-position: center; */
+
     height: 100vh; 
     display: flex;
     flex-direction: column;
-    justify-content: center; 
     align-items: center;
 }
 
-#heroTitle{
+#hero-title{
     font-size: 6rem;
-    margin-top: -6rem;
+    margin-top: 10rem;
     transition: all 1s ease-out;
     transition-delay: 0.7s;     
 }
 
-#heroText {
-    font-size: 2rem;
+#hero-subtitle{
+    font-size: 5rem;
     margin-top: 5rem;
     transition: all 1s ease-out;
-    transition-delay: 1.5s;  
+    transition-delay: 1.4s;     
 }
 
-.transDown {
+#hero-text {
+    font-size: 2rem;
+    margin-top: 1rem;
+    transition: all 1s ease-out;
+    transition-delay: 2s;  
+}
+
+.trans-down {
     opacity: 0;                  
     transform: translateY(-100px); 
 }
 
-.transUp {
+.trans-up {
     opacity: 0;                  
     transform: translateY(100px); 
 }
 
+
+#link-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    transition: all 1s ease-out;
+    transition-delay: 2.5s; 
+}
+
+
+
+#link-container a {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 1rem 3rem;
+    border: 2px solid var(--sbgcolor);
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#start {
+    background-color: var(--sbgcolor);
+    color: rgb(17, 17, 31);
+}
+
+#start:hover {
+    background-color: rgb(31, 145, 99);
+}
+
+#more-info {
+    font-size: 1.5rem;
+    color: var(--txtcolor);
+}
+
+#more-info:hover {
+    background-color: rgb(17, 17, 31);
+}
 
 .visible {
     opacity: 1;
@@ -193,7 +275,7 @@ section {
     width: 100%;
     padding: 10rem;
     opacity: 0;
-    transform: translateX(20rem);
+    transform: translateX(40rem); /* PROBLEMA VISUALIZZAZIONE PAGINA */
     transition: all 0.8s ease-out;
 }
 
@@ -223,16 +305,3 @@ section {
 }
 
 
-
-
-
-
-.cta {
-    display: inline-block;
-    padding: 0.8em 2em;
-    background: var(--bgcolor);
-    border-radius: 10px;
-    border: 1px solid var(--bordercontcolor);
-    text-decoration: none;
-    font-weight: 600;
-}

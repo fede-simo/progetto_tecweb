@@ -8,7 +8,8 @@
     <meta name="keywords" content="ProfitGuru, crypto, etf, finanza, azioni, corsi">
     
     <link rel="stylesheet" href="../css/styles.css" media="screen">
-    <script src="../js/myScript.js" defer></script>
+    <script src="../js/textAnimations.js" defer></script>
+    <script src="../js/buttonsManager.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,19 +25,27 @@
         <nav id="menu">
             <ul>
                 <li class="current-page" lang="en">Home</li>
-                <li><a href="pag2.html">Corsi</a></li>
-                <li><a href="pag3.html">Elemento3</a></li>
-                <li><a href="pag4.html">Elemento4</a></li>
-                <li><a href="accedi.html">Accedi</a></li>
-                <li><a href="registrati.html">Registrati</a></li>
+                <li><a href="./pag2.html">Corsi</a></li>
+                <li><a href="./pag3.html">Elemento3</a></li>
+                <li><a href="./pag4.html">Elemento4</a></li>
+                <li><a href="./accedi.html">Accedi</a></li>
+                <li><a href="./registrati.html">Inizia ora</a></li>
             </ul>
         </nav>
     </header>   
 
     <main>
+
+        <button id="back-to-top">&#8593</button>
+
         <section id="section1">
-            <h1 id="heroTitle" class="transDown">ProfitGuru</h1>
-            <p id="heroText" class="transUp">Guadagna con crypto etf azioni</p>
+            <h1 id="hero-title" class="trans-down">ProfitGuru</h1>
+            <h2 id="hero-subtitle" class="trans-down">Sblocca il tuo potenziale finanziario</h2>
+            <p id="hero-text" class="trans-up">L'intelligenza artificiale che ti guida in modo intelligente su Crypto, ETF e azioni.</p>
+            <div id="link-container" class="trans-up">
+                <a href="./registrati.html" id="start">Inizia a Guadagnare</a>
+                <a href="./corsi.html" id="more-info">Scopri Come Funziona</a>
+            </div>    
         </section>
 
         <nav id="breadcrumb">
@@ -44,6 +53,7 @@
         </nav>
 
         <section id="section2">
+
             <h2>Info</h2>
 
             <div class="features-container">
@@ -92,18 +102,15 @@
         </section>
 
 
-        <section id="section4">
-            <h2>Contacts</h2>
-            <p>Yapping</p>
-            <a href="#" class="cta">Mail us.</a>
-        </section>
-
     </main>
+
 
 
     <footer>
         
     </footer>
+
+
 
 </body>
 </html>
