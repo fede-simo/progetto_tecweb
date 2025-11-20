@@ -1,20 +1,111 @@
 <!DOCTYPE html>
 <html lang="it">
 
+
 <head>
-    <title>Titolo</title> 
+    <title>Pagina principale</title> 
     <meta charset="UTF-8">
     <meta name="description" content="Pagina ...">
     <meta name="keywords" content="">
     
-    <link rel="stylesheet" href="styles.css" media="screen">
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <script src="../js/myScript.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
     <header>
+        <a href="index.html" id="logo">Logo</a>   
+        
+        <nav id="menu">
+            <ul>
+                <li class="current-page">Home</li>
+                <li><a href="pag2.html">Elemento2</a></li>
+                <li><a href="pag3.html">Elemento3</a></li>
+                <li><a href="pag4.html">Elemento4</a></li>
+            </ul>
+        </nav>
 
-    </header>
+        <div class="right-container">
+            <div id="login-container">
+                <a href="index.html" id="login">Accedi</a>
+            </div>
+            <div id="night-mode-container">
+                <a href="index.html" id="register">Registrati</a>
+            </div>
+        </div>
+    </header>   
 
+    <main>
+
+
+        <section id="section1">
+            <h1 id="heroTitle" class="transDown">Welcome</h1>
+            <p id="heroText" class="transUp">Yapping</p>
+        </section>
+
+
+        <section id="section2">
+            <h2>Info</h2>
+
+            <div class="features-container">
+                <div class="feature-box">
+                    <h3>HIJKLMNOP</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos suscipit veritatis repudiandae ut eaque 
+                        tempore, cum facere! Mollitia, veritatis modi repudiandae explicabo architecto fuga non fugit optio rerum sequi et.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>aBCDEFG</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facilis, ducimus voluptatem eveniet ut ipsam perspiciatis veniam minima consectetur eligendi. 
+                        Temporibus eligendi possimus repellendus culpa veritatis suscipit ab earum recusandae.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Stuvwxyz</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section3">
+
+            <div class="features-container2">
+                <div class="feature-box2" id="s3c1">
+                    <h3>Lmnopqr</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+
+                <div class="feature-box2" id="s3c2">
+                    <h3>Fghijk</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+
+                <div class="feature-box2" id="s3c3">
+                    <h3>Abcde</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="section4">
+            <h2>Contacts</h2>
+            <p>Yapping</p>
+            <a href="#" class="cta">Mail us.</a>
+        </section>
+
+    </main>
 
 
     <footer>
