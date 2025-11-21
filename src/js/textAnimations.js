@@ -3,11 +3,11 @@
 window.addEventListener('load', () => {
   const title = document.getElementById('hero-title');
   const subtitle = document.getElementById('hero-subtitle')
-  const text = document.getElementById('hero-text');
+  //const text = document.getElementById('hero-text');
   const linkContainer = document.getElementById('link-container');
   title.classList.add('visible');
   subtitle.classList.add('visible');
-  text.classList.add('visible');
+  //text.classList.add('visible');
   linkContainer.classList.add('visible');
 });
 

@@ -40,11 +40,10 @@ HEADER SECTION
 */
 
 header {
-    padding: 1em 1.5em;
-    display: flex;
-    text-align: center;
+    line-height: 1.5em;
+    overflow: hidden;
+    padding: 1em 10%;
     font-size: 1.2rem;
-    justify-content: space-between;
     width: 100%;
     margin: 0 auto;
     position: sticky;
@@ -54,20 +53,23 @@ header {
     backdrop-filter: blur(8px);
 }
 
-#logo {
-    padding-left: 20%;
-    padding-right: 3rem;
+header h1 {
+    padding: 0.5rem;
+    float: left;
+}
+
+#menu {
+    float: right;
 }
 
 #menu ul {
-    display: flex;
     list-style-type: none;
-    padding: 0;
 }
 
 
 #menu li {
-    padding-right: 2em;
+    display: inline-block;
+    padding: 0.5rem;
 }
 
 
@@ -124,42 +126,42 @@ MAIN SECTION
     pointer-events: auto;
 }
 
-section {
+main {
+    padding: 1em 10%;
     text-align: center;
 }
-
-
 #section1 {
     /*background-image: url('../../img/backgroundimg.png');  gemini continua a darmi l'immagine in 1024x1024
     background-repeat: no-repeat;           
     background-size: cover;                  
     background-position: center; */
-
-    height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    margin-top: 4rem;
 }
 
 #hero-title{
-    font-size: 6rem;
-    margin-top: 10rem;
+    font-size: 4rem;
+    text-align: left;
     transition: all 1s ease-out;
     transition-delay: 0.7s;     
 }
 
 #hero-subtitle{
-    font-size: 5rem;
-    margin-top: 5rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: left;
     transition: all 1s ease-out;
     transition-delay: 1.4s;     
 }
 
-#hero-text {
-    font-size: 2rem;
-    margin-top: 1rem;
-    transition: all 1s ease-out;
-    transition-delay: 2s;  
+#link-container {
+    display: inline-block;
+    width: 49%;
+}
+
+#section1 img {
+    display: inline-block;
+    width: 49%;
 }
 
 .trans-down {
@@ -171,18 +173,6 @@ section {
     opacity: 0;                  
     transform: translateY(100px); 
 }
-
-
-#link-container {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 5rem;
-    flex-wrap: wrap;
-    transition: all 1s ease-out;
-    transition-delay: 2.5s; 
-}
-
 
 
 #link-container a {
@@ -349,7 +339,7 @@ FORM REGISTRAZIONE
 
 .cta-btn {
     padding: 0.8rem;
-    background: var(--sbgcolor);
+    background: var(--bgcolor);
     border: 2px solid var(--sbgcolor);
     border-radius: 10px;
     color: var(--bgcolor);
