@@ -4,24 +4,30 @@
     box-sizing: border-box;
 }
 
-/*
-====================================
-====================================
-MAIN PAGE
-====================================
-====================================
-*/
-
 :root{
-    --txtcolor: rgba(225, 240, 240); 
-    --sbgcolor: #29C183;
-    --bgcolor: linear-gradient(135deg, rgba(24, 23, 37, 1), rgba(36, 36, 64, 1));     /* background */
-    --s2bgcolor: rgba(9, 9, 10);
-    --s3bgcolor: rgba(16, 17, 18);
-    --bordercontcolor: rgba(76,33,128,1);
-    --s3c1bgcolor: rgba(18, 7, 31);
-    --s3c2bgcolor: rgba(27, 10, 46);
-    --s3c3bgcolor: rgba(37, 5, 74);
+    --weight-bold: 600;
+    --weight-regular: 400;
+    --weight-light: 300;
+
+    --text-size-normal: 1rem;
+    --text-size-small: 0.875rem;
+    --text-size-large: 1.625rem;
+    --text-size-link: 1.25rem;
+
+    --background-color: #181725;
+    --text-color: #fff;
+    --highlight-background-color: #29C183;
+    --highlight-text-color: #181725;
+
+    --a-background-color: #181725;
+    --a-text-color: #fff;
+    --a-visited-text-color: #fff; /*DA DEFINIRE*/
+    
+    --a-highlight-background-color: #29C183;
+    --a-highlight-text-color: #181725;
+    --a-highlight-visited-text-color: #181725; /*DA DEFINIRE*/
+
+    --border-color: #29C183;
 }
 
 body {
@@ -29,19 +35,18 @@ body {
     font-size: 1em;
     font-family: "Inter", sans-serif;
     font-weight: lighter;
-    color: var(--txtcolor);
-    background: var(--bgcolor);  
+    color: var(--text-color);
+    background: var(--background-color);  
 }
 
-/*
-====================================
-HEADER SECTION
-====================================
-*/
+/* HOME */
+
+/* header */
 
 header {
     line-height: 1.5em;
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     padding: 1em 10%;
     font-size: 1.2rem;
     width: 100%;
@@ -49,17 +54,19 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(0,0,0,0.7);
+    background-color: var(--background-color);
     backdrop-filter: blur(8px);
 }
 
 header h1 {
-    padding: 0.5rem;
-    float: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 30%;
 }
 
 #menu {
-    float: right;
+    width: 70%;
+    text-align: right;
 }
 
 #menu ul {
@@ -72,31 +79,42 @@ header h1 {
     padding: 0.5rem;
 }
 
-
-header a:link {
+header a {
+    color: var(--a-text-color);
     text-decoration: none;
 }
 
-header a:visited {
-    color: var(--txtcolor);
-}
-
-
-.current-page {
+header a:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.8rem;
 }
 
+header a:visited {
+    color: var(--a-visited-text-color);
+}
 
 
-/*
-====================================
-MAIN SECTION
-====================================
+.current-page {
+    font-weight: 1000;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+}
 
+#breadcrumb {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-text-color);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.25rem;
+    font-weight: var(--weight-regular);
+}
 
-#back-to-top {
+/* main */
+
+/*#back-to-top {
   position: fixed;
   right: 2rem;
   bottom: 9rem;
@@ -106,7 +124,7 @@ MAIN SECTION
 
   border: none;
   border-radius: 10%;
-  background: var(--sbgcolor);
+  background: var(--highlightcolor);
   color: black;
   font-size: 2rem;
   font-weight: bold;
@@ -131,52 +149,51 @@ main {
     text-align: center;
 }
 
-#section1 {
-    width: 100%;
-    margin-top: 4rem;
+section {
+    margin-top: 1rem;
     display: flex;
+    flex-wrap: wrap;
 }
 
-#hero-title{
+#title{
     font-size: 4rem;
     text-align: left;
     transition: all 1s ease-out;
     transition-delay: 0.7s;     
 }
 
-#hero-subtitle{
+#subtitle{
     font-size: 1.5rem;
     margin-top: 1rem;
     text-align: left;  
 }
 
-#link-container {
-    display: inline-block;
+#top {
     text-align: left;
-    width: 50%;
+    width: 60%;
+    padding-right: 20%;
 }
 
-#section1 img {
-    display: inline-block;
-    width: 50%;
-}
-
-
-#link-container a {
+#top a {
     display: inline-block;
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
-    padding: 1rem 3rem;
-    border: 2px solid var(--sbgcolor);
+    padding: 0.5rem;
+    border: 2px solid var(--border-color);
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
+    width: 40%;
+}
+
+section img {
+    width: 40%;
 }
 
 #start {
-    background-color: var(--sbgcolor);
-    color: rgb(17, 17, 31);
+    background-color: var(--a-highlight-background-color);
+    color: var(--a-highlight-text-color);
 }
 
 #start:hover {
@@ -185,7 +202,7 @@ main {
 
 #more-info {
     font-size: 1.5rem;
-    color: var(--txtcolor);
+    color: var(--a-text-color);
 }
 
 #more-info:hover {
@@ -197,26 +214,16 @@ main {
     transform: translateY(0);
 }
 
-
-/* SECTION 2*/
-#section2 {
-    background: var(--s3bgcolor);
-    height: 100vh;
-}
-
-#section2 h2{
+h3 {
+    width: 100%;
     font-size: 4.5rem;
     padding-top: 5rem;
 }
 
 .features-container {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 6rem;
-    flex-wrap: wrap;
+    width: 100%;
 }
-
+/*
 .feature-box {
     width: 25%;
     padding: 2rem;
@@ -233,7 +240,7 @@ main {
 }
 
 
-.feature-box h3 {
+.feature-box h4 {
     font-size: 2rem;
     padding-bottom: 2em;
 }
@@ -241,10 +248,11 @@ main {
 .feature-box p {
     font-size: 1.5rem;
 }
+*/
 
 
 /* SECTION 3*/
-#section3 {
+/*#section3 {
     height: 100vh;
 }
 
@@ -254,7 +262,7 @@ main {
     padding: 10rem;
     opacity: 0;
     transform: translateX(40rem); /* PROBLEMA VISUALIZZAZIONE PAGINA */
-    transition: all 0.8s ease-out;
+/*    transition: all 0.8s ease-out;
 }
 
 .feature-box2.visible {
@@ -281,20 +289,16 @@ main {
 .feature-box2 p {
     font-size: 1.5rem;
 }
-
-
-/*
-====================================================
-FORM REGISTRAZIONE
-====================================================
 */
+
+/* REGISTRAZIONE */
 
 .register-form {
     width: 30%;
     margin: 5rem auto;
     padding: 2rem;
     background: rgba(255,255,255,0.05);
-    border: 2px solid var(--sbgcolor);
+    border: 2px solid var(--border-color);
     backdrop-filter: blur(10px);
     border-radius: 15px;
 
@@ -327,10 +331,10 @@ FORM REGISTRAZIONE
 
 .cta-btn {
     padding: 0.8rem;
-    background: var(--bgcolor);
-    border: 2px solid var(--sbgcolor);
+    background: var(--background-color);
+    border: 2px solid var(--border-color);
     border-radius: 10px;
-    color: var(--bgcolor);
+    color: var(--text-color);
     font-size: 1.2rem;
     cursor: pointer;
     transition: 0.3s;
@@ -347,5 +351,5 @@ FORM REGISTRAZIONE
 
 .login-link a {
     text-decoration: none;
-    color: var(--sbgcolor);
+    color: var(--highlight-color);
 }
