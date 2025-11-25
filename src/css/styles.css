@@ -4,17 +4,9 @@
     box-sizing: border-box;
 }
 
-/*
-====================================
-====================================
-MAIN PAGE
-====================================
-====================================
-*/
-
 :root{
-    --txtcolor: rgba(225, 240, 240); 
-    --sbgcolor: #29C183;
+    --txtcolor: rgba(255, 255, 255); 
+    --highlightcolor: #29C183;
     --bgcolor: linear-gradient(135deg, rgba(24, 23, 37, 1), rgba(36, 36, 64, 1));     /* background */
     --s2bgcolor: rgba(9, 9, 10);
     --s3bgcolor: rgba(16, 17, 18);
@@ -33,11 +25,9 @@ body {
     background: var(--bgcolor);  
 }
 
-/*
-====================================
-HEADER SECTION
-====================================
-*/
+/* HOME */
+
+/* header */
 
 header {
     line-height: 1.5em;
@@ -51,6 +41,7 @@ header {
     z-index: 100;
     background-color: rgba(0,0,0,0.7);
     backdrop-filter: blur(8px);
+    border-bottom: 1px solid #29C183;
 }
 
 header h1 {
@@ -72,9 +63,15 @@ header h1 {
     padding: 0.5rem;
 }
 
-
-header a:link {
+header a {
+    color: var(--txtcolor);
     text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.8rem;
 }
 
 header a:visited {
@@ -83,20 +80,16 @@ header a:visited {
 
 
 .current-page {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.8rem;
+    font-weight: 1000;
+    border: 2px solid var(--highlightcolor);
+    border-radius: 10px;
 }
 
 
 
-/*
-====================================
-MAIN SECTION
-====================================
+/* main */
 
-
-#back-to-top {
+/*#back-to-top {
   position: fixed;
   right: 2rem;
   bottom: 9rem;
@@ -106,7 +99,7 @@ MAIN SECTION
 
   border: none;
   border-radius: 10%;
-  background: var(--sbgcolor);
+  background: var(--highlightcolor);
   color: black;
   font-size: 2rem;
   font-weight: bold;
@@ -131,51 +124,50 @@ main {
     text-align: center;
 }
 
-#section1 {
-    width: 100%;
+section {
     margin-top: 4rem;
     display: flex;
+    flex-wrap: wrap;
 }
 
-#hero-title{
+#title{
     font-size: 4rem;
     text-align: left;
     transition: all 1s ease-out;
     transition-delay: 0.7s;     
 }
 
-#hero-subtitle{
+#subtitle{
     font-size: 1.5rem;
     margin-top: 1rem;
     text-align: left;  
 }
 
-#link-container {
-    display: inline-block;
+#top {
     text-align: left;
-    width: 50%;
+    width: 60%;
+    padding-right: 20%;
 }
 
-#section1 img {
-    display: inline-block;
-    width: 50%;
-}
-
-
-#link-container a {
+#top a {
     display: inline-block;
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
-    padding: 1rem 3rem;
-    border: 2px solid var(--sbgcolor);
+    padding: 0.5rem;
+    border: 2px solid var(--highlightcolor);
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
+    width: 40%;
+}
+
+section img {
+    width: 40%;
 }
 
 #start {
-    background-color: var(--sbgcolor);
+    background-color: var(--highlightcolor);
     color: rgb(17, 17, 31);
 }
 
@@ -197,26 +189,16 @@ main {
     transform: translateY(0);
 }
 
-
-/* SECTION 2*/
-#section2 {
-    background: var(--s3bgcolor);
-    height: 100vh;
-}
-
-#section2 h2{
+h3 {
+    width: 100%;
     font-size: 4.5rem;
     padding-top: 5rem;
 }
 
 .features-container {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 6rem;
-    flex-wrap: wrap;
+    width: 100%;
 }
-
+/*
 .feature-box {
     width: 25%;
     padding: 2rem;
@@ -233,7 +215,7 @@ main {
 }
 
 
-.feature-box h3 {
+.feature-box h4 {
     font-size: 2rem;
     padding-bottom: 2em;
 }
@@ -241,10 +223,11 @@ main {
 .feature-box p {
     font-size: 1.5rem;
 }
+*/
 
 
 /* SECTION 3*/
-#section3 {
+/*#section3 {
     height: 100vh;
 }
 
@@ -254,7 +237,7 @@ main {
     padding: 10rem;
     opacity: 0;
     transform: translateX(40rem); /* PROBLEMA VISUALIZZAZIONE PAGINA */
-    transition: all 0.8s ease-out;
+/*    transition: all 0.8s ease-out;
 }
 
 .feature-box2.visible {
@@ -281,20 +264,16 @@ main {
 .feature-box2 p {
     font-size: 1.5rem;
 }
-
-
-/*
-====================================================
-FORM REGISTRAZIONE
-====================================================
 */
+
+/* REGISTRAZIONE */
 
 .register-form {
     width: 30%;
     margin: 5rem auto;
     padding: 2rem;
     background: rgba(255,255,255,0.05);
-    border: 2px solid var(--sbgcolor);
+    border: 2px solid var(--highlightcolor);
     backdrop-filter: blur(10px);
     border-radius: 15px;
 
@@ -328,7 +307,7 @@ FORM REGISTRAZIONE
 .cta-btn {
     padding: 0.8rem;
     background: var(--bgcolor);
-    border: 2px solid var(--sbgcolor);
+    border: 2px solid var(--highlightcolor);
     border-radius: 10px;
     color: var(--bgcolor);
     font-size: 1.2rem;
@@ -347,5 +326,5 @@ FORM REGISTRAZIONE
 
 .login-link a {
     text-decoration: none;
-    color: var(--sbgcolor);
+    color: var(--highlightcolor);
 }
