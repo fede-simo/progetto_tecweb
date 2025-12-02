@@ -50,23 +50,30 @@ header {
     padding: 1em 10%;
     font-size: 1.2rem;
     width: 100%;
-    margin: 0 auto;
     position: sticky;
     top: 0;
     z-index: 100;
     background-color: var(--background-color);
     backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--border-color)
 }
 
 header h1 {
+    width: 20%;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    width: 30%;
 }
 
 #menu {
-    width: 70%;
+    width: 60%;
+    text-align: center;
+}
+
+header div {
+    width: 20%;
     text-align: right;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 #menu ul {
@@ -79,36 +86,37 @@ header h1 {
     padding: 0.5rem;
 }
 
-header a {
+header nav a {
     color: var(--a-text-color);
     text-decoration: none;
 }
 
-header a:hover {
+header nav a:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.8rem;
 }
 
-header a:visited {
+header nav a:visited {
     color: var(--a-visited-text-color);
 }
 
-
 .current-page {
     font-weight: 1000;
-    border: 2px solid var(--border-color);
     border-radius: 10px;
 }
 
-#breadcrumb {
-    background-color: var(--highlight-background-color);
-    color: var(--highlight-text-color);
+.highlight-button {
     border: 2px solid var(--border-color);
     border-radius: 10px;
-    margin-top: 1rem;
-    padding: 0.25rem;
-    font-weight: var(--weight-regular);
+    padding: 0.5rem;
+    background-color: var(--a-highlight-background-color);
+    color: var(--a-highlight-text-color);
+    text-decoration: none;
+}
+
+.highlight-button:hover {
+    background-color: rgb(31, 145, 99);
 }
 
 /* main */
@@ -146,6 +154,15 @@ header a:visited {
 main {
     padding: 1em 10%;
     text-align: center;
+}
+
+#breadcrumb {
+    text-align: center;
+    background-color: var(--a-background-color);
+    color: var(--a-text-color);
+    border-radius: 10px;
+    padding: 0.25rem;
+    font-weight: var(--weight-regular);
 }
 
 section {

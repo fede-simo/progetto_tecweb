@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
 
-
 <head>
-    <title>Pagina 2</title> 
+    <title>Corsi | Prophit</title> 
     <meta charset="UTF-8">
-    <meta name="description" content="Pagina ...">
-    <meta name="keywords" content="">
+    <meta name="description" content="Pagina dei corsi Prophit di finanza personale su crypto, azioni ed ETF"> <!-- Placeholder -->
+    <meta name="keywords" content="Prophit, corsi, finanza, crypto, azioni, etf">
     
     <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <!--<script src="../js/textAnimations.js" defer></script>-->
+    <script src="../js/buttonsManager.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,32 +20,81 @@
 <body>
 
     <header>
-        <a href="index.html" id="logo">Logo</a>   
-        
-        <nav id="menu">
+        <h1>Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="current-page">Elemento2</li>
-                <li><a href="pag3.html">Elemento3</a></li>
-                <li><a href="pag4.html">Elemento4</a></li>
+                <li lang="en"><a href="./index.html">Home</a></li>
+                <li><a href="./chisiamo.html">Chi siamo</a></li>
+                <li class="current-page">Corsi</li>
             </ul>
         </nav>
-
-        <div class="right-container">
-            <div id="login-container">
-                <a href="index.html" id="login">Accedi</a>
-            </div>
-            <div id="night-mode-container">
-                <a href="index.html" id="night-mode">Night mode</a>
-            </div>
+        <div>
+            <input type="checkbox" id="search-checkbox" aria-label="Cerca">
+            <a href="./accedi.html" class="highlight-button">Accedi</a>
         </div>
-    </header>
+    </header>   
+
+    <main>
+        <!--<button id="back-to-top">&#8593</button> -->
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Corsi</p>
+        </nav>
+        <section>
+            <h3>Lorem ipsum</h3>
+            <div class="features-container">
+                <div class="feature-box">
+                    <h4>HIJKLMNOP</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos suscipit veritatis repudiandae ut eaque 
+                        tempore, cum facere! Mollitia, veritatis modi repudiandae explicabo architecto fuga non fugit optio rerum sequi et.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <h4>aBCDEFG</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facilis, ducimus voluptatem eveniet ut ipsam perspiciatis veniam minima consectetur eligendi. 
+                        Temporibus eligendi possimus repellendus culpa veritatis suscipit ab earum recusandae.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h4>Stuvwxyz</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>Lorem ipsum</h3>
+            <div class="features-container2">
+                <div class="feature-box2" id="s3c1">
+                    <h4>Lmnopqr</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+
+                <div class="feature-box2" id="s3c2">
+                    <h4>Fghijk</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+
+                <div class="feature-box2" id="s3c3">
+                    <h4>Abcde</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
+                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
 
 
 
     <footer>
         
     </footer>
+
+
 
 </body>
 </html>
