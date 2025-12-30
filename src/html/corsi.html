@@ -29,7 +29,7 @@
             </ul>
         </nav>
         <div>
-            <input type="checkbox" id="search-checkbox" aria-label="Cerca">
+            <input type="checkbox" id="search-checkbox" aria-label="Cerca"> 
             <a href="./accedi.html" class="highlight-button">Accedi</a>
         </div>
     </header>   
@@ -39,59 +39,116 @@
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Corsi</p>
         </nav>
-        <section>
-            <h3>Lorem ipsum</h3>
-            <div class="features-container">
-                <div class="feature-box">
-                    <h4>HIJKLMNOP</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos suscipit veritatis repudiandae ut eaque 
-                        tempore, cum facere! Mollitia, veritatis modi repudiandae explicabo architecto fuga non fugit optio rerum sequi et.
-                    </p>
-                </div>
-
-                <div class="feature-box">
-                    <h4>aBCDEFG</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti facilis, ducimus voluptatem eveniet ut ipsam perspiciatis veniam minima consectetur eligendi. 
-                        Temporibus eligendi possimus repellendus culpa veritatis suscipit ab earum recusandae.</p>
-                </div>
-
-                <div class="feature-box">
-                    <h4>Stuvwxyz</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
-                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
-                </div>
+        <section class="catalog">
+            <div class="left-catalog">
+                <h3 id="header-catalog">Catalogo corsi</h3>
+                <p id="desc-catalog">Filtra per categoria (Finanza, Cripto, ecc)</p>
             </div>
-        </section>
-        <section>
-            <h3>Lorem ipsum</h3>
-            <div class="features-container2">
-                <div class="feature-box2" id="s3c1">
-                    <h4>Lmnopqr</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
-                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
-                </div>
-
-                <div class="feature-box2" id="s3c2">
-                    <h4>Fghijk</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
-                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
-                </div>
-
-                <div class="feature-box2" id="s3c3">
-                    <h4>Abcde</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nulla deserunt vel magnam nesciunt quos earum, 
-                        perferendis cupiditate voluptate delectus nobis eaque voluptates nisi vitae recusandae hic. Nisi, debitis possimus!</p>
-                </div>
+            <div class="right-catalog">
+                <form action="#" id="form-catalog"><!-- da inserire php query nel campo action -->
+                    <label for="categoria">Categoria</label>
+                    <select name="languages" id="lang">
+                        <option value="all" selected>Tutti</option>
+                        <option value="finanza">Finanza</option>
+                        <option value="cripto">Cripto</option>
+                    </select>
+                </form>
             </div>
         </section>
 
+        <section class="content-corsi">
+            <a href="./corso1.html" class="corso-link">
+                <dl class="corsi">
+                    <img src="../../img/foto-corso-1.jpg" class="img-corso">
+                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
+                    <dd>
+                        <ul class="lista-info-corso"> 
+                            <li class="categoria-corso">Altro</li>
+                            <li class="durata-corso">16 ore</li>  
+                            <li class="prezzo-corso">€ 490 + IVA</li>    
+                            <li class="locazione-corso" lang="en">Online live</li>  
+                        </ul>
+                    </dd>
+                    <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
+                </dl>  
+            </a>
+
+            <a href="./corso2.html" class="corso-link">
+                <dl class="corsi">
+                    <img src="../../img/foto-corso-2.jpg" class="img-corso">
+                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
+                    <dd>
+                        <ul class="lista-info-corso">
+                            <li class="categoria-corso">Altro</li>
+                            <li class="durata-corso">12 ore</li>  
+                            <li class="prezzo-corso">€ 390 + IVA</li>    
+                            <li class="locazione-corso">In aula</li>  
+                        </ul>
+                    </dd>
+                    <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
+                </dl>
+            </a>
+
+            <a href="./corso1.html" class="corso-link">
+                <dl class="corsi">
+                    <img src="../../img/foto-corso-1.jpg" class="img-corso">
+                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
+                    <dd>
+                        <ul class="lista-info-corso"> 
+                            <li class="categoria-corso">Altro</li>
+                            <li class="durata-corso">16 ore</li>  
+                            <li class="prezzo-corso">€ 490 + IVA</li>    
+                            <li class="locazione-corso" lang="en">Online live</li>  
+                        </ul>
+                    </dd>
+                    <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
+                </dl>  
+            </a>
+
+            <a href="./corso2.html" class="corso-link">
+                <dl class="corsi">
+                    <img src="../../img/foto-corso-2.jpg" class="img-corso">
+                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
+                    <dd>
+                        <ul class="lista-info-corso">
+                            <li class="categoria-corso">Altro</li>
+                            <li class="durata-corso">12 ore</li>  
+                            <li class="prezzo-corso">€ 390 + IVA</li>    
+                            <li class="locazione-corso">In aula</li>  
+                        </ul>
+                    </dd>
+                    <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
+                </dl>
+            </a>
+
+        </section>
 
     </main>
 
 
-
     <footer>
-        
+
+        <nav class="left-footer">
+            <img src="../../img/logo.png" alt="Logo">
+            <h6 id="contatti-footer-link"><a href="./chisiamo.html">Chi siamo</a></h6>
+        </nav>    
+
+        <nav class="center-footer">
+            <h4 id="esplorazione-footer">Esplora</h4>
+            <ul id="lista-pagine-footer">
+                <li lang="en"><a href="./index.html">Home</a></li>
+                <li class="current-page">Corsi</li>
+                <li><a href="./.html">Altra pagina</a></li>
+            </ul>
+        </nav>
+
+        <nav class="right-footer">
+            <h4 id="account-footer">Profilo</h4>
+            <ul id="lista-account-footer">
+                <li><a href="./registrati.html">Registrati</a></li>
+                <li><a href="./login.html">Login</a></li>
+            </ul>
+        </nav>
     </footer>
 
 
