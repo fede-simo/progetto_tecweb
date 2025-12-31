@@ -14,18 +14,18 @@
     --text-size-large: 1.625rem;
     --text-size-link: 1.25rem;
 
-    --background-color: #181725;
+    --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
     --text-color: #fff;
     --highlight-background-color: #29C183;
-    --highlight-text-color: #181725;
+    --highlight-text-color: #17243A;
 
-    --a-background-color: #181725;
+    --a-background-color: #17243A;
     --a-text-color: #fff;
     --a-visited-text-color: #fff; /*DA DEFINIRE*/
     
     --a-highlight-background-color: #29C183;
-    --a-highlight-text-color: #181725;
-    --a-highlight-visited-text-color: #181725; /*DA DEFINIRE*/
+    --a-highlight-text-color: #17243A;
+    --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
 
     --border-color: #29C183;
 }
@@ -53,8 +53,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--background-color);
-    backdrop-filter: blur(8px);
+    background: var(--background-color);
     border-bottom: 2px solid var(--border-color)
 }
 
@@ -129,7 +128,6 @@ main {
 
 #breadcrumb {
     text-align: center;
-    background-color: var(--a-background-color);
     color: var(--a-text-color);
     border-radius: 10px;
     padding: 0.25rem;
@@ -138,30 +136,50 @@ main {
 
 section {
     margin-top: 1rem;
+    margin-bottom: 5rem;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10%;
 }
 
-#title{
-    font-size: 4rem;
+.alt {
+    flex-direction: row-reverse;
+}
+
+.alt2 {
+    flex-direction: column;
+}
+
+.content {
+    width: 45%;
     text-align: left;
+}
+
+.img {
+    width: 45%;
+}
+
+.img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+section h1 {
+    font-size: 4rem;
     transition: all 1s ease-out;
     transition-delay: 0.7s;     
 }
 
-#subtitle{
-    font-size: 1.5rem;
+section h2 {
+    font-size: 2.5rem;
     margin-top: 1rem;
-    text-align: left;  
 }
 
-#top {
-    text-align: left;
-    width: 60%;
-    padding-right: 20%;
+section h3 {
+    font-size: 2rem;
 }
 
-#top a {
+.content a {
     display: inline-block;
     margin-top: 1rem;
     font-size: 1rem;
@@ -174,9 +192,6 @@ section {
     width: 40%;
 }
 
-section img {
-    width: 40%;
-}
 
 #start {
     background-color: var(--a-highlight-background-color);
@@ -188,7 +203,6 @@ section img {
 }
 
 #more-info {
-    font-size: 1.5rem;
     color: var(--a-text-color);
 }
 
