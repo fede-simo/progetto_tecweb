@@ -165,9 +165,7 @@ section {
 }
 
 section h1 {
-    font-size: 4rem;
-    transition: all 1s ease-out;
-    transition-delay: 0.7s;     
+    font-size: 4rem;   
 }
 
 section h2 {
@@ -210,10 +208,6 @@ section h3 {
     background-color: rgb(17, 17, 31);
 }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .subtitle {
     width: 100%;
