@@ -40,15 +40,16 @@
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Corsi</p>
         </nav>
+        
         <section class="catalog">
             <div class="left-catalog">
                 <h3 id="header-catalog">Catalogo corsi</h3>
                 <p id="desc-catalog">Filtra per categoria (Finanza, Cripto, ecc)</p>
             </div>
             <div class="right-catalog">
-                <form action="#" id="form-catalog"><!-- da inserire php query nel campo action -->
-                    <label for="categoria">Categoria</label>
-                    <select name="languages" id="lang">
+                <form action="../php/prova.php" method="get" id="form-catalog"><!-- da inserire php query nel campo action -->
+                    <label for="categoria" class="label-filtro">Categoria</label>
+                    <select name="categoria" id="categoria" class="filtro-catalog" onchange="this.form.submit()">
                         <option value="all" selected>Tutti</option>
                         <option value="finanza">Finanza</option>
                         <option value="cripto">Cripto</option>
@@ -58,70 +59,66 @@
         </section>
 
         <section class="content-corsi">
-            <a href="./corso1.html" class="corso-link">
-                <dl class="corsi">
-                    <img src="../../img/foto-corso-1.jpg" class="img-corso">
-                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
-                    <dd>
-                        <ul class="lista-info-corso"> 
-                            <li class="categoria-corso">Altro</li>
-                            <li class="durata-corso">16 ore</li>  
-                            <li class="prezzo-corso">€ 490 + IVA</li>    
-                            <li class="locazione-corso" lang="en">Online live</li>  
-                        </ul>
-                    </dd>
-                    <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
-                </dl>  
-            </a>
+            
+            <dl class="corsi">
+                <img src="../../img/foto-corso-1.jpg" class="img-corso">
+                <a href="./corso1.html" class="corso-link"><dt class="titolo-corso"><strong>Finanza operativa</strong></dt></a>
+                <dd>
+                    <ul class="lista-info-corso"> 
+                        <li class="categoria-corso">Altro</li>
+                        <li class="durata-corso">16 ore</li>  
+                        <li class="prezzo-corso">€ 490</li>    
+                        <li class="locazione-corso" lang="en">Online live</li>  
+                    </ul>
+                </dd>
+                <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
+            </dl>  
 
-            <a href="./corso2.html" class="corso-link">
-                <dl class="corsi">
-                    <img src="../../img/foto-corso-2.jpg" class="img-corso">
-                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
-                    <dd>
-                        <ul class="lista-info-corso">
-                            <li class="categoria-corso">Altro</li>
-                            <li class="durata-corso">12 ore</li>  
-                            <li class="prezzo-corso">€ 390 + IVA</li>    
-                            <li class="locazione-corso">In aula</li>  
-                        </ul>
-                    </dd>
-                    <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
-                </dl>
-            </a>
+        
+            <dl class="corsi">
+                <img src="../../img/foto-corso-2.jpg" class="img-corso">
+                <a href="./corso2.html" class="corso-link"><dt class="titolo-corso"><strong>Finanza operativa</strong></dt></a>
+                <dd>
+                    <ul class="lista-info-corso">
+                        <li class="categoria-corso">Altro</li>
+                        <li class="durata-corso">12 ore</li>  
+                        <li class="prezzo-corso">€ 390</li>    
+                        <li class="locazione-corso">In aula</li>  
+                    </ul>
+                </dd>
+                <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
+            </dl>
 
-            <a href="./corso1.html" class="corso-link">
-                <dl class="corsi">
-                    <img src="../../img/foto-corso-1.jpg" class="img-corso">
-                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
-                    <dd>
-                        <ul class="lista-info-corso"> 
-                            <li class="categoria-corso">Altro</li>
-                            <li class="durata-corso">16 ore</li>  
-                            <li class="prezzo-corso">€ 490 + IVA</li>    
-                            <li class="locazione-corso" lang="en">Online live</li>  
-                        </ul>
-                    </dd>
-                    <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
-                </dl>  
-            </a>
+        
+            <dl class="corsi">
+                <img src="../../img/foto-corso-1.jpg" class="img-corso">
+                <a href="./corso1.html" class="corso-link"><dt class="titolo-corso"><strong>Finanza operativa</strong></dt></a>
+                <dd>
+                    <ul class="lista-info-corso"> 
+                        <li class="categoria-corso">Altro</li>
+                        <li class="durata-corso">16 ore</li>  
+                        <li class="prezzo-corso">€ 490</li>    
+                        <li class="locazione-corso" lang="en">Online live</li>  
+                    </ul>
+                </dd>
+                <dd class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</dd>
+            </dl>  
 
-            <a href="./corso2.html" class="corso-link">
-                <dl class="corsi">
-                    <img src="../../img/foto-corso-2.jpg" class="img-corso">
-                    <dt class="titolo-corso"><strong>Finanza operativa</strong></dt>
-                    <dd>
-                        <ul class="lista-info-corso">
-                            <li class="categoria-corso">Altro</li>
-                            <li class="durata-corso">12 ore</li>  
-                            <li class="prezzo-corso">€ 390 + IVA</li>    
-                            <li class="locazione-corso">In aula</li>  
-                        </ul>
-                    </dd>
-                    <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
-                </dl>
-            </a>
-
+        
+            <dl class="corsi">
+                <img src="../../img/foto-corso-1.jpg" class="img-corso">
+                <a href="./corso1.html" class="corso-link"><dt class="titolo-corso"><strong>Finanza operativa</strong></dt></a>
+                <dd>
+                    <ul class="lista-info-corso">
+                        <li class="categoria-corso">Altro</li>
+                        <li class="durata-corso">12 ore</li>  
+                        <li class="prezzo-corso">€ 390</li>    
+                        <li class="locazione-corso">In aula</li>  
+                    </ul>
+                </dd>
+                <dd class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</dd>
+            </dl>
+            
         </section>
 
     </main>
@@ -149,6 +146,7 @@
                 <li><a href="./login.html">Login</a></li>
             </ul>
         </nav>
+        
     </footer>
 </body>
 </html>
