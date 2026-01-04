@@ -5,14 +5,13 @@ DROP TABLE IF EXISTS Utente;
 
 
 CREATE TABLE Utente (
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
     nome VARCHAR(30) NOT NULL,
     cognome VARCHAR(30) NOT NULL,
-    username VARCHAR(30) NOT NULL,
     password VARCHAR(255) NOT NULL,
     isAdmin BOOLEAN NOT NULL DEFAULT(FALSE),
     dataDiNascita DATE NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (username)
 ) ENGINE=InnoDB
   DEFAULT CHARSET = utf8
   COLLATE = utf8_unicode_ci;
