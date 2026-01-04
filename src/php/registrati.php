@@ -1,17 +1,20 @@
 <?php
 
-function stickyForm($paginaHTML, $campi) {
+function stickyForm($paginaHTML, $campi) : string {
     foreach ($campi as $campo) {
-        $bookmark = "<!--{start-form-".$campo."}-->";
-        $paginaHTML = str_replace($bookmark, 'value="'.htmlspecialchars($_POST[$campo]).'"', $paginaHTML);
+        if (isset($_POST[$campo])) {
+            $value = htmlspecialchars($_POST[$campo], ENT_QUOTES);
+            $paginaHTML = str_replace("{".$campo."}", $value, $paginaHTML);
+        } else {
+            $paginaHTML = str_replace("{".$campo."}", "", $paginaHTML);
+        }
     }
     return $paginaHTML;
 }
 
 require_once "dbConnection.php";
 
-$paginaHTML = file_get_contents('/progetto_tecweb/src/html/registrati.html');
-
+$paginaHTML = file_get_contents("../html/registrati.html");
 
 
 session_start();
@@ -23,32 +26,39 @@ if (isset($_SESSION["user"])) {
 
 
 
+
+
 $campi = ['nome', 'cognome', 'username', 'data-di-nascita', 'password'];
-$stickyCampi = ['nome', 'cognome', 'username', 'data-di-nascita'];
 
-foreach ($campi as $campo) {
-    if (empty($_POST[$campo])) {
-        die("Campo mancante: $campo");
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    foreach ($campi as $campo) {
+        if (empty($_POST[$campo])) {
+            stickyForm($paginaHTML, $campi);
+            echo $paginaHTML;
+        }
     }
-}
 
 
 
-try {
-    $connessione = new DB\DBAccess();
+    try {
+        $connessione = new DB\DBAccess();
 
-    $conn = $connessione->openConnection();
+        $conn = $connessione->openConnection();
 
-    
+        
 
-    $connessione->closeConnection();
+        $connessione->closeConnection();
 
-} catch (Exception $e) {
-    $paginaHTML .= "<p>Si è verificato un errore. Riprova più tardi.</p>";
+    } catch (Exception $e) {
+        $paginaHTML .= "<p>Si è verificato un errore. Riprova più tardi.</p>";
+        echo $paginaHTML;
+        exit();
+    }
+} else {
+    $paginaHTML = stickyForm($paginaHTML, $campi);
     echo $paginaHTML;
-    exit();
 }
-
 
 
 ?>

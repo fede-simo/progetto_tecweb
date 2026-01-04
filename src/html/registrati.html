@@ -7,7 +7,7 @@
     <meta name="description" content="Registra il tuo account Prophit e partecipa ai corsi di finanza su crypto, azioni ed ETF!"> 
     <meta name="keywords" content="Prophit, registrazione, registrati, register, signup, area personale, area riservata">
     
-    <link rel="stylesheet" href="/progetto_tecweb/src/css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
     <!--<script src="../js/textAnimations.js" defer></script>-->
     <script src="../js/buttonsManager.js" defer></script>
 
@@ -45,41 +45,30 @@
     
             <h2>Registrati</h2>
 
-
-            <!--{start-form-nome}-->
             <div class="form-group">
                 <label for="nome" class="register-label">Nome</label>
-                <input type="text" id="nome" name="nome" maxlength="30" value="{{nome}}" required>
+                <input type="text" id="nome" name="nome" maxlength="30" value="{nome}" required>
             </div>
-            <!--{end-form-nome}-->
 
-            <!--{start-form-cognome}-->
             <div class="form-group">
                 <label for="cognome">Cognome</label>
-                <input type="text" id="cognome" name="cognome" maxlength="30" value="{{cognome}}" required>
+                <input type="text" id="cognome" name="cognome" maxlength="30" value="{cognome}" required>
             </div>
-            <!--{end-form-cognome}-->
 
-            <!--{start-form-username}-->
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" maxlength="30" value="lucarelli" required>
+                <input type="text" id="username" name="username" maxlength="30" value="{username}" required>
             </div>
-            <!--{end-form-username}-->
 
-            <!--{start-form-data-di-nascita}-->
             <div class="form-group">
                 <label for="data-di-nascita">Data di nascita</label>
-                <input type="date" id="data-di-nascita" name="data-di-nascita" value="" required>
+                <input type="date" id="data-di-nascita" name="data-di-nascita" value="{data-di-nascita}" required>
             </div>
-            <!--{end-form-data-di-nascita}-->
 
-            <!--{start-form-password}-->
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" minlength="8" required>
             </div>
-            <!--{end-form-password}-->
 
             <button type="submit" class="confirm-registration">Registrati</button>
 

@@ -7,7 +7,7 @@
     <meta name="description" content="Pagina dei corsi Prophit di finanza personale su crypto, azioni ed ETF"> <!-- Placeholder -->
     <meta name="keywords" content="Prophit, corsi, finanza, crypto, azioni, etf">
     
-    <link rel="stylesheet" href="/progetto_tecweb/src/css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
     <!--<script src="../js/textAnimations.js" defer></script>-->
     <script src="../js/buttonsManager.js" defer></script>
 
@@ -22,7 +22,7 @@
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="./index.html">Home</a></li>
+                <li lang="en"><a href="index.php">Home</a></li>
                 <li><a href="./chisiamo.html">Chi siamo</a></li>
                 <li class="current-page">Corsi</li>
                 <li lang="en"><a href="./news.html">News</a></li>
@@ -38,7 +38,7 @@
     <main>
         <!--<button id="back-to-top">&#8593</button> -->
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="../html/index.html" lang="en" class="breadcrumb-link">Home</a> > Corsi</p>
+            <p>Ti trovi in: <a href="index.php" lang="en" class="breadcrumb-link">Home</a> > Corsi</p>
         </nav>
         
         <section class="catalog">
@@ -47,7 +47,7 @@
                 <p id="desc-catalog">Filtra per categoria (Finanza, Cripto, ecc)</p>
             </div>
             <div class="right-catalog">
-                <form action="/progetto_tecweb/src/php/corsi.php" method="get" id="form-catalog"><!-- da inserire php query nel campo action -->
+                <form action="corsi.php" method="get" id="form-catalog"><!-- da inserire php query nel campo action -->
                     <label for="categoria" class="label-filtro">Categoria</label>
                     <select name="categoria" id="categoria" class="filtro-catalog" onchange="this.form.submit()">
                         <!--{start-select-categoria}-->

@@ -28,13 +28,6 @@ class DBAccess {
 		mysqli_close($this->connection);
 	}
 
-    public function prova(): void {
-		$result = mysqli_query($this->connection, "SELECT * FROM Utente");
-
-        while($row = mysqli_fetch_assoc($result)) {
-            echo $row['nome'] . "<br>";
-        }
-	}
 
 	public function replaceContent($bookmark, $newContent, &$paginaHTML): void{
 		$start = "<!--{start-".$bookmark."}-->";
