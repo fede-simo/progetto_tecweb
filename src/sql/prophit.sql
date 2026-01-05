@@ -34,10 +34,10 @@ CREATE TABLE Corso(
 
 
 CREATE TABLE Acquisto(
-    id_user INT UNSIGNED NOT NULL,
+    id_user VARCHAR(30) NOT NULL,
     id_corso INT UNSIGNED NOT NULL,
     data DATE NOT NULL,
-    FOREIGN KEY (id_user) REFERENCES Utente(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES Utente(username) ON DELETE CASCADE,
     FOREIGN KEY (id_corso) REFERENCES Corso(id) ON DELETE CASCADE,
     PRIMARY KEY (id_user, id_corso)
 ) ENGINE=InnoDB
@@ -46,11 +46,11 @@ CREATE TABLE Acquisto(
 
 
 CREATE TABLE Recensione(
-    id_user INT UNSIGNED NOT NULL,
+    id_user VARCHAR(30) NOT NULL,
     id_corso INT UNSIGNED NOT NULL,
     rating DECIMAL(3,1) NOT NULL,
     descrizione VARCHAR(1000),
-    FOREIGN KEY (id_user) REFERENCES Utente(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES Utente(username) ON DELETE CASCADE,
     FOREIGN KEY (id_corso) REFERENCES Corso(id) ON DELETE CASCADE,
     PRIMARY KEY(id_user, id_corso)
 ) ENGINE=InnoDB

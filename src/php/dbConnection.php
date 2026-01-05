@@ -80,18 +80,33 @@ class DBAccess {
 
 	}
 
-	public function registraUtente($nome, $cognome, $email, $username, $passwordHash): bool {
-		
-		$queryInsert = "INSERT INTO Utente(nome, cognome, email, username, passwordHash) VALUES (\"$nome\", \"$cognome\", \"$email\", \"$username\", \"$passwordHash\")"; 
+	public function registraUtente($nome, $cognome, $username, $data_di_nascita, $passwordHash, &$err): bool {
 
-		
-		$queryResult = mysqli_query($this->connection, $queryInsert) or die("Error in dbConnection: ". mysqli_error($this->connection));
-		
-		if(mysqli_affected_rows($this->connection)>0) {
-			return true;
-		} else {
-			return false;			
+		$query = "SELECT * FROM Utente WHERE username = ?";
+
+		$stmt = $this->connection->prepare($query);
+		$stmt->bind_param("s", $username);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		if($result && $result->num_rows > 0) {
+			$err .= "<p>Username già in uso.</p>";
+			$stmt->close();
+			return false;	
 		}
+		$stmt->close();
+		
+		$queryInsert = "INSERT INTO Utente(nome, cognome, username, dataDiNascita, password) VALUES (?,?,?,?,?)"; 
+
+		$stmt = $this->connection->prepare($queryInsert);
+		$stmt->bind_param("sssss", $nome, $cognome, $username, $data_di_nascita, $passwordHash);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		$stmt->close();
+
+		return $result ? true : false;
+		
+		
 	}
 
 	
