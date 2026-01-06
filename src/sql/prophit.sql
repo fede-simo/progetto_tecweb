@@ -10,7 +10,7 @@ CREATE TABLE Utente (
     cognome VARCHAR(30) NOT NULL,
     password VARCHAR(255) NOT NULL,
     isAdmin BOOLEAN NOT NULL DEFAULT(FALSE),
-    dataDiNascita DATE NOT NULL,
+    data_di_nascita DATE NOT NULL,
     PRIMARY KEY (username)
 ) ENGINE=InnoDB
   DEFAULT CHARSET = utf8

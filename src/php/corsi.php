@@ -1,5 +1,6 @@
 <?php
 
+require_once "helpers.php";
 require_once "dbConnection.php";
 
 $paginaHTML = file_get_contents('../html/corsi.html');
@@ -70,10 +71,9 @@ $formCategoria = '
     <option value="cripto"' . ($categoria === 'cripto' ? ' selected' : '') . '>Cripto</option>
     <option value="altro"' . ($categoria === 'altro' ? ' selected' : '') . '>Altro</option>';
 
-$connessione->replaceContent("select-categoria", $formCategoria, $paginaHTML);
+replaceContent("select-categoria", $formCategoria, $paginaHTML);
 
-
-$connessione->replaceContent("section-corsi", $corsiUpdated, $paginaHTML);
+replaceContent("section-corsi", $corsiUpdated, $paginaHTML);
 
 echo $paginaHTML;
 

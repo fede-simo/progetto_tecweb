@@ -29,29 +29,6 @@ class DBAccess {
 	}
 
 
-	public function replaceContent($bookmark, $newContent, &$paginaHTML): void{
-		$start = "<!--{start-".$bookmark."}-->";
-		$end = "<!--{end-".$bookmark."}-->";
-
-		$startPos = strpos($paginaHTML, $start);
-		$endPos = strpos($paginaHTML, $end);
-
-		if ($startPos === false || $endPos === false) {
-			return;
-		}
-
-		$contentStart = $startPos + strlen($start);
-		$contentLength = $endPos - $contentStart;
-
-		$paginaHTML = substr_replace(
-			$paginaHTML,
-			$newContent,
-			$contentStart,
-			$contentLength
-		);
-
-	}
-
 	public function getCorsi($categoria): array {
 
 		$query = "SELECT * FROM Corso";	
@@ -77,7 +54,6 @@ class DBAccess {
 
 		$stmt->close();
 		return $rows;
-
 	}
 
 	public function registraUtente($nome, $cognome, $username, $data_di_nascita, $passwordHash, &$err): bool {
@@ -89,27 +65,26 @@ class DBAccess {
 		$stmt->execute();
 		$result = $stmt->get_result();
 		if($result && $result->num_rows > 0) {
-			$err .= "<p>Username già in uso.</p>";
+			$err .= '<p class="errore-registrazione">Username già in uso.</p>';
 			$stmt->close();
 			return false;	
 		}
 		$stmt->close();
 		
-		$queryInsert = "INSERT INTO Utente(nome, cognome, username, dataDiNascita, password) VALUES (?,?,?,?,?)"; 
+		$queryInsert = "INSERT INTO Utente(nome, cognome, username, data_di_nascita, password) VALUES (?,?,?,?,?)"; 
 
 		$stmt = $this->connection->prepare($queryInsert);
 		$stmt->bind_param("sssss", $nome, $cognome, $username, $data_di_nascita, $passwordHash);
-		$stmt->execute();
-		$result = $stmt->get_result();
+		
+		if (!$stmt->execute()) {
+			$err .= '<p class="errore-registrazione">Errore nell\'inserimento.</p>';
+			$stmt->close();
+			return false;
+		}
 
 		$stmt->close();
-
-		return $result ? true : false;
-		
-		
-	}
-
-	
+		return true;		
+	}	
 }
 
 ?>

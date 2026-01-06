@@ -1,4 +1,4 @@
-INSERT INTO Utente (username, nome, cognome, password, isAdmin, dataDiNascita) VALUES
+INSERT INTO Utente (username, nome, cognome, password, isAdmin, data_di_nascita) VALUES
 ('user', 'user', 'user', '$2y$10$zmpEFyW/0mGMKZr90TTMMOGytFEMoiOZCieHp8Wie/IfKA9qi20Hm', FALSE, '2000-01-01'),
 ('admin', 'admin', 'admin', '$2y$10$imrp0lNBcklXR4xDyp9MxOP33KeZVEQdESdNdUq4m9p/7zrf.4n8e', TRUE, '2000-01-01');
 
