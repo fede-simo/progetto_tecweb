@@ -16,6 +16,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    
     <script> /*da mettere in un file esterno*/
 
 		/**
@@ -23,7 +24,7 @@
 		 * [0]: Prima indicazione per la compilazione dell'input
 		 * [1]: espressione regolare da controllare
 		 * [2]: Hint nel caso in cui input fornito sia sbagliato
-		 */
+		**/
 
 		var dettagli_form = { 
 			"nome": ["Esempio: Mario",/^[a-zA-Z' ]{2,}$/,"Inserire un nome di lunghezza almeno 2. Non sono ammessi numeri."],
@@ -147,8 +148,8 @@
                     <input type="text" name="cognome" id="cognome">
                 </div>
                 <div>
-                    <label for="dataNascita">Data di nascita:</label>
-                    <input type="date" name="dataNascita" id="dataNascita">
+                    <label for="data_di_nascita">Data di nascita:</label>
+                    <input type="date" name="data_di_nascita" id="data_di_nascita">
                 </div>
             </fieldset>
 
@@ -156,8 +157,8 @@
                 <legend>Dati di accesso</legend>      
 
                 <div>
-                    <label for="nomeUtente">Nome utente:</label>
-                    <input type="text" name="nomeUtente" id="nomeUtente" autocomplete="username">
+                    <label for="username">Nome utente:</label>
+                    <input type="text" name="username" id="username" autocomplete="username">
                 </div>
                 <div>
                     <label for="password" lang="en">Password:</label>
@@ -173,10 +174,21 @@
                 <button type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
                 <p class="login-link">Hai già un <span lang="en">account</span>? <a href="/src/php/accedi.php">Accedi</a></p>
             </div>
+            <div class="errore-registrazione">
+            <!--{start-errore-registrazione}-->
+
+            <!--{end-errore-registrazione}-->
+        </div>
+            
         </form>
+
+        
         
         
         <!--{end-form-registrazione}-->
+
+        
+        
 
     </main>
 

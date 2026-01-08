@@ -4,8 +4,10 @@ Sito demo per formazione finanziaria con gestione corsi, area personale e pannel
 
 ## Credenziali di default
 
-- Admin: `admin` / `Admin123!`
-- Utente: `user` / `User123!`
+- Admin: `admin` / `admin`
+- Utente: `user` / `user`
+
+Le credenziali devono essere così sennò sminchiamo gli strumenti automatici alla Gaggi.
 
 ## Avvio rapido
 

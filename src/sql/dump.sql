@@ -30,3 +30,8 @@ INSERT INTO CorsoCategoria (id_corso, id_categoria) VALUES
 (10, 3),
 (11, 3),
 (12, 3);
+
+INSERT INTO Utente (username, nome, cognome, password, isAdmin, data_di_nascita) VALUES
+('user', 'User', 'Standard', '$2y$10$RiIo3BfN4RfdOt3i6k6aMeDcnMskmDAo6zSRPvxDugcGM5aa3LlZm', FALSE, '2000-01-01'),
+('admin', 'Admin', 'Prophit', '$2y$10$3yiDj8iY4MojUltGEzJZv.0JEaUyhOYyx8XV0hk3O96ZrPvpIiLSy', TRUE, '1990-01-01');
+

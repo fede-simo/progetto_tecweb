@@ -358,6 +358,13 @@
         text-align: left;
     }
 
+    .errore-registrazione p {
+        color: var(--error-text-color);
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: left;
+    }
+
     .suggerimento {
         font-size: 1rem;
         text-align: right;
@@ -401,7 +408,7 @@
         font-size: 1.2rem;
     }
 
-    #form-catalog label{
+    .label-filtro{
         padding-right: 50%;
     }
 
@@ -416,7 +423,6 @@
         border: 2px solid var(--border-color);
         border-radius: 20px;
     }
-
 
     /*
     #######################################################################

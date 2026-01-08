@@ -490,7 +490,7 @@ class DBAccess {
 		return $ok;
 	}
 
-	public function registraUtente($nome, $cognome, $username, $data_di_nascita, $passwordHash, $isAdmin, &$err): bool {
+	public function registraUtente($username, $nome, $cognome, $passwordHash, $isAdmin, $data_di_nascita, &$err): bool {
 
 		$query = "SELECT * FROM Utente WHERE username = ?";
 
@@ -515,7 +515,7 @@ class DBAccess {
 		}
 		$stmt->close();
 		
-		$queryInsert = "INSERT INTO Utente(nome, cognome, username, data_di_nascita, password, isAdmin) VALUES (?,?,?,?,?,?)"; 
+		$queryInsert = "INSERT INTO Utente(username, nome, cognome, password, isAdmin, data_di_nascita) VALUES (?,?,?,?,?,?)"; 
 
 		$stmt = $this->connection->prepare($queryInsert);
 		if ($stmt === false) {
@@ -523,7 +523,7 @@ class DBAccess {
 			return false;
 		}
 		$isAdminInt = $isAdmin ? 1 : 0;
-		$stmt->bind_param("sssssi", $nome, $cognome, $username, $data_di_nascita, $passwordHash, $isAdminInt);
+		$stmt->bind_param("ssssis", $username, $nome, $cognome, $passwordHash,  $isAdminInt, $data_di_nascita);
 		
 		if (!$stmt->execute()) {
 			$err .= '<p class="errore-registrazione">Errore nell\'inserimento.</p>';
