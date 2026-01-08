@@ -17,13 +17,13 @@ function stickyForm($paginaHTML, $campi) : string {
 require_once "helpers.php";
 require_once "dbConnection.php";
 
-$paginaHTML = file_get_contents('/../html/registrati.html');
+$paginaHTML = file_get_contents('../html/registrati.html');
 
 
 session_start();
 
 if (isset($_SESSION['user'])) {
-    header("Location: areapersonale.php");
+    header("Location: ../php/areapersonale.php");
     exit();
 }
 
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result) {
             $_SESSION['user'] = $_POST['username'];
             $_SESSION['is_admin'] = $isAdmin;
-            header("Location: /src/php/areapersonale.php");
+            header("Location: ../php/areapersonale.php");
             exit();
         } else {
             replaceContent("errore-registrazione", $err, $paginaHTML);

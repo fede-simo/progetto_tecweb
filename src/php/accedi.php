@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION['user'] = $utente['username'];
             $_SESSION['is_admin'] = (bool) $utente['isAdmin'];
-            header("Location: /src/php/areapersonale.php");
+            header("Location: ../php/areapersonale.php");
             exit();
         }
 

@@ -21,11 +21,11 @@
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="./index.html">Home</a></li>
-                <li><a href="./chisiamo.html">Chi siamo</a></li>
-                <li><a href="./corsi.html">Corsi</a></li>
-                <li lang="en"><a href="./news.html">News</a></li>
-                <li><a href="./contatti.html">Contatti</a></li>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/chisiamo.php">Chi siamo</a></li>
+                <li><a href="../php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="../php/news.php">News</a></li>
+                <li><a href="../php/contatti.php">Contatti</a></li>
             </ul>
         </nav>
         <div>
@@ -36,23 +36,30 @@
     <main>
         <!--<button id="back-to-top">&#8593</button> -->
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Accedi </p>
+            <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > Accedi </p>
         </nav>
 
-        <form id="login-form" class="register-form" action="/src/php/accedi.php" method="POST" autocomplete="on">
-            <h2>Accedi</h2>
+        <form id="login-form" name="login-form" action="../php/accedi.php" method="POST" autocomplete="on">
+            <h1>Accedi su Prophit!</h1>
             <!--{start-errore-login}-->
             <!--{end-errore-login}-->
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Username" class="placeholder-transparent" autocomplete="username" required>
+            <fieldset id="Dati di accesso">
+                <legend>Dati di accesso</legend>     
+                 
+                <div>
+                    <label for="username">Nome utente:</label>
+                    <input type="text" name="username" id="username" autocomplete="username">
+                </div>
+                <div>
+                    <label for="password" lang="en">Password:</label>
+                    <input type="password" name="password" id="password" autocomplete="current-password">
+                </div>
+            </fieldset>
+            <div>
+                <button type="submit" aria-label="Registrati su Prophit">Accedi</button>
+                <button type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                <p class="login-link">Non hai un <span lang="en">account</span>? <a href="../php/registrati.php">Registrati</a></p>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" class="placeholder-transparent" autocomplete="current-password" required>
-            </div>
-            <button type="submit" class="confirm-registration">Accedi</button>
-            <p class="login-link">Non hai un account? <a href="/src/php/registrati.php">Registrati</a></p>
         </form>
     </main>
 
