@@ -16,7 +16,8 @@
 
         --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
         --text-color: #fff;
-        --highlight-background-color: #29C183;
+        --highlight-background-color: linear-gradient(45deg, #A6EDFF  0%, #46DBF5 30%, #A6EDFF  100%);
+
         --highlight-text-color: #17243A;
         --error-text-color: #DD1212;
 
@@ -24,16 +25,42 @@
         --a-text-color: #fff;
         --a-visited-text-color: #fff; /*DA DEFINIRE*/
         
-        --a-highlight-background-color: #29C183;
+        --a-highlight-background-color: #46DBF5;
         --a-highlight-text-color: #17243A;
         --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
 
-        --border-color: #29C183;
+        --border-color: #46DBF5;
     }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.show-on-focus:focus {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  width: auto;
+  height: auto;
+  padding: 0.5em 1em;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-decoration: underline;
+  clip: auto;
+  overflow: visible;
+  z-index: 1;
+}
+
     body {
-        overflow-x: hidden; /* sennò lo slide orizzontale causa la pagina di avere dimensione maggiore fino a quando avviene lo slide (section3) */
         font-size: 1em;
+        line-height: 1.5;
         font-family: "Inter", sans-serif;
         font-weight: lighter;
         color: var(--text-color);
@@ -44,16 +71,24 @@
 
     /* header */
 
+    header,
+    #breadcrumb,
+    main,
+    footer {
+        padding-left: calc((100vw - 1200px) / 2);
+        padding-right: calc((100vw - 1200px) / 2);
+    }
+
     header {
-        line-height: 1.5em;
+        line-height: 1.5rem;
         display: flex;
         flex-wrap: wrap;
-        padding: 1em 10%;
         font-size: 1.2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         width: 100%;
         position: sticky;
         top: 0;
-        z-index: 100;
         background: var(--background-color);
         border-bottom: 2px solid var(--border-color)
     }
@@ -103,7 +138,6 @@
 
     .current-page {
         font-weight: 1000;
-        border-radius: 10px;
     }
 
     .highlight-button {
@@ -123,7 +157,6 @@
 
 
     main {
-        padding: 1em 10%;
         text-align: center;
     }
 
@@ -131,7 +164,7 @@
         text-align: center;
         color: var(--a-text-color);
         border-radius: 10px;
-        padding: 0.25rem;
+        padding-top: 1rem;
         font-weight: var(--weight-regular);
     }
 
@@ -141,7 +174,7 @@
 
     section {
         margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 5rem;
         display: flex;
         align-items: center;
         gap: 10%;
@@ -152,6 +185,9 @@
     }
 
     .alt2 {
+        border-radius: 10px;
+        background: var(--highlight-background-color);
+        color: var(--highlight-text-color);
         flex-direction: column;
     }
 
@@ -170,16 +206,26 @@
     }
 
     section h1 {
-        font-size: 4rem;   
+        font-size: 3.5rem;   
     }
 
     section h2 {
-        font-size: 2.5rem;
-        margin-top: 1rem;
+        font-size: 2rem;
+        padding-top: 1rem;
     }
 
     section h3 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    section ul {
+        font-size: 1.2rem;
+    }
+    
+    section p {
+        font-size: 1.2rem;
     }
 
     .content a {
@@ -486,3 +532,9 @@
         font-weight: 100;
         padding-left: 5px;
     }
+
+@media screen and (max-width: 768px) {
+img {
+    display: none;
+}
+}
