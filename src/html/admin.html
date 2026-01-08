@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Admin | Prophit</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pannello amministratore Prophit">
+    <meta name="keywords" content="Prophit, admin, gestione, utenti, corsi">
+
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <script src="../js/buttonsManager.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <ul>
+                <li lang="en"><a href="/src/php/index.php">Home</a></li>
+                <li><a href="/src/html/chisiamo.html">Chi siamo</a></li>
+                <li><a href="/src/php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="/src/html/news.html">News</a></li>
+                <li><a href="/src/html/contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+        <div>
+            <a href="/src/php/areapersonale.php" class="highlight-button">Area personale</a>
+        </div>
+    </header>
+
+    <main>
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Admin</p>
+        </nav>
+
+        <!--{start-admin-message}-->
+        <!--{end-admin-message}-->
+        <!--{start-admin-confirm}-->
+        <!--{end-admin-confirm}-->
+
+        <details>
+            <summary>Utenti</summary>
+            <section class="register-form">
+                <div class="form-group">
+                    <label for="user-filter">Filtro live utenti</label>
+                    <input type="text" id="user-filter" placeholder="Filtra per username" class="placeholder-transparent">
+                </div>
+                <div class="form-group">
+                    <button type="button" id="order-toggle" class="confirm-registration">Ordina per nome</button>
+                    <button type="button" id="order-dir" class="confirm-registration">↑</button>
+                </div>
+                <div>
+                    <!--{start-utenti-list}-->
+                    <!--{end-utenti-list}-->
+                </div>
+            </section>
+        </details>
+
+        <details>
+            <summary>Aggiungi corso</summary>
+            <section class="register-form">
+                <form action="/src/php/admin.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="action" value="add-corso">
+                    <div class="form-group">
+                        <label for="titolo">Titolo</label>
+                        <input type="text" id="titolo" name="titolo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="immagine">Carica immagine (jpg/png)</label>
+                        <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.png" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categorie</label>
+                        <div>
+                            <!--{start-categorie-list}-->
+                            <!--{end-categorie-list}-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="durata">Durata (ore)</label>
+                        <input type="number" id="durata" name="durata" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="costo">Costo (euro, multipli di 5)</label>
+                        <input type="number" id="costo" name="costo" min="0" step="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalita">Modalità</label>
+                        <select id="modalita" name="modalita" required>
+                            <option value="In aula">In aula</option>
+                            <option value="Online live">Online live</option>
+                            <option value="Online registrata">Online registrata</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="breve_desc">Breve descrizione</label>
+                        <input type="text" id="breve_desc" name="breve_desc" maxlength="200" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="desc_completa">Descrizione completa</label>
+                        <textarea id="desc_completa" name="desc_completa" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="confirm-registration">Aggiungi corso</button>
+                </form>
+            </section>
+        </details>
+
+        <details>
+            <summary>Messaggi <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
+            <section class="register-form">
+                <div>
+                    <!--{start-contatti-list}-->
+                    <!--{end-contatti-list}-->
+                </div>
+            </section>
+        </details>
+
+        <details>
+            <summary>Acquisti</summary>
+            <section class="register-form">
+                <div class="form-group">
+                    <label for="acquisti-filter">Filtro live acquisti</label>
+                    <input type="text" id="acquisti-filter" placeholder="Filtra per username" class="placeholder-transparent">
+                </div>
+                <div>
+                    <!--{start-acquisti-list}-->
+                    <!--{end-acquisti-list}-->
+                </div>
+            </section>
+        </details>
+    </main>
+
+    <footer>
+    </footer>
+    <script>
+        (function () {
+            var userFilter = document.getElementById("user-filter");
+            var acquistiFilter = document.getElementById("acquisti-filter");
+            var orderToggle = document.getElementById("order-toggle");
+            var orderDir = document.getElementById("order-dir");
+            var orderMode = "nome";
+            var asc = true;
+
+            function filterRows(input, selector, attr) {
+                if (!input) {
+                    return;
+                }
+                input.addEventListener("input", function () {
+                    var value = input.value.toLowerCase();
+                    var rows = document.querySelectorAll(selector);
+                    rows.forEach(function (row) {
+                        var key = (row.getAttribute(attr) || "").toLowerCase();
+                        row.style.display = key.indexOf(value) !== -1 ? "" : "none";
+                    });
+                });
+            }
+
+            function sortUsers() {
+                var rows = Array.prototype.slice.call(document.querySelectorAll("[data-utente]"));
+                rows.sort(function (a, b) {
+                    var keyA = orderMode === "data" ? a.getAttribute("data-data") : a.getAttribute("data-utente");
+                    var keyB = orderMode === "data" ? b.getAttribute("data-data") : b.getAttribute("data-utente");
+                    if (keyA === keyB) {
+                        return 0;
+                    }
+                    if (asc) {
+                        return keyA > keyB ? 1 : -1;
+                    }
+                    return keyA < keyB ? 1 : -1;
+                });
+                var tbody = rows.length ? rows[0].parentElement : null;
+                if (tbody) {
+                    rows.forEach(function (row) { tbody.appendChild(row); });
+                }
+            }
+
+            if (orderToggle) {
+                orderToggle.addEventListener("click", function () {
+                    orderMode = orderMode === "nome" ? "data" : "nome";
+                    orderToggle.textContent = orderMode === "nome" ? "Ordina per nome" : "Ordina per data";
+                    sortUsers();
+                });
+            }
+
+            if (orderDir) {
+                orderDir.addEventListener("click", function () {
+                    asc = !asc;
+                    orderDir.textContent = asc ? "↑" : "↓";
+                    sortUsers();
+                });
+            }
+
+            filterRows(userFilter, "[data-utente]", "data-utente");
+            filterRows(acquistiFilter, "[data-acquisto]", "data-acquisto");
+        })();
+    </script>
+</body>
+</html>

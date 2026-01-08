@@ -1,5 +1,8 @@
 DROP TABLE IF EXISTS Recensione;
 DROP TABLE IF EXISTS Acquisto;
+DROP TABLE IF EXISTS Contatto;
+DROP TABLE IF EXISTS CorsoCategoria;
+DROP TABLE IF EXISTS Categoria;
 DROP TABLE IF EXISTS Corso;
 DROP TABLE IF EXISTS Utente;
 
@@ -32,6 +35,24 @@ CREATE TABLE Corso(
   DEFAULT CHARSET = utf8
   COLLATE = utf8_unicode_ci; 
 
+CREATE TABLE Categoria(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8
+  COLLATE = utf8_unicode_ci;
+
+CREATE TABLE CorsoCategoria(
+    id_corso INT UNSIGNED NOT NULL,
+    id_categoria INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_corso, id_categoria),
+    FOREIGN KEY (id_corso) REFERENCES Corso(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_categoria) REFERENCES Categoria(id) ON DELETE CASCADE
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8
+  COLLATE = utf8_unicode_ci;
+
 
 CREATE TABLE Acquisto(
     id_user VARCHAR(30) NOT NULL,
@@ -57,3 +78,14 @@ CREATE TABLE Recensione(
   DEFAULT CHARSET = utf8
   COLLATE = utf8_unicode_ci;
 
+CREATE TABLE Contatto(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    oggetto VARCHAR(150) NOT NULL,
+    messaggio VARCHAR(2000) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB
+  DEFAULT CHARSET = utf8
+  COLLATE = utf8_unicode_ci;

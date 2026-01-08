@@ -26,12 +26,12 @@
                 <li><a href="./chisiamo.html">Chi siamo</a></li>
                 <li class="current-page">Corsi</li>
                 <li lang="en"><a href="./news.html">News</a></li>
-                <li><a href="./contatti.html">Contatti</a></li>
+                <li><a href="/src/php/contatti.php">Contatti</a></li>
             </ul>
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="./areapersonale.html" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
+            <a href="/src/php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
         </div>
     </header>   
 
@@ -44,7 +44,7 @@
         <section class="catalog">
             <div class="left-catalog">
                 <h3 id="header-catalog">Catalogo corsi</h3>
-                <p id="desc-catalog">Filtra per categoria (Finanza, Cripto, ecc)</p>
+                <p id="desc-catalog">Filtra per categoria (Investimenti, Risparmio, Previdenza)</p>
             </div>
             <div class="right-catalog">
                 <form action="corsi.php" method="get" id="form-catalog"><!-- da inserire php query nel campo action -->
@@ -52,9 +52,9 @@
                     <select name="categoria" id="categoria" class="filtro-catalog" onchange="this.form.submit()">
                         <!--{start-select-categoria}-->
                         <option value="all" selected>Tutti</option>
-                        <option value="finanza">Finanza</option>
-                        <option value="cripto">Cripto</option>
-                        <option value="altro">Altro</option>
+                        <option value="Investimenti">Investimenti</option>
+                        <option value="Risparmio">Risparmio</option>
+                        <option value="Previdenza">Previdenza</option>
                         <!--{end-select-categoria}-->
                     </select>
                 </form>
@@ -66,54 +66,54 @@
         <!--{start-section-corsi}-->
             
             <div class="corsi">
-                <img src="../../img/foto-corso-1.jpg" class="img-corso">
-                <h3 class="titolo-corso"><a href="./corso1.html" class="corso-link"><strong>Finanza operativa</strong></a></h3>
+                <img src="../../img/foto-corso-1.jpg" class="img-corso" alt="">
+                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=1" class="corso-link"><strong>Analisi di bilancio per Fuffaguru</strong></a></h3>
                 <ul class="lista-info-corso"> 
-                    <li class="categoria-corso">Altro</li>      <!--in realtà le classi negli li non servono ma sti cazzi magari cambiamo-->
-                    <li class="durata-corso">16 ore</li>  
-                    <li class="prezzo-corso">€ 490</li>    
+                    <li class="categoria-corso">Investimenti</li>
+                    <li class="durata-corso">14 ore</li>  
+                    <li class="prezzo-corso">€ 360</li>    
                     <li class="locazione-corso" lang="en">Online live</li>  
                 </ul>
-                <h6 class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</h6>
+                <h6 class="descrizione-corso">Leggere i numeri giusti per capire se un titolo ha senso.</h6>
             </div>
 
         
             <div class="corsi">
-                <img src="../../img/foto-corso-2.jpg" class="img-corso">
-                <h3 class="titolo-corso"><a href="./corso2.html" class="corso-link"><strong>Finanza operativa</strong></a></h3>
+                <img src="../../img/foto-corso-2.jpg" class="img-corso" alt="">
+                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=5" class="corso-link"><strong>Budget Zen</strong></a></h3>
                 <ul class="lista-info-corso">
-                    <li class="categoria-corso">Altro</li>
-                    <li class="durata-corso">12 ore</li>  
-                    <li class="prezzo-corso">€ 390</li>    
-                    <li class="locazione-corso">In aula</li>  
+                    <li class="categoria-corso">Risparmio</li>
+                    <li class="durata-corso">8 ore</li>  
+                    <li class="prezzo-corso">€ 190</li>    
+                    <li class="locazione-corso">Online registrata</li>  
                 </ul>
-                <h6 class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</h6>
+                <h6 class="descrizione-corso">Metodi semplici per tenere le spese sotto controllo.</h6>
             </div>
 
         
             <div class="corsi">
-                <img src="../../img/foto-corso-1.jpg" class="img-corso">
-                <h3 class="titolo-corso"><a href="./corso1.html" class="corso-link"><strong>Finanza operativa</strong></a></h3>
+                <img src="../../img/foto-corso-1.jpg" class="img-corso" alt="">
+                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=9" class="corso-link"><strong>Pensione chiara</strong></a></h3>
                 <ul class="lista-info-corso"> 
-                    <li class="categoria-corso">Altro</li>
-                    <li class="durata-corso">16 ore</li>  
-                    <li class="prezzo-corso">€ 490</li>    
+                    <li class="categoria-corso">Previdenza</li>
+                    <li class="durata-corso">10 ore</li>  
+                    <li class="prezzo-corso">€ 250</li>    
                     <li class="locazione-corso" lang="en">Online live</li>  
                 </ul>
-                <h6 class="descrizione-corso">Basi pratiche: margini, cassa, <abbr>KPI</abbr> e lettura dei numeri essenziali.</h6>
+                <h6 class="descrizione-corso">Capire il sistema e calcolare una stima realistica.</h6>
             </div>  
 
         
             <div class="corsi">
-                <img src="../../img/foto-corso-1.jpg" class="img-corso">
-                <h3 class="titolo-corso"><a href="./corso1.html" class="corso-link"><strong>Finanza operativa</strong></a></h3>
+                <img src="../../img/foto-corso-2.jpg" class="img-corso" alt="">
+                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=2" class="corso-link"><strong>ETF senza stress</strong></a></h3>
                 <ul class="lista-info-corso">
-                    <li class="categoria-corso">Altro</li>
-                    <li class="durata-corso">12 ore</li>  
-                    <li class="prezzo-corso">€ 390</li>    
-                    <li class="locazione-corso">In aula</li>  
+                    <li class="categoria-corso">Investimenti</li>
+                    <li class="durata-corso">10 ore</li>  
+                    <li class="prezzo-corso">€ 280</li>    
+                    <li class="locazione-corso">Online registrata</li>  
                 </ul>
-                <h6 class="descrizione-corso">Impostazione <span lang="en">budget</span>, <span lang="en">forecast</span> e piano di cassa con esempi semplici.</h6>
+                <h6 class="descrizione-corso">Come scegliere ETF coerenti con obiettivi e rischio.</h6>
             </div>
 
         <!--{end-section-corsi}-->
@@ -149,6 +149,3 @@
     </footer>
 </body>
 </html>
-
-
-

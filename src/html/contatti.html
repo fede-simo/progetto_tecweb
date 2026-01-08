@@ -4,8 +4,8 @@
 <head>
     <title>Contatti | Prophit</title> 
     <meta charset="UTF-8">
-    <meta name="description" content="Accedi al tuo account Prophit e partecipa ai corsi di finanza su crypto, azioni ed ETF!"> 
-    <meta name="keywords" content="Prophit, accesso, accedi, login, area personale, area riservata">
+    <meta name="description" content="Contatta Prophit per informazioni sui corsi e supporto."> 
+    <meta name="keywords" content="Prophit, accesso, accedi, login, area personale, area riservata, fuffaguru">
     
     <link rel="stylesheet" href="../css/styles.css" media="screen">
     <!--<script src="../js/textAnimations.js" defer></script>-->
@@ -21,31 +21,138 @@
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="./index.html">Home</a></li>
-                <li><a href="./chisiamo.html">Chi siamo</a></li>
-                <li><a href="./corsi.html">Corsi</a></li>
-                <li lang="en"><a href="./news.html">News</a></li>
+                <li lang="en"><a href="/src/php/index.php">Home</a></li>
+                <li><a href="/src/html/chisiamo.html">Chi siamo</a></li>
+                <li><a href="/src/php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="/src/html/news.html">News</a></li>
                 <li class="current-page">Contatti</li>
             </ul>
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="./areapersonale.html" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
+            <a href="/src/php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
         </div>
     </header>   
 
     <main>
         <!--<button id="back-to-top">&#8593</button> -->
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Contatti </p>
+            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Contatti </p>
         </nav>
+        <section>
+            <div class="content">
+                <h1>Parla con i fuffaguru</h1>
+                <p>Scrivici per info sui corsi, partnership o supporto tecnico.</p>
+                <p>Rispondiamo entro 24 ore lavorative, con numeri alla mano.</p>
+                <p>Email: <a href="mailto:supporto@prophit.it">supporto@prophit.it</a></p>
+                <p>Telefono: <a href="tel:+390491234567">+39 049 123 4567</a></p>
+                <p>Indirizzo: <a href="https://maps.google.com/?q=120%20North%20Sound%20Rd,%20George%20Town,%20Cayman%20Islands" target="_blank" rel="noopener">120 North Sound Rd, George Town, Cayman Islands</a></p>
+                <p>Orari: lun-ven 9:00-18:00 <span id="orari-status"></span> <a id="apri-sveglia" href="#">Imposta promemoria</a></p>
+            </div>  
+            <div class="img">
+                <img src="../../img/homepage.jpg" alt="Contatti Prophit">
+            </div>
+        </section>
+        <!--{start-contatti-message}-->
+        <!--{end-contatti-message}-->
+        <section class="register-form">
+            <h2>Invia un messaggio</h2>
+            <form action="/src/php/contatti.php" method="POST" autocomplete="on">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" class="placeholder-transparent" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" class="placeholder-transparent" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="oggetto">Oggetto</label>
+                    <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto" class="placeholder-transparent" required>
+                </div>
+                <div class="form-group">
+                    <label for="messaggio">Messaggio</label>
+                    <textarea id="messaggio" name="messaggio" rows="5" placeholder="Messaggio" class="placeholder-transparent" required></textarea>
+                </div>
+                <button type="submit" class="confirm-registration">Invia</button>
+            </form>
+        </section>
     </main>
+
+    <script>
+        (function () {
+            function formatCountdown(ms) {
+                var hours = Math.ceil(ms / (1000 * 60 * 60));
+                if (hours >= 24) {
+                    var days = Math.ceil(hours / 24);
+                    return "-" + days + "d";
+                }
+                return "-" + hours + "h";
+            }
+
+            var now = new Date();
+            var day = now.getDay();
+            var isWeekday = day >= 1 && day <= 5;
+            var openTime = new Date(now);
+            openTime.setHours(9, 0, 0, 0);
+            var closeTime = new Date(now);
+            closeTime.setHours(18, 0, 0, 0);
+
+            var statusEl = document.getElementById("orari-status");
+            var alarmLink = document.getElementById("apri-sveglia");
+
+            var nextOpen = new Date(now);
+            if (!isWeekday || now >= closeTime) {
+                do {
+                    nextOpen.setDate(nextOpen.getDate() + 1);
+                } while (nextOpen.getDay() === 0 || nextOpen.getDay() === 6);
+                nextOpen.setHours(9, 0, 0, 0);
+            } else if (now < openTime) {
+                nextOpen = new Date(openTime);
+            }
+
+            if (isWeekday && now >= openTime && now <= closeTime) {
+                statusEl.textContent = "Aperto ✅";
+            } else {
+                var diff = nextOpen.getTime() - now.getTime();
+                statusEl.textContent = "Apre tra " + formatCountdown(diff) + " ⏳";
+            }
+
+            var start = new Date(nextOpen);
+            var end = new Date(nextOpen);
+            end.setMinutes(end.getMinutes() + 30);
+
+            function toCalDate(d) {
+                var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+                return d.getUTCFullYear().toString() +
+                    pad(d.getUTCMonth() + 1) +
+                    pad(d.getUTCDate()) + "T" +
+                    pad(d.getUTCHours()) +
+                    pad(d.getUTCMinutes()) +
+                    "00Z";
+            }
+
+            var ics = [
+                "BEGIN:VCALENDAR",
+                "VERSION:2.0",
+                "PRODID:-//Prophit//EN",
+                "BEGIN:VEVENT",
+                "DTSTART:" + toCalDate(start),
+                "DTEND:" + toCalDate(end),
+                "SUMMARY:Chiamata Prophit",
+                "END:VEVENT",
+                "END:VCALENDAR"
+            ].join("\r\n");
+
+            var blob = new Blob([ics], { type: "text/calendar" });
+            var url = URL.createObjectURL(blob);
+            alarmLink.setAttribute("href", url);
+            alarmLink.setAttribute("download", "promemoria_prophit.ics");
+        })();
+    </script>
 
     <footer>
         
     </footer>
 </body>
 </html>
-
-
-

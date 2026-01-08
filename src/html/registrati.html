@@ -41,33 +41,37 @@
 
         <!--{start-form-registrazione}-->
 
-        <form id="register-form" class="register-form" action="/progetto_tecweb/src/php/registrati.php" method="POST">
+        <form id="register-form" class="register-form" action="/src/php/registrati.php" method="POST" autocomplete="on">
     
             <h2>Registrati</h2>
 
             <div class="form-group">
                 <label for="nome" class="register-label">Nome</label>
-                <input type="text" id="nome" name="nome" maxlength="30" value="{nome}" >
+                <input type="text" id="nome" name="nome" maxlength="30" value="{nome}" placeholder="Nome" class="placeholder-transparent" required>
             </div>
 
             <div class="form-group">
                 <label for="cognome">Cognome</label>
-                <input type="text" id="cognome" name="cognome" maxlength="30" value="{cognome}" >
+                <input type="text" id="cognome" name="cognome" maxlength="30" value="{cognome}" placeholder="Cognome" class="placeholder-transparent" required>
             </div>
 
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" maxlength="30" value="{username}" >
+                <input type="text" id="username" name="username" maxlength="30" value="{username}" placeholder="Username" class="placeholder-transparent" autocomplete="username" required>
             </div>
 
             <div class="form-group">
                 <label for="data-di-nascita">Data di nascita</label>
-                <input type="date" id="data_di_nascita" name="data_di_nascita" value="{data_di_nascita}" >
+                <input type="date" id="data_di_nascita" name="data_di_nascita" value="{data_di_nascita}" placeholder="Data di nascita" class="placeholder-transparent" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" >
+                <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Password" class="placeholder-transparent" required>
+            </div>
+            <div class="form-group">
+                <label for="password_confirm">Conferma password</label>
+                <input type="password" id="password_confirm" name="password_confirm" autocomplete="new-password" placeholder="Conferma password" class="placeholder-transparent" required>
             </div>
 
             <div class="errore-registrazione">
@@ -78,7 +82,7 @@
 
             <button type="submit" class="confirm-registration">Registrati</button>
 
-            <p class="login-link">Hai già un account? <a href="./accedi.html">Accedi</a></p>
+            <p class="login-link">Hai già un account? <a href="/src/php/accedi.php">Accedi</a></p>
 
         </form>
 
@@ -91,5 +95,3 @@
     </footer>
 </body>
 </html>
-
-

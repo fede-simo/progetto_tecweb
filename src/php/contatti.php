@@ -1,0 +1,40 @@
+<?php
+
+require_once "helpers.php";
+require_once "dbConnection.php";
+
+$paginaHTML = file_get_contents('../html/contatti.html');
+$messaggio = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = isset($_POST['nome']) ? trim($_POST['nome']) : '';
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $oggetto = isset($_POST['oggetto']) ? trim($_POST['oggetto']) : '';
+    $testo = isset($_POST['messaggio']) ? trim($_POST['messaggio']) : '';
+
+    if ($nome === '' || $email === '' || $oggetto === '' || $testo === '') {
+        $messaggio = '<p class="errore-registrazione">Compila tutti i campi.</p>';
+    } else {
+        try {
+            $connessione = new DB\DBAccess();
+            $conn = $connessione->openConnection();
+            if ($conn) {
+                $ok = $connessione->addContatto($nome, $email, $oggetto, $testo);
+                $messaggio = $ok ? '<p>Messaggio inviato.</p>' : '<p class="errore-registrazione">Errore durante l\'invio.</p>';
+                $connessione->closeConnection();
+            } else {
+                $messaggio = '<p class="errore-registrazione">Connessione al database non riuscita.</p>';
+            }
+        } catch (Throwable $e) {
+            $messaggio = '<p class="errore-registrazione">Errore interno: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '</p>';
+        }
+    }
+}
+
+if ($messaggio !== "") {
+    replaceContent("contatti-message", $messaggio, $paginaHTML);
+}
+
+echo $paginaHTML;
+
+?>

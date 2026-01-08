@@ -1,11 +1,32 @@
-INSERT INTO Utente (username, nome, cognome, password, isAdmin, data_di_nascita) VALUES
-('user', 'user', 'user', '$2y$10$zmpEFyW/0mGMKZr90TTMMOGytFEMoiOZCieHp8Wie/IfKA9qi20Hm', FALSE, '2000-01-01'),
-('admin', 'admin', 'admin', '$2y$10$imrp0lNBcklXR4xDyp9MxOP33KeZVEQdESdNdUq4m9p/7zrf.4n8e', TRUE, '2000-01-01');
+INSERT INTO Categoria (id, nome) VALUES
+(1, 'Investimenti'),
+(2, 'Risparmio'),
+(3, 'Previdenza');
 
 INSERT INTO Corso (id, titolo, immagine, categoria, durata, costo, modalita, breve_desc, desc_completa) VALUES
-(1, 'Finanza Operativa', '../../img/foto-corso-1.jpg', 'Altro', 16, 490, 'Online live', 'Basi pratiche: margini, cassa, KPI e lettura dei numeri essenziali.', 'Palle.'),
-(2, 'Budget And Cash Flow', '../../img/foto-corso-2.jpg', 'Altro', 12, 390, 'In aula', 'Impostazione budget, forecast e piano di cassa con esempi semplici.', 'Palle.'),
-(3, 'Finanza Operativa', '../../img/foto-corso-1.jpg', 'Altro', 16, 490, 'Online live', 'Basi pratiche: margini, cassa, KPI e lettura dei numeri essenziali.', 'Palle.'),
-(4, 'Finanza Operativa', '../../img/foto-corso-1.jpg', 'Altro', 16, 490, 'Online live', 'Basi pratiche: margini, cassa, KPI e lettura dei numeri essenziali.', 'Palle.'),
-(5, 'Criptovalute per Principianti', '../../img/foto-corso-1.jpg', 'Cripto', 10, 299, 'Online registrata', 'Introduzione al mondo delle criptovalute: cosa sono, come funzionano e come iniziare.', 'Palle.'),
-(6, 'Criptovalute avanzate', '../../img/foto-corso-1.jpg', 'Cripto', 14, 399, 'In aula', 'Strategie di investimento, gestione del rischio e analisi del mercato delle criptovalute.', 'Palle.');
+(1, 'Analisi di bilancio per Fuffaguru', '../../img/foto-corso-1.jpg', 'Investimenti', 14, 360, 'Online live', 'Leggere i numeri giusti per capire se un titolo ha senso.', 'Impari a leggere stato patrimoniale e conto economico senza farti incantare dalla fuffa. Esempi pratici e check rapidi per valutare aziende reali.'),
+(2, 'ETF senza stress', '../../img/foto-corso-2.jpg', 'Investimenti', 10, 280, 'Online registrata', 'Come scegliere ETF coerenti con obiettivi e rischio.', 'Dalla composizione ai costi, con criteri semplici per creare un portafoglio solido e ripetibile nel tempo.'),
+(3, 'Azioni da bar: strategie long-term', '../../img/foto-corso-1.jpg', 'Investimenti', 16, 420, 'In aula', 'Focus su metodo, pazienza e numeri misurabili.', 'Un percorso pratico per impostare una strategia di lungo periodo, evitando mode e scelte impulsive.'),
+(4, 'Analisi tecnica minimal', '../../img/foto-corso-2.jpg', 'Investimenti', 12, 320, 'Online live', 'Indicatori essenziali per leggere trend e livelli.', 'Usi pochi strumenti ma buoni: trendline, supporti e volumi. Meno fumo, piu disciplina.'),
+(5, 'Budget Zen', '../../img/foto-corso-1.jpg', 'Risparmio', 8, 190, 'Online registrata', 'Metodi semplici per tenere le spese sotto controllo.', 'Costruisci un budget che funziona davvero e smetti di vivere a fine mese con l ansia.'),
+(6, 'Spese invisibili: tagli leggeri', '../../img/foto-corso-2.jpg', 'Risparmio', 6, 160, 'Online registrata', 'Ridurre costi senza stravolgere lo stile di vita.', 'Tecniche pratiche per individuare uscite inutili e liberare liquidita senza sacrifici.'),
+(7, 'Fondo emergenza in 30 giorni', '../../img/foto-corso-1.jpg', 'Risparmio', 7, 210, 'Online live', 'Costruire un cuscinetto con piccoli passi.', 'Definisci obiettivo, priorita e automatismi per accumulare in modo costante.'),
+(8, 'Obiettivi a breve: metodo envelope', '../../img/foto-corso-2.jpg', 'Risparmio', 9, 220, 'In aula', 'Gestione pratica con categorie e limiti chiari.', 'Impari a usare il metodo delle buste per pianificare spese e obiettivi in modo sostenibile.'),
+(9, 'Pensione chiara', '../../img/foto-corso-1.jpg', 'Previdenza', 10, 250, 'Online live', 'Capire il sistema e calcolare una stima realistica.', 'Panoramica su contributi, eta pensionabile e strumenti di previdenza complementare.'),
+(10, 'Fondi pensione senza paura', '../../img/foto-corso-2.jpg', 'Previdenza', 12, 300, 'Online registrata', 'Tipi di fondi, costi e vantaggi fiscali.', 'Confronto tra fondi aperti, chiusi e PIP con esempi pratici di scelta.'),
+(11, 'PIR e strumenti previdenziali', '../../img/foto-corso-1.jpg', 'Previdenza', 11, 280, 'Online live', 'Strumenti utili e limiti da conoscere.', 'Guida chiara a PIR, previdenza complementare e opzioni per diversificare.'),
+(12, 'TFR e scelte intelligenti', '../../img/foto-corso-2.jpg', 'Previdenza', 9, 230, 'In aula', 'Cosa fare con il TFR e perche.', 'Valuti pro e contro tra azienda e fondo, con esempi numerici semplici.');
+
+INSERT INTO CorsoCategoria (id_corso, id_categoria) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 2),
+(9, 3),
+(10, 3),
+(11, 3),
+(12, 3);

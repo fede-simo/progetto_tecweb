@@ -36,11 +36,24 @@
     <main>
         <!--<button id="back-to-top">&#8593</button> -->
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Accedi </p>
+            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Accedi </p>
         </nav>
 
-
-        
+        <form id="login-form" class="register-form" action="/src/php/accedi.php" method="POST" autocomplete="on">
+            <h2>Accedi</h2>
+            <!--{start-errore-login}-->
+            <!--{end-errore-login}-->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Username" class="placeholder-transparent" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" class="placeholder-transparent" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="confirm-registration">Accedi</button>
+            <p class="login-link">Non hai un account? <a href="/src/php/registrati.php">Registrati</a></p>
+        </form>
     </main>
 
     <footer>
@@ -48,6 +61,3 @@
     </footer>
 </body>
 </html>
-
-
-

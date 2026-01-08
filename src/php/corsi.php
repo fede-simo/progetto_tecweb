@@ -16,7 +16,15 @@ try {
 
     $conn = $connessione->openConnection();
 
-    isset($_GET['categoria']) ? $categoria = $_GET['categoria'] : $categoria = 'all';
+    $rawCategoria = isset($_GET['categoria']) ? trim(urldecode($_GET['categoria'])) : 'all';
+    $categoryMap = [
+        'investimenti' => 'Investimenti',
+        'risparmio' => 'Risparmio',
+        'previdenza' => 'Previdenza',
+        'all' => 'all'
+    ];
+    $rawKey = strtolower($rawCategoria);
+    $categoria = $categoryMap[$rawKey] ?? 'all';
 
     $corsi = $connessione->getCorsi($categoria);
 
@@ -49,7 +57,7 @@ if (!empty($corsi)) {
         $corsiUpdated .= 
         '<div class="corsi">
             <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-corso">
-            <dt class="titolo-corso"><a href="./corso1.html" class="corso-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
+            <dt class="titolo-corso"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
                 <dd>
                 <ul class="lista-info-corso">
                     <li class="categoria-corso">' . htmlspecialchars($corso['categoria']) . '</li>
@@ -67,9 +75,9 @@ if (!empty($corsi)) {
 
 $formCategoria = '
     <option value="all"' . ($categoria === 'all' ? ' selected' : '') . '>Tutti</option>
-    <option value="finanza"' . ($categoria === 'finanza' ? ' selected' : '') . '>Finanza</option>
-    <option value="cripto"' . ($categoria === 'cripto' ? ' selected' : '') . '>Cripto</option>
-    <option value="altro"' . ($categoria === 'altro' ? ' selected' : '') . '>Altro</option>';
+    <option value="Investimenti"' . ($categoria === 'Investimenti' ? ' selected' : '') . '>Investimenti</option>
+    <option value="Risparmio"' . ($categoria === 'Risparmio' ? ' selected' : '') . '>Risparmio</option>
+    <option value="Previdenza"' . ($categoria === 'Previdenza' ? ' selected' : '') . '>Previdenza</option>';
 
 replaceContent("select-categoria", $formCategoria, $paginaHTML);
 

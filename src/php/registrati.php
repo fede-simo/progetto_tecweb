@@ -54,7 +54,7 @@ if (isset($_SESSION["user"])) {
 }*/
 
 
-$campi = ['nome', 'cognome', 'username', 'data_di_nascita', 'password'];
+$campi = ['nome', 'cognome', 'username', 'data_di_nascita'];
 $err = "";
 
 
@@ -67,6 +67,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $err .= '<p>Tutti i campi sono obbligatori.</p>';
                 break;
             } else fieldsRestriction($campo, $err);
+        }
+    }
+    if (empty($err)) {
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $passwordConfirm = isset($_POST['password_confirm']) ? $_POST['password_confirm'] : '';
+        if ($password === '' || $passwordConfirm === '') {
+            $err .= '<p>Tutti i campi sono obbligatori.</p>';
+        } elseif ($password !== $passwordConfirm) {
+            $err .= '<p>Le password non coincidono.</p>';
+        } else {
+            $_POST['password'] = $password;
+            fieldsRestriction('password', $err);
         }
     }
     if (!empty($err)) {
@@ -83,6 +95,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $connessione = new DB\DBAccess();
 
         $conn = $connessione->openConnection();
+        if (!$conn) {
+            $err .= '<p class="errore-registrazione">Connessione al database non riuscita.</p>';
+            replaceContent("errore-registrazione", $err, $paginaHTML);
+            $paginaHTML = stickyForm($paginaHTML, $campi);
+            echo $paginaHTML;
+            exit();
+        }
+
+        $totaleUtenti = $connessione->countUtenti();
+        $isAdmin = ($totaleUtenti === 0);
 
         $result = $connessione->registraUtente(
             $_POST['nome'],
@@ -90,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['username'],
             $_POST['data_di_nascita'],
             $hash,
+            $isAdmin,
             $err
         );
 
@@ -97,8 +120,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         if ($result) {
-            //$_SESSION['user'] = $_POST['username'];
-            //header("Location: areapersonale.php");
+            $_SESSION['user'] = $_POST['username'];
+            $_SESSION['is_admin'] = $isAdmin;
+            header("Location: /src/php/areapersonale.php");
             exit();
         } else {
             replaceContent("errore-registrazione", $err, $paginaHTML);
@@ -108,8 +132,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
             
 
-    } catch (Exception $e) {
-        header("Location: 500.html");
+    } catch (Throwable $e) {
+        $err .= '<p class="errore-registrazione">Errore durante la registrazione.</p>';
+        replaceContent("errore-registrazione", $err, $paginaHTML);
+        $paginaHTML = stickyForm($paginaHTML, $campi);
+        echo $paginaHTML;
         exit();
     }
 } else {
