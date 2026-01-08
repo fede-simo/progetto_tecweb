@@ -53,9 +53,20 @@ if (isset($_SESSION["user"])) {
     exit();
 }*/
 
+$nome = '';
+$cognome = '';
+$dataNascita = '';
+$username = '';
 
 $campi = ['nome', 'cognome', 'username', 'data_di_nascita'];
 $err = "";
+
+function pulisciInput($value){
+ 	$value = trim($value);
+  	$value = strip_tags($value);
+	$value = htmlentities($value);
+  	return $value;
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

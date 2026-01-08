@@ -15,8 +15,99 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script> /*da mettere in un file esterno*/
+
+		/**
+		 * chiave: nome dell'input che cerco
+		 * [0]: Prima indicazione per la compilazione dell'input
+		 * [1]: espressione regolare da controllare
+		 * [2]: Hint nel caso in cui input fornito sia sbagliato
+		 */
+
+		var dettagli_form = { 
+			"nome": ["Esempio: Mario",/^[a-zA-Z' ]{2,}$/,"Inserire un nome di lunghezza almeno 2. Non sono ammessi numeri."],
+			"cognome": ["Esempio: Rossi",/^[a-zA-Z' ]{2,}$/,"Inserire un cognome di lunghezza almeno 2. Non sono ammessi numeri."],
+            "dataNascita": ["",/^\d{4}-\d{2}-\d{2}$/,"Inserire una data corretta"],
+			"nomeUtente": ["Esempio: Mario04",/^[a-zA-Z0-9]{2,}$/,"Inserire un nome utente di lunghezza almeno 2. Non sono ammessi spazi."],
+            "password": ["Almeno 8 caratteri, 1 numero e 1 carattere speciale",/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Inserire una password di almeno 8 caratteri, di cui almeno un numero e un carattere speciale."],
+            "confermaPassword": ["",/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Le password non coincidono."],
+		};
+		
+		function caricamento() {
+			for (var key in dettagli_form) {
+				var input = document.getElementById(key);
+				messaggio(input,0);
+				input.onblur = function () {validazioneCampo(this);};
+			}
+			var node = document.getElementById('register-form');
+			node.onsubmit = function () {
+                return validazioneForm(this);
+            };
+		}
+			
+		function validazioneCampo(input) {		
+			var regex = dettagli_form[input.id][1];
+			var text = input.value;
+
+			var p = input.parentNode;
+			
+			if (p.children[2]) {
+				p.removeChild(p.children[2]);
+			}
+
+			if (text.search(regex)!=0) {
+				messaggio(input, 1);
+				//input.focus();	//puo essere fastidioso
+				//input.select(); 	//non da usare sempre, specialmente nei campi lunghi
+				return false;
+			}
+
+            if (input.id === "confermaPassword") {
+                var password = document.getElementById("password").value;
+                if (text !== password) {
+                    messaggio(input, 1);
+                    return false;
+                }
+            }
+
+			return true;
+		}
+			
+		function validazioneForm() {
+			var errori = true;
+
+			for (var key in dettagli_form) {
+
+				var input = document.getElementById(key);
+				errori = validazioneCampo(input) && errori;
+			}
+			return errori;
+		}
+			
+		function messaggio(input, mode) {
+		/* mode = 0, modalità input
+		   mode = 1, modalità errore */
+
+		   	var node;
+		   	var p = input.parentNode;
+
+		   	if (mode) {
+				node = document.createElement('strong');
+				node.className = 'errore';
+				node.appendChild(document.createTextNode(dettagli_form[input.id][2]));	
+		   	} else {
+				node = document.createElement('span');
+				node.className = 'suggerimento';
+				node.appendChild(document.createTextNode(dettagli_form[input.id][0])); 
+		   	}
+			p.appendChild(node);
+		
+		}
+
+	</script>
 </head>
-<body>
+<body onload="caricamento();">
     <header>
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
@@ -33,7 +124,7 @@
         </div>
     </header>   
 
-    <main>
+    <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="./index.html" lang="en">Home</a> > Registrati </p>
@@ -41,51 +132,50 @@
 
         <!--{start-form-registrazione}-->
 
-        <form id="register-form" class="register-form" action="/src/php/registrati.php" method="POST" autocomplete="on">
-    
-            <h2>Registrati</h2>
+        <form id="register-form" name="register-form" action="/src/php/registrati.php" method="POST" autocomplete="on">
+            <h1>Registrati su Prophit!</h1>
 
-            <div class="form-group">
-                <label for="nome" class="register-label">Nome</label>
-                <input type="text" id="nome" name="nome" maxlength="30" value="{nome}" placeholder="Nome" class="placeholder-transparent" required>
+            <fieldset id="Dati personali">
+                <legend>Dati personali</legend>      
+
+                <div>
+                    <label for="nome" class="register-label">Nome:</label>
+                    <input type="text" name="nome" id="nome">
+                </div>
+                <div>
+                    <label for="cognome">Cognome:</label>
+                    <input type="text" name="cognome" id="cognome">
+                </div>
+                <div>
+                    <label for="dataNascita">Data di nascita:</label>
+                    <input type="date" name="dataNascita" id="dataNascita">
+                </div>
+            </fieldset>
+
+            <fieldset id="Dati di accesso">
+                <legend>Dati di accesso</legend>      
+
+                <div>
+                    <label for="nomeUtente">Nome utente:</label>
+                    <input type="text" name="nomeUtente" id="nomeUtente" autocomplete="username">
+                </div>
+                <div>
+                    <label for="password" lang="en">Password:</label>
+                    <input type="password" name="password" id="password" autocomplete="new-password">
+                </div>
+                <div>
+                    <label for="confermaPassword">Conferma <span lang="en">password</span>:</label>
+                    <input type="password" name="confermaPassword" id="confermaPassword" autocomplete="new-password">
+                </div>
+            </fieldset>            
+            <div>
+                <button type="submit" aria-label="Registrati su Prophit">Registrati</button>
+                <button type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                <p class="login-link">Hai già un <span lang="en">account</span>? <a href="/src/php/accedi.php">Accedi</a></p>
             </div>
-
-            <div class="form-group">
-                <label for="cognome">Cognome</label>
-                <input type="text" id="cognome" name="cognome" maxlength="30" value="{cognome}" placeholder="Cognome" class="placeholder-transparent" required>
-            </div>
-
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" maxlength="30" value="{username}" placeholder="Username" class="placeholder-transparent" autocomplete="username" required>
-            </div>
-
-            <div class="form-group">
-                <label for="data-di-nascita">Data di nascita</label>
-                <input type="date" id="data_di_nascita" name="data_di_nascita" value="{data_di_nascita}" placeholder="Data di nascita" class="placeholder-transparent" required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Password" class="placeholder-transparent" required>
-            </div>
-            <div class="form-group">
-                <label for="password_confirm">Conferma password</label>
-                <input type="password" id="password_confirm" name="password_confirm" autocomplete="new-password" placeholder="Conferma password" class="placeholder-transparent" required>
-            </div>
-
-            <div class="errore-registrazione">
-            <!--{start-errore-registrazione}-->
-            
-            <!--{end-errore-registrazione}-->
-            </div>
-
-            <button type="submit" class="confirm-registration">Registrati</button>
-
-            <p class="login-link">Hai già un account? <a href="/src/php/accedi.php">Accedi</a></p>
-
         </form>
-
+        
+        
         <!--{end-form-registrazione}-->
 
     </main>
