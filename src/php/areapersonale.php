@@ -17,6 +17,7 @@ require_once "helpers.php";
 $adminLink = '';
 if (!empty($_SESSION['is_admin'])) {
     $adminLink = '<a href="/src/php/admin.php" class="confirm-registration">Pannello admin</a>';
+    replaceContent("miei-corsi-section", '', $paginaHTML);
 }
 replaceContent("admin-link", $adminLink, $paginaHTML);
 
@@ -52,7 +53,7 @@ if (!empty($corsi)) {
         </div>';
     }
 } else {
-    $corsiHtml = '<p>Non hai ancora corsi acquistati.</p>';
+    if (empty($_SESSION['is_admin'])) $corsiHtml = '<p>Non hai ancora corsi acquistati.</p>';
 }
 
 replaceContent("miei-corsi", $corsiHtml, $paginaHTML);
