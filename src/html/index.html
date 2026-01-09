@@ -17,10 +17,12 @@
 </head>
 
 <body>
-    <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
-    <a href="#footer" class="visually-hidden show-on-focus">Salta al footer</a>
-    
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+        
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
@@ -37,17 +39,18 @@
         </div>
     </header>   
 
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <span lang="en">Home</span></p>
+    </nav>
+
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <span lang="en">Home</span></p>
-        </nav>
         <section>
             <div class="content">
                 <h1>Corsi di finanza personale per investimenti consapevoli</h1>
                 <h2>Rafforza la tua formazione finanziaria, scegli Prophit</h2>
-                <a id="start" href="/src/php/registrati.php">Inizia il percorso</a>
-                <a id="more-info" href="/src/php/corsi.php">Scopri cosa offriamo</a>
+                <a id="start" href="../php/registrati.php">Inizia il percorso</a>
+                <a id="more-info" href="../php/corsi.php">Scopri cosa offriamo</a>
             </div>  
             <div class="img">
                 <img src="../../img/homepage.jpg" alt=""> <!-- Alt vuoto, immagine decorativa -->

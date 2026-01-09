@@ -14,30 +14,98 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        (function () {
+            var userFilter = document.getElementById("user-filter");
+            var acquistiFilter = document.getElementById("acquisti-filter");
+            var orderToggle = document.getElementById("order-toggle");
+            var orderDir = document.getElementById("order-dir");
+            var orderMode = "nome";
+            var asc = true;
+
+            function filterRows(input, selector, attr) {
+                if (!input) {
+                    return;
+                }
+                input.addEventListener("input", function () {
+                    var value = input.value.toLowerCase();
+                    var rows = document.querySelectorAll(selector);
+                    rows.forEach(function (row) {
+                        var key = (row.getAttribute(attr) || "").toLowerCase();
+                        row.style.display = key.indexOf(value) !== -1 ? "" : "none";
+                    });
+                });
+            }
+
+            function sortUsers() {
+                var rows = Array.prototype.slice.call(document.querySelectorAll("[data-utente]"));
+                rows.sort(function (a, b) {
+                    var keyA = orderMode === "data" ? a.getAttribute("data-data") : a.getAttribute("data-utente");
+                    var keyB = orderMode === "data" ? b.getAttribute("data-data") : b.getAttribute("data-utente");
+                    if (keyA === keyB) {
+                        return 0;
+                    }
+                    if (asc) {
+                        return keyA > keyB ? 1 : -1;
+                    }
+                    return keyA < keyB ? 1 : -1;
+                });
+                var tbody = rows.length ? rows[0].parentElement : null;
+                if (tbody) {
+                    rows.forEach(function (row) { tbody.appendChild(row); });
+                }
+            }
+
+            if (orderToggle) {
+                orderToggle.addEventListener("click", function () {
+                    orderMode = orderMode === "nome" ? "data" : "nome";
+                    orderToggle.textContent = orderMode === "nome" ? "Ordina per nome" : "Ordina per data";
+                    sortUsers();
+                });
+            }
+
+            if (orderDir) {
+                orderDir.addEventListener("click", function () {
+                    asc = !asc;
+                    orderDir.textContent = asc ? "↑" : "↓";
+                    sortUsers();
+                });
+            }
+
+            filterRows(userFilter, "[data-utente]", "data-utente");
+            filterRows(acquistiFilter, "[data-acquisto]", "data-acquisto");
+        })();
+    </script>
 </head>
 
 <body>
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="/src/php/index.php">Home</a></li>
-                <li><a href="/src/html/chisiamo.html">Chi siamo</a></li>
-                <li><a href="/src/php/corsi.php">Corsi</a></li>
-                <li lang="en"><a href="/src/html/news.html">News</a></li>
-                <li><a href="/src/html/contatti.html">Contatti</a></li>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/chisiamo.php">Chi siamo</a></li>
+                <li><a href="../php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="../php/news">News</a></li>
+                <li><a href="../php/contatti.php">Contatti</a></li>
             </ul>
         </nav>
         <div>
-            <a href="/src/php/areapersonale.php" class="highlight-button">Area personale</a>
+            <a href="../php/areapersonale.php" class="highlight-button">Area personale</a>
         </div>
     </header>
 
-    <main>
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Admin</p>
-        </nav>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > Admin</p>
+    </nav>
 
+    <main id="main">
         <!--{start-admin-message}-->
         <!--{end-admin-message}-->
         <!--{start-admin-confirm}-->
@@ -64,7 +132,7 @@
         <details>
             <summary>Aggiungi corso</summary>
             <section class="register-form">
-                <form action="/src/php/admin.php" method="POST" enctype="multipart/form-data">
+                <form action="../php/admin.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="add-corso">
                     <div class="form-group">
                         <label for="titolo">Titolo</label>
@@ -135,69 +203,8 @@
         </details>
     </main>
 
-    <footer>
+    <footer if="footer">
+
     </footer>
-    <script>
-        (function () {
-            var userFilter = document.getElementById("user-filter");
-            var acquistiFilter = document.getElementById("acquisti-filter");
-            var orderToggle = document.getElementById("order-toggle");
-            var orderDir = document.getElementById("order-dir");
-            var orderMode = "nome";
-            var asc = true;
-
-            function filterRows(input, selector, attr) {
-                if (!input) {
-                    return;
-                }
-                input.addEventListener("input", function () {
-                    var value = input.value.toLowerCase();
-                    var rows = document.querySelectorAll(selector);
-                    rows.forEach(function (row) {
-                        var key = (row.getAttribute(attr) || "").toLowerCase();
-                        row.style.display = key.indexOf(value) !== -1 ? "" : "none";
-                    });
-                });
-            }
-
-            function sortUsers() {
-                var rows = Array.prototype.slice.call(document.querySelectorAll("[data-utente]"));
-                rows.sort(function (a, b) {
-                    var keyA = orderMode === "data" ? a.getAttribute("data-data") : a.getAttribute("data-utente");
-                    var keyB = orderMode === "data" ? b.getAttribute("data-data") : b.getAttribute("data-utente");
-                    if (keyA === keyB) {
-                        return 0;
-                    }
-                    if (asc) {
-                        return keyA > keyB ? 1 : -1;
-                    }
-                    return keyA < keyB ? 1 : -1;
-                });
-                var tbody = rows.length ? rows[0].parentElement : null;
-                if (tbody) {
-                    rows.forEach(function (row) { tbody.appendChild(row); });
-                }
-            }
-
-            if (orderToggle) {
-                orderToggle.addEventListener("click", function () {
-                    orderMode = orderMode === "nome" ? "data" : "nome";
-                    orderToggle.textContent = orderMode === "nome" ? "Ordina per nome" : "Ordina per data";
-                    sortUsers();
-                });
-            }
-
-            if (orderDir) {
-                orderDir.addEventListener("click", function () {
-                    asc = !asc;
-                    orderDir.textContent = asc ? "↑" : "↓";
-                    sortUsers();
-                });
-            }
-
-            filterRows(userFilter, "[data-utente]", "data-utente");
-            filterRows(acquistiFilter, "[data-acquisto]", "data-acquisto");
-        })();
-    </script>
 </body>
 </html>

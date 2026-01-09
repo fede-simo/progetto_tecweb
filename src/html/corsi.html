@@ -18,27 +18,33 @@
 </head>
 <body>
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="index.php">Home</a></li>
-                <li><a href="./chisiamo.html">Chi siamo</a></li>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/chisiamo.php">Chi siamo</a></li>
                 <li class="current-page">Corsi</li>
-                <li lang="en"><a href="./news.html">News</a></li>
-                <li><a href="/src/php/contatti.php">Contatti</a></li>
+                <li lang="en"><a href="../php/news.php">News</a></li>
+                <li><a href="../php/contatti.php">Contatti</a></li>
             </ul>
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
+            <a href="../php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
         </div>
     </header>   
 
-    <main>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="../php/index.php" lang="en" class="breadcrumb-link">Home</a> > Corsi</p>
+    </nav>
+
+    <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en" class="breadcrumb-link">Home</a> > Corsi</p>
-        </nav>
         
         <section class="catalog">
             <div class="left-catalog">
@@ -46,7 +52,7 @@
                 <p id="desc-catalog">Filtra per categoria (Investimenti, Risparmio, Previdenza)</p>
             </div>
             <div class="right-catalog">
-                <form action="corsi.php" method="get" id="form-catalog">
+                <form action="../php/corsi.php" method="get" id="form-catalog">
                     <label for="categoria" class="label-filtro">Categoria</label>
                     <select name="categoria" id="categoria" class="filtro-catalog" onchange="this.form.submit()">
                         <!--{start-select-categoria}-->
@@ -66,7 +72,7 @@
             
             <div class="corsi">
                 <img src="../../img/foto-corso-1.jpg" class="img-corso" alt="">
-                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=1" class="corso-link"><strong>Analisi di bilancio per Fuffaguru</strong></a></h3>
+                <h3 class="titolo-corso"><a href="../php/dettagliocorso.php?id=1" class="corso-link"><strong>Analisi di bilancio per Fuffaguru</strong></a></h3>
                 <ul class="lista-info-corso"> 
                     <li class="categoria-corso">Investimenti</li>
                     <li class="durata-corso">14 ore</li>  
@@ -79,7 +85,7 @@
         
             <div class="corsi">
                 <img src="../../img/foto-corso-2.jpg" class="img-corso" alt="">
-                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=5" class="corso-link"><strong>Budget Zen</strong></a></h3>
+                <h3 class="titolo-corso"><a href="../php/dettagliocorso.php?id=5" class="corso-link"><strong>Budget Zen</strong></a></h3>
                 <ul class="lista-info-corso">
                     <li class="categoria-corso">Risparmio</li>
                     <li class="durata-corso">8 ore</li>  
@@ -92,7 +98,7 @@
         
             <div class="corsi">
                 <img src="../../img/foto-corso-1.jpg" class="img-corso" alt="">
-                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=9" class="corso-link"><strong>Pensione chiara</strong></a></h3>
+                <h3 class="titolo-corso"><a href="../php/dettagliocorso.php?id=9" class="corso-link"><strong>Pensione chiara</strong></a></h3>
                 <ul class="lista-info-corso"> 
                     <li class="categoria-corso">Previdenza</li>
                     <li class="durata-corso">10 ore</li>  
@@ -105,7 +111,7 @@
         
             <div class="corsi">
                 <img src="../../img/foto-corso-2.jpg" class="img-corso" alt="">
-                <h3 class="titolo-corso"><a href="./dettagliocorso.php?id=2" class="corso-link"><strong>ETF senza stress</strong></a></h3>
+                <h3 class="titolo-corso"><a href="../php/dettagliocorso.php?id=2" class="corso-link"><strong>ETF senza stress</strong></a></h3>
                 <ul class="lista-info-corso">
                     <li class="categoria-corso">Investimenti</li>
                     <li class="durata-corso">10 ore</li>  
@@ -121,17 +127,17 @@
 
     </main>
 
-    <footer>
+    <footer id="footer">
 
         <nav class="left-footer">
             <img src="../../img/logo.png" alt="Logo">
-            <h6 id="contatti-footer-link"><a href="./chisiamo.html">Chi siamo</a></h6>
+            <h6 id="contatti-footer-link"><a href="../php/chisiamo.php">Chi siamo</a></h6>
         </nav>    
 
         <nav class="center-footer">
             <h4 id="esplorazione-footer">Esplora</h4>
             <ul id="lista-pagine-footer">
-                <li lang="en"><a href="./index.html">Home</a></li>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
                 <li class="current-page">Corsi</li>
                 <li><a href="./.html">Altra pagina</a></li>
             </ul>
@@ -140,8 +146,8 @@
         <nav class="right-footer">
             <h4 id="account-footer">Profilo</h4>
             <ul id="lista-account-footer">
-                <li><a href="./registrati.html">Registrati</a></li>
-                <li><a href="./login.html">Login</a></li>
+                <li><a href="../php/registrati.php">Registrati</a></li>
+                <li><a href="../php/accedi.php">Login</a></li>
             </ul>
         </nav>
         

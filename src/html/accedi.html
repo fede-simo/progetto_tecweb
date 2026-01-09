@@ -17,6 +17,11 @@
 </head>
 <body>
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
@@ -32,11 +37,12 @@
         </div>
     </header>   
 
-    <main>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > <a href="../php/areapersonale.php" lang="en">Area personale</a> > Accedi </p>
+    </nav>
+    
+    <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > Accedi </p>
-        </nav>
 
         <form id="login-form" name="login-form" action="../php/accedi.php" method="POST" autocomplete="on">
             <h1>Accedi su Prophit!</h1>
@@ -62,7 +68,7 @@
         </form>
     </main>
 
-    <footer>
+    <footer id="footer">
         
     </footer>
 </body>

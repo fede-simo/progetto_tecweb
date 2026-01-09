@@ -18,6 +18,11 @@
 
 <body>
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
@@ -33,10 +38,11 @@
         </div>
     </header>
 
-    <main>
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > <a href="/src/php/corsi.php">Corsi</a> > {titolo}</p>
-        </nav>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > <a href="/src/php/corsi.php">Corsi</a> > {titolo}</p>
+    </nav>
+
+    <main id="main">
 
         <section class="corso-hero">
             <div class="corso-hero-media">
@@ -71,7 +77,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="footer">
         <nav class="left-footer">
             <img src="../../img/logo.png" alt="Logo">
             <h6 id="contatti-footer-link"><a href="/src/html/chisiamo.html">Chi siamo</a></h6>

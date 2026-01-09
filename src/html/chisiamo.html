@@ -18,27 +18,34 @@
 </head>
 <body>
     <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
         <h1>Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <ul>
-                <li lang="en"><a href="/src/php/index.php">Home</a></li>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
                 <li class="current-page">Chi siamo</li>
-                <li><a href="/src/php/corsi.php">Corsi</a></li>
-                <li lang="en"><a href="/src/html/news.html">News</a></li>
-                <li><a href="/src/php/contatti.php">Contatti</a></li>
+                <li><a href="../php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="../php/news.php">News</a></li>
+                <li><a href="../php/contatti.php">Contatti</a></li>
             </ul>
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="/src/php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
+            <a href="../php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
         </div>
     </header>   
 
-    <main>
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > Chi siamo</p>
+    </nav>
+
+    <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-        <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="/src/php/index.php" lang="en">Home</a> > Chi siamo</p>
-        </nav>
+       
         <section>
             <div class="content">
                 <h2>Il team</h2>
@@ -91,7 +98,7 @@
         </section>
     </main>
 
-    <footer>
+    <footer id="footer">
         
     </footer>
 </body>
