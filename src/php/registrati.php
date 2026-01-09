@@ -117,12 +117,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $isAdmin = ($totaleUtenti === 0);
 
         $result = $connessione->registraUtente(
+            $_POST['username'],
             $_POST['nome'],
             $_POST['cognome'],
-            $_POST['username'],
-            $_POST['data_di_nascita'],
             $hash,
             $isAdmin,
+            $_POST['data_di_nascita'],
             $err
         );
 
