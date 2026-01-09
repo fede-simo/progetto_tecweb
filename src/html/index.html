@@ -8,6 +8,7 @@
     <meta name="keywords" content="Prophit, corsi, finanza personale, formazione finanziaria, investimenti, investire, azioni, etf, crypto">
     
     <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <link rel="stylesheet" href="../css/mini.css" media="screen and (max-width: 768px)">
     <!--<script src="../js/buttonsManager.js" defer></script>-->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,26 +18,44 @@
 </head>
 
 <body>
-    <header>
         <nav aria-label="Aiuti alla navigazione">
             <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
             <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
         </nav>
-        
-        <h1>Prophit</h1>
-        <nav id="menu" aria-label="Menù di navigazione">
-            <ul>
-                <li class="current-page" lang="en">Home</li>
-                <li><a href="../php/chisiamo.php">Chi siamo</a></li>
-                <li><a href="../php/corsi.php">Corsi</a></li>
-                <li lang="en"><a href="../php/news.php">News</a></li>
-                <li><a href="../php/contatti.php">Contatti</a></li>
-            </ul>
-        </nav>
-        <div>
-            <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="../php/areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
-        </div>
+    <header>
+        <div class="header-content">
+            <nav id="menu" aria-label="Menù di navigazione">
+                <ul>
+                    <li class="current-page" lang="en">Home</li>
+                    <li><a href="../php/chisiamo.php">Chi siamo</a></li>
+                    <li><a href="../php/corsi.php">Corsi</a></li>
+                    <li lang="en"><a href="../php/news.php">News</a></li>
+                    <li><a href="../php/contatti.php">Contatti</a></li>
+                </ul>
+            </nav>
+            <details class="hamburger-menu">
+                <summary aria-label="Apri menu">
+                    ☰
+                </summary>
+                <nav aria-label="Menù di navigazione mobile">
+                    <ul>
+                        <li class="current-page" lang="en">Home</li>
+                        <li><a href="../php/chisiamo.php">Chi siamo</a></li>
+                        <li><a href="../php/corsi.php">Corsi</a></li>
+                        <li lang="en"><a href="../php/news.php">News</a></li>
+                        <li><a href="../php/contatti.php">Contatti</a></li>
+                    </ul>
+                </nav>
+            </details>
+            <h1>Prophit</h1>
+            <div class="profile-button">
+                <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
+                <a href="../php/areapersonale.php" class="highlight-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hbutton-svg" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path  d="M8 2.667A2.667 2.667 0 1 0 8 8a2.667 2.667 0 0 0 0-5.333m2.427 5.846a4 4 0 1 0-4.855 0A6 6 0 0 0 2 14a.667.667 0 0 0 1.333 0 4.667 4.667 0 0 1 9.334 0A.667.667 0 1 0 14 14a6 6 0 0 0-3.573-5.487"></path></svg>
+                    <h5>Area personale</h5>
+                </a>
+            </div> 
+        </div>  
     </header>   
 
     <nav id="breadcrumb" aria-label="Percorso">
