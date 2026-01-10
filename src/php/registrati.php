@@ -44,6 +44,7 @@ require_once "helpers.php";
 require_once "dbConnection.php";
 
 $paginaHTML = file_get_contents("../html/registrati.html");
+replaceContent("errore-registrazione", "", $paginaHTML);
 
 session_start();
 
@@ -69,6 +70,7 @@ function pulisciInput($value){
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     foreach ($campi as $campo) {
         if (isset($_POST[$campo])) {
             $_POST[$campo] = trim($_POST[$campo]);
@@ -79,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else fieldsRestriction($campo, $err);
         }
     }
+
     if (empty($err)) {
         $password = isset($_POST['password']) ? $_POST['password'] : '';
         $passwordConfirm = isset($_POST['password_confirm']) ? $_POST['password_confirm'] : '';

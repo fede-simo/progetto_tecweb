@@ -39,29 +39,74 @@
     </header>   
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="../php/index.php" lang="en">Home</a> > Area personale</p>
+        <p>Ti trovi in: <a class="breadcrumb-link" href="../php/index.php" lang="en">Home</a> > Area personale</p>
     </nav>
 
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
 
-        <section class="register-form">
-            <h2>Area personale</h2>
-            <p>Sei loggato con <strong>{username}</strong>.</p>
-            <!--{start-admin-link}-->
-            <!--{end-admin-link}-->
+        <section class="welcome-form">
+            <h3 class="welcome-msg">Benvenuto <strong>{username}</strong>,</h3>
+            <h4 class="viz-msg">visualizza i corsi che hai acquistato e le recensioni che hai pubblicato:</h4>
         </section>
         <!--{start-miei-corsi-section}-->
         <section class="corso-section">
     
             <h2>I miei corsi</h2>
-            
-            <div class="content-corsi">
-                <!--{start-miei-corsi}-->
-                <!--{end-miei-corsi}-->
+
+            <!--{start-tabella-corsi-acquistati}-->
+            <div class="corsi-acquistati">
+                <table class="tabella-corsi-acquistati">
+                    <thead>
+                        <tr>
+                            <th scope="col">TITOLO</th>
+                            <th scope="col">CATEGORIA</th>
+                            <th scope="col">DURATA</th>
+                            <th scope="col">PREZZO</th>
+                            <th scope="col">MODALITÀ</th>
+                            <!--<th scope="col">BREVE DESCRIZIONE</th>-->
+                            <th scope="col">DATA ACQUISTO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--{start-miei-corsi}-->
+                        <!--{end-miei-corsi}-->
+                    </tbody>
+                </table>  
+                <!--{end-tabella-corsi-acquistati}-->  
             </div>
+
         </section>
         <!--{end-miei-corsi-section}-->
+
+        <!--{start-mie-recensioni-section}-->
+        <section class="recensioni-section">
+    
+            <h2>Le mie recensioni</h2>
+
+
+            <!--{start-tabella-recensioni}-->
+            <div class="recensioni-effettuate">
+                <table class="tabella-recensioni-effettuate">
+                    <thead>
+                        <tr>
+                            <th scope="col">TITOLO CORSO</th>
+                            <th scope="col">VOTO</th>
+                            <th scope="col">DESCRIZIONE</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--{start-mie-recensioni}-->
+                        <!--{end-mie-recensioni}-->
+                    </tbody>
+                </table> 
+            <!--{end-tabella-recensioni}-->
+            </div>
+
+        </section>
+        <!--{end-mie-recensioni-section}-->
     </main>
 
     <footer id="footer">

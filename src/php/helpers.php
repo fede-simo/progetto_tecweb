@@ -22,4 +22,16 @@ function replaceContent($bookmark, $newContent, &$paginaHTML): void{
 	);
 }
 
+function allyModCorso($modalita): string {
+	if (str_contains($modalita, 'Online live')) {
+		return '<span lang="en">Online live</span>';
+	} elseif (str_contains($modalita, 'Online registrata')) {
+		return '<span lang="en">Online</span> registrata';
+	} elseif (str_contains($modalita, 'In aula')) {
+		return 'In aula';
+	} else {
+		return htmlspecialchars($modalita, ENT_QUOTES);
+	}
+}
+
 ?>

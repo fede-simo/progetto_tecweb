@@ -563,10 +563,59 @@
         color: var(--text-color);
     }
 
+    .welcome-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .welcome-form a {
+        color: inherit;
+    }
+
+    .welcome-msg {
+        text-align: left;
+        font-weight: 400;
+        font-size: 2rem;
+    }
+
+    .viz-msg {
+        text-align: left;
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+
+    .corso-section, .recensioni-section {
+        margin-top: -3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .corsi-acquistati {
+        width: 100%;
+    }
+
+    .tabella-corsi-acquistati, .tabella-recensioni-effettuate {
+        text-align: center;
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        border: 2px solid var(--border-color);
+    }
+
+    .tabella-corsi-acquistati th, .tabella-corsi-acquistati td, .tabella-recensioni-effettuate th, .tabella-recensioni-effettuate td {
+        border: 1px solid var(--border-color);
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .corso-link-tabella {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        color: inherit;
+    }
 
 
-@media screen and (max-width: 768px) {
-img {
-    display: none;
-}
-}
+

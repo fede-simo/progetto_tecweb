@@ -197,7 +197,7 @@ class DBAccess {
 	}
 
 	public function getCorsiByUser($username): array {
-		$query = "SELECT c.* FROM Corso c INNER JOIN Acquisto a ON a.id_corso = c.id WHERE a.id_user = ? ORDER BY c.titolo";
+		$query = "SELECT c.*, a.data AS data_acquisto FROM Corso c INNER JOIN Acquisto a ON a.id_corso = c.id WHERE a.id_user = ? ORDER BY c.titolo";
 		$stmt = $this->connection->prepare($query);
 		if ($stmt === false) {
 			return [];
@@ -211,7 +211,7 @@ class DBAccess {
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 			}
 		} else {
-			$stmt->bind_result($id, $titolo, $immagine, $categoria, $durata, $costo, $modalita, $breveDesc, $descCompleta);
+			$stmt->bind_result($id, $titolo, $immagine, $categoria, $durata, $costo, $modalita, $breveDesc, $descCompleta, $dataAcquisto);
 			while ($stmt->fetch()) {
 				$rows[] = [
 					'id' => $id,
@@ -222,7 +222,8 @@ class DBAccess {
 					'costo' => $costo,
 					'modalita' => $modalita,
 					'breve_desc' => $breveDesc,
-					'desc_completa' => $descCompleta
+					'desc_completa' => $descCompleta,
+					'data_acquisto' => $dataAcquisto
 				];
 			}
 		}
@@ -293,6 +294,35 @@ class DBAccess {
 			while ($stmt->fetch()) {
 				$rows[] = [
 					'id_user' => $user,
+					'rating' => $rating,
+					'descrizione' => $descrizione
+				];
+			}
+		}
+		$stmt->close();
+		return $rows;
+	}
+
+	public function getRecensioniByUser($username): array {
+		$query = "SELECT r.id_corso, c.titolo, r.rating, r.descrizione FROM Recensione r JOIN Corso c ON r.id_corso=c.id WHERE r.id_user = ? ORDER BY r.id_corso";
+		$stmt = $this->connection->prepare($query);
+		if ($stmt === false) {
+			return [];
+		}
+		$stmt->bind_param("s", $username);
+		$stmt->execute();
+		$rows = [];
+		if (method_exists($stmt, 'get_result')) {
+			$result = $stmt->get_result();
+			if ($result && $result->num_rows > 0) {
+				$rows = $result->fetch_all(MYSQLI_ASSOC);
+			}
+		} else {
+			$stmt->bind_result($id_corso, $titolo, $rating, $descrizione);
+			while ($stmt->fetch()) {
+				$rows[] = [
+					'id_corso' => $id_corso,
+					'titolo' => $titolo,
 					'rating' => $rating,
 					'descrizione' => $descrizione
 				];

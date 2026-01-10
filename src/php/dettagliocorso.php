@@ -98,12 +98,17 @@ if (!empty($_SESSION['is_admin'])) {
     if (!isset($_SESSION['user'])) {
         $azioneHtml = '<a href="/src/php/accedi.php" class="confirm-registration">Accedi per acquistare</a>';
     } elseif ($haAcquistato) {
-        $azioneHtml = '<form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="confirm-registration">Elimina</button></form>';
+        /*$azioneHtml = '<form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="confirm-registration">Elimina</button></form>';*/
     } else {
         $azioneHtml = '<form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="confirm-registration">Compra gratis</button></form>';
     }
 }
-replaceContent("azione-corso", $azioneHtml, $paginaHTML);
+
+if (!empty($azioneHtml)) {
+    replaceContent("azione-corso", $azioneHtml, $paginaHTML);
+} else {
+    replaceContent("azione-corso", '', $paginaHTML);
+}
 
 $recensioniHtml = '';
 if (!empty($recensioni)) {

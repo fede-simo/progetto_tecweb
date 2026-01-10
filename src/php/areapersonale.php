@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: /src/php/accedi.php");
+    header("Location: ../php/accedi.php");
     exit();
 }
 
@@ -14,49 +14,87 @@ $paginaHTML = str_replace('{username}', $username, $paginaHTML);
 require_once "dbConnection.php";
 require_once "helpers.php";
 
-$adminLink = '';
-if (!empty($_SESSION['is_admin'])) {
-    $adminLink = '<a href="/src/php/admin.php" class="confirm-registration">Pannello admin</a>';
-    replaceContent("miei-corsi-section", '', $paginaHTML);
-}
-replaceContent("admin-link", $adminLink, $paginaHTML);
 
+if (!empty($_SESSION['is_admin'])) {
+    header("Location: ../php/admin.php");
+    exit();
+}
+ 
 $corsiHtml = '';
+$corsi = [];
+$noCorsi ='
+    <section class="welcome-form">
+        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="../php/corsi.php">rimedia</a>.</h4>
+    </section>';
+
+$recensioni = [];
+$recensioniHtml = '';
+$noRecensioni ='
+    <section class="welcome-form">
+        <h4 class="viz-msg">Non hai ancora pubblicato alcuna recensione.</h4>
+    </section>';
+
+
 try {
-    $connessione = new DB\DBAccess();
-    $conn = $connessione->openConnection();
+    $db = new DB\DBAccess();
+    $conn = $db->openConnection();
+
     if ($conn) {
-        $corsi = $connessione->getCorsiByUser($_SESSION['user']);
-        $connessione->closeConnection();
-    } else {
-        $corsi = [];
+        try {
+            $corsi = $db->getCorsiByUser($_SESSION['user']);
+        } catch (Throwable $e) {
+            $corsi = [];
+        }
+
+        try {
+            $recensioni = $db->getRecensioniByUser($_SESSION['user']);
+        } catch (Throwable $e) {
+            $recensioni = [];
+        }
+
+        $db->closeConnection();
     }
 } catch (Throwable $e) {
-    $corsi = [];
+    $corsiHtml .= '<p>Si è verificato un errore. Riprova più tardi.</p>';
+    // TODO: POSSIBILE PAG 500 O 404??
 }
 
-if (!empty($corsi)) {
+
+if (!empty($corsi)) {    
     foreach ($corsi as $corso) {
+        $modalita = allyModCorso($corso['modalita']);
         $corsiHtml .=
-        '<div class="corsi">
-            <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-corso" alt="">
-            <dt class="titolo-corso"><a href="/src/php/dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
-            <dd>
-                <ul class="lista-info-corso">
-                    <li class="categoria-corso">' . htmlspecialchars($corso['categoria']) . '</li>
-                    <li class="durata-corso">' . htmlspecialchars($corso['durata']) . ' ore</li>
-                    <li class="prezzo-corso">€ ' . htmlspecialchars($corso['costo']) . '</li>
-                    <li class="locazione-corso" lang="en">' . htmlspecialchars($corso['modalita']) . '</li>
-                </ul>
-            </dd>
-            <h6 class="descrizione-corso">' . htmlspecialchars($corso['breve_desc']) . '</h6>
-        </div>';
+        '<tr>
+            <td><a href="../php/dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></td>
+            <td>' . htmlspecialchars($corso['categoria']) . '</td>
+            <td>' . htmlspecialchars($corso['durata']) . ' ore</td>
+            <td>€ ' . htmlspecialchars($corso['costo']) . '</td>
+            <td>' . $modalita . '</td>
+            <td>' . htmlspecialchars($corso['data_acquisto']) . '</td>
+        </tr>';
     }
+    replaceContent("miei-corsi", $corsiHtml, $paginaHTML);
 } else {
-    if (empty($_SESSION['is_admin'])) $corsiHtml = '<p>Non hai ancora corsi acquistati.</p>';
+    replaceContent("miei-corsi-section", $noCorsi, $paginaHTML);
+    replaceContent("tabella-corsi-acquistati", "", $paginaHTML);
 }
 
-replaceContent("miei-corsi", $corsiHtml, $paginaHTML);
+if (!empty($recensioni)) {   
+    foreach ($recensioni as $recensione) {
+        $recensioniHtml .=
+        '<tr>
+            <td><a href="../php/dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></td>
+            <td>' . htmlspecialchars($recensione['rating']) . '</td>
+            <td>' . htmlspecialchars($recensione['descrizione']) . '</td>
+            <td><button type="button" class="btn-modify">Modifica</button></td>
+            <td><button type="button" class="btn-danger">Elimina</button></td>
+        </tr>';
+    }
+    replaceContent("mie-recensioni", $recensioniHtml, $paginaHTML);
+} else {
+    replaceContent("mie-recensioni-section", $noRecensioni, $paginaHTML);
+    replaceContent("tabella-recensioni", "", $paginaHTML);
+}
 
 echo $paginaHTML;
 

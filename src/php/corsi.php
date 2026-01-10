@@ -7,9 +7,6 @@ $paginaHTML = file_get_contents('../html/corsi.html');
 $corsi = "";
 $corsiUpdated = "";
 
-//echo $paginaHTML;
-
-
 
 try {
     $connessione = new DB\DBAccess();
@@ -42,18 +39,11 @@ $formCategoria = 'value="'.$categoria.'"';
 
 // aggiornamento corsi per categoria
 
-/*
-SESSION START
-
-session_start();
-
-$isLogged = isset($_SESSION['user_id']);
-
-*/
 
 if (!empty($corsi)) {
 
     foreach ($corsi as $corso) {
+        $modalita = allyModCorso(htmlspecialchars($corso['modalita']));
         $corsiUpdated .= 
         '<div class="corsi">
             <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-corso">
@@ -63,7 +53,7 @@ if (!empty($corsi)) {
                     <li class="categoria-corso">' . htmlspecialchars($corso['categoria']) . '</li>
                     <li class="durata-corso">' . htmlspecialchars($corso['durata']) . ' ore</li>
                     <li class="prezzo-corso">€ ' . htmlspecialchars($corso['costo']) . '</li>
-                    <li class="locazione-corso" lang="en">' . htmlspecialchars($corso['modalita']) . '</li>
+                    <li class="locazione-corso">' . $modalita . '</li>
                 </ul>
             </dd>
             <h6 class="descrizione-corso">' . htmlspecialchars($corso['breve_desc']) . '</h6>
