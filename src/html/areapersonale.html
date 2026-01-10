@@ -56,10 +56,20 @@
 
             <!--{start-tabella-corsi-acquistati}-->
             <div class="corsi-acquistati">
-                <table class="tabella-corsi-acquistati">
+                <span id="sumAcquisti" class="visually-hidden">In questa tabella vengono riassunti i dati dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
+                <table class="tabella-corsi-acquistati" aria-describedby="sumAcquisti">
+                    <caption>Corsi</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
                     <thead>
                         <tr>
-                            <th scope="col">TITOLO</th>
+                            <th scope="col" abbr="Corso">TITOLO CORSO</th>
                             <th scope="col">CATEGORIA</th>
                             <th scope="col">DURATA</th>
                             <th scope="col">PREZZO</th>
@@ -84,13 +94,21 @@
     
             <h2>Le mie recensioni</h2>
 
-
             <!--{start-tabella-recensioni}-->
             <div class="recensioni-effettuate">
-                <table class="tabella-recensioni-effettuate">
+                <span id="sumRecensioni" class="visually-hidden">In questa tabella vengono riassunti i dati delle recensioni pubblicate: titolo corso, voto, descrizione.</span>
+                <table class="tabella-recensioni-effettuate" aria-describedby="sumRecensioni">
+                    <caption>Recensioni</caption>
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
                     <thead>
                         <tr>
-                            <th scope="col">TITOLO CORSO</th>
+                            <th scope="col" abbr="Corso">TITOLO CORSO</th>
                             <th scope="col">VOTO</th>
                             <th scope="col">DESCRIZIONE</th>
                             <th scope="col"></th>

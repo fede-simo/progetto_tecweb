@@ -65,12 +65,12 @@ if (!empty($corsi)) {
         $modalita = allyModCorso($corso['modalita']);
         $corsiHtml .=
         '<tr>
-            <td><a href="../php/dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></td>
-            <td>' . htmlspecialchars($corso['categoria']) . '</td>
-            <td>' . htmlspecialchars($corso['durata']) . ' ore</td>
-            <td>€ ' . htmlspecialchars($corso['costo']) . '</td>
-            <td>' . $modalita . '</td>
-            <td>' . htmlspecialchars($corso['data_acquisto']) . '</td>
+            <th scope="row"><a href="../php/dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></th>
+            <td data-title="Categoria">' . htmlspecialchars($corso['categoria']) . '</td>
+            <td data-title="Durata">' . htmlspecialchars($corso['durata']) . ' ore</td>
+            <td data-title="Prezzo">€ ' . htmlspecialchars($corso['costo']) . '</td>
+            <td data-title="Modalità">' . $modalita . '</td>
+            <td data-title="Data acquisto">' . htmlspecialchars($corso['data_acquisto']) . '</td>
         </tr>';
     }
     replaceContent("miei-corsi", $corsiHtml, $paginaHTML);
@@ -83,11 +83,11 @@ if (!empty($recensioni)) {
     foreach ($recensioni as $recensione) {
         $recensioniHtml .=
         '<tr>
-            <td><a href="../php/dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></td>
-            <td>' . htmlspecialchars($recensione['rating']) . '</td>
-            <td>' . htmlspecialchars($recensione['descrizione']) . '</td>
-            <td><button type="button" class="btn-modify">Modifica</button></td>
-            <td><button type="button" class="btn-danger">Elimina</button></td>
+            <th scope="row"><a href="../php/dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
+            <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
+            <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
+            <td data-title=""><button type="button" class="btn-modify">Modifica</button></td>
+            <td data-title=""><button type="button" class="btn-danger">Elimina</button></td>
         </tr>';
     }
     replaceContent("mie-recensioni", $recensioniHtml, $paginaHTML);
