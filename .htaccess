@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteCond %{THE_REQUEST} \s/mmarcon/index(\.php)? [NC]
+RewriteRule ^index(\.php)?$ /mmarcon/ [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/mmarcon/([^.]+)\.php [NC]
+RewriteRule ^([^.]+)\.php$ /mmarcon/%1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^.]+)$ $1.php [L]
+
+DirectoryIndex index.php
+
+ErrorDocument 404 /mmarcon/html/404.html
+ErrorDocument 500 /mmarcon/html/500.html
