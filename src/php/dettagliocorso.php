@@ -52,6 +52,7 @@ try {
     $corso = $connessione->getCorsoById($id);
     $recensioni = $connessione->getRecensioniByCorso($id);
     $haAcquistato = isset($_SESSION['user']) ? $connessione->hasAcquisto($_SESSION['user'], $id) : false;
+    $haRecensito = isset($_SESSION['user']) ? $connessione->hasRecensione($_SESSION['user'], $id) : false;
     $connessione->closeConnection();
 } catch (Throwable $e) {
     $paginaHTML = str_replace('{titolo}', 'Errore', $paginaHTML);
@@ -121,7 +122,7 @@ if (!empty($recensioni)) {
 replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 
 $formRecensione = '';
-if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato) {
+if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
         <form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="register-form">
             <input type="hidden" name="action" value="recensisci">

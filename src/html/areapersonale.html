@@ -52,14 +52,12 @@
         </section>
         <!--{start-miei-corsi-section}-->
         <section class="corso-section">
-    
-            <h2>I miei corsi</h2>
 
             <!--{start-tabella-corsi-acquistati}-->
             <div class="corsi-acquistati">
                 <span id="sumAcquisti" class="visually-hidden">In questa tabella vengono riassunti i dati dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
                 <table class="tabella-corsi-acquistati" aria-describedby="sumAcquisti">
-                    <caption>Corsi</caption>
+                    <caption class="table-caption">Corsi</caption>
                     <colgroup>
                         <col>
                         <col>
@@ -80,8 +78,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!--{start-miei-corsi}-->
-                        <!--{end-miei-corsi}-->
+                        <!--{start-miei-corsi-table}-->
+                        <!--{end-miei-corsi-table}-->
                     </tbody>
                 </table>  
                 <!--{end-tabella-corsi-acquistati}-->  
@@ -92,33 +90,31 @@
 
         <!--{start-mie-recensioni-section}-->
         <section class="recensioni-section">
-    
-            <h2>Le mie recensioni</h2>
 
             <!--{start-tabella-recensioni}-->
             <div class="recensioni-effettuate">
                 <span id="sumRecensioni" class="visually-hidden">In questa tabella vengono riassunti i dati delle recensioni pubblicate: titolo corso, voto, descrizione.</span>
                 <table class="tabella-recensioni-effettuate" aria-describedby="sumRecensioni">
-                    <caption>Recensioni</caption>
+                    <caption class="table-caption">Recensioni</caption>
                     <colgroup>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
+                        <col class="rec-titolo">
+                        <col class="rec-voto">
+                        <col class="rec-descrizione">
+                        <col class="rec-modifica">
+                        <col class="rec-elimina">
                     </colgroup>
                     <thead>
                         <tr>
-                            <th scope="col" abbr="Corso">TITOLO CORSO</th>
-                            <th scope="col">VOTO</th>
-                            <th scope="col">DESCRIZIONE</th>
+                            <th class="cont" scope="col" abbr="Corso">TITOLO CORSO</th>
+                            <th class="cont" scope="col">VOTO</th>
+                            <th class="cont" scope="col">DESCRIZIONE</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!--{start-mie-recensioni}-->
-                        <!--{end-mie-recensioni}-->
+                        <!--{start-mie-recensioni-table}-->
+                        <!--{end-mie-recensioni-table}-->
                     </tbody>
                 </table> 
             <!--{end-tabella-recensioni}-->

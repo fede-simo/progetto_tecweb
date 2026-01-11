@@ -66,14 +66,17 @@ CREATE TABLE Acquisto(
   COLLATE = utf8_unicode_ci;
 
 
-CREATE TABLE Recensione(
+CREATE TABLE Recensione (
+    id INT UNSIGNED AUTO_INCREMENT,
     id_user VARCHAR(30) NOT NULL,
     id_corso INT UNSIGNED NOT NULL,
-    rating DECIMAL(3,1) NOT NULL,
+    rating DECIMAL(2,1) NOT NULL,
     descrizione VARCHAR(1000),
-    FOREIGN KEY (id_user) REFERENCES Utente(username) ON DELETE CASCADE,
-    FOREIGN KEY (id_corso) REFERENCES Corso(id) ON DELETE CASCADE,
-    PRIMARY KEY(id_user, id_corso)
+    PRIMARY KEY (id),
+    UNIQUE (id_user, id_corso),
+    FOREIGN KEY (id_user, id_corso)
+        REFERENCES Acquisto(id_user, id_corso)
+        ON DELETE CASCADE
 ) ENGINE=InnoDB
   DEFAULT CHARSET = utf8
   COLLATE = utf8_unicode_ci;

@@ -33,7 +33,6 @@ class DBAccess {
 
 		$query = "SELECT DISTINCT c.* FROM Corso c";	
 		
-
 		if ($categoria !== 'all') {
 			$query .= " INNER JOIN CorsoCategoria cc ON cc.id_corso = c.id INNER JOIN Categoria cat ON cat.id = cc.id_categoria WHERE cat.nome = ?";
 		}
@@ -251,6 +250,26 @@ class DBAccess {
 		return $found;
 	}
 
+	public function hasRecensione($username, $idCorso): bool {
+		$query = "SELECT 1 FROM Recensione WHERE id_user = ? AND id_corso = ?";
+		$stmt = $this->connection->prepare($query);
+		if ($stmt === false) {
+			return false;
+		}
+		$stmt->bind_param("si", $username, $idCorso);
+		$stmt->execute();
+		$found = false;
+		if (method_exists($stmt, 'get_result')) {
+			$result = $stmt->get_result();
+			$found = $result && $result->num_rows > 0;
+		} else {
+			$stmt->store_result();
+			$found = $stmt->num_rows > 0;
+		}
+		$stmt->close();
+		return $found;
+	}
+
 	public function acquistaCorso($username, $idCorso): bool {
 		$query = "INSERT INTO Acquisto(id_user, id_corso, data) VALUES (?, ?, CURDATE())";
 		$stmt = $this->connection->prepare($query);
@@ -263,6 +282,8 @@ class DBAccess {
 		return $ok;
 	}
 
+
+	//TODO: forse non necessaria
 	public function eliminaAcquisto($username, $idCorso): bool {
 		$query = "DELETE FROM Acquisto WHERE id_user = ? AND id_corso = ?";
 		$stmt = $this->connection->prepare($query);
@@ -304,7 +325,7 @@ class DBAccess {
 	}
 
 	public function getRecensioniByUser($username): array {
-		$query = "SELECT r.id_corso, c.titolo, r.rating, r.descrizione FROM Recensione r JOIN Corso c ON r.id_corso=c.id WHERE r.id_user = ? ORDER BY r.id_corso";
+		$query = "SELECT r.id, r.id_corso, c.titolo, r.rating, r.descrizione FROM Recensione r JOIN Corso c ON r.id_corso=c.id WHERE r.id_user = ? ORDER BY r.id_corso";
 		$stmt = $this->connection->prepare($query);
 		if ($stmt === false) {
 			return [];
@@ -318,9 +339,10 @@ class DBAccess {
 				$rows = $result->fetch_all(MYSQLI_ASSOC);
 			}
 		} else {
-			$stmt->bind_result($id_corso, $titolo, $rating, $descrizione);
+			$stmt->bind_result($id, $id_corso, $titolo, $rating, $descrizione);
 			while ($stmt->fetch()) {
 				$rows[] = [
+					'id' => $id,
 					'id_corso' => $id_corso,
 					'titolo' => $titolo,
 					'rating' => $rating,
@@ -564,6 +586,30 @@ class DBAccess {
 		$stmt->close();
 		return true;		
 	}	
+
+	public function eliminaRecensione($id, $user) : bool {
+		$select = "DELETE FROM Recensione WHERE id = ? AND id_user = ?";
+		$stmt = $this->connection->prepare($select);
+		if ($stmt === false) {
+			return false;
+		}
+		$stmt->bind_param("is", $id, $user);
+		$ok = $stmt->execute();
+		$stmt->close();
+		return $ok;
+	}
+
+	public function modificaRecensione($id, $rating, $descrizione) : bool {
+		$query = "UPDATE Recensione SET rating = ?, descrizione = ? WHERE id = ?";
+		$stmt = $this->connection->prepare($query);
+		if ($stmt === false) {
+			return false;
+		}
+		$stmt->bind_param("dsi", $rating, $descrizione, $id);
+		$ok = $stmt->execute();
+		$stmt->close();
+		return $ok;
+	}
 }
 
 ?>

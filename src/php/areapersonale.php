@@ -31,7 +31,7 @@ $recensioni = [];
 $recensioniHtml = '';
 $noRecensioni ='
     <section class="welcome-form">
-        <h4 class="viz-msg">Non hai ancora pubblicato alcuna recensione.</h4>
+        <h4 class="viz-msg">Non hai alcuna recensione pubblicata.</h4>
     </section>';
 
 
@@ -73,27 +73,33 @@ if (!empty($corsi)) {
             <td data-title="Data acquisto">' . htmlspecialchars($corso['data_acquisto']) . '</td>
         </tr>';
     }
-    replaceContent("miei-corsi", $corsiHtml, $paginaHTML);
+    replaceContent("miei-corsi-table", $corsiHtml, $paginaHTML);
 } else {
     replaceContent("miei-corsi-section", $noCorsi, $paginaHTML);
-    replaceContent("tabella-corsi-acquistati", "", $paginaHTML);
 }
 
 if (!empty($recensioni)) {   
     foreach ($recensioni as $recensione) {
+        // se vuole modificare la recensione, cancella e ne fa un'altra
         $recensioniHtml .=
         '<tr>
             <th scope="row"><a href="../php/dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
             <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
             <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
-            <td data-title=""><button type="button" class="btn-modify">Modifica</button></td>
-            <td data-title=""><button type="button" class="btn-danger">Elimina</button></td>
+            <td data-title=""><a class="action-btn" href="../php/modificarecensione.php?id=' . urlencode($recensione['id']) . '">MODIFICA</a></td>
+            <td data-title=""><form action="../php/eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
+                onsubmit="return confirm(\'Sei sicuro di voler eliminare questa recensione?\');">
+                <input type="hidden" name="id_corso"
+                    value="<?= htmlspecialchars($recensione[\'id_corso\']) ?>">
+                <button type="submit" class="action-btn action-btn-danger">
+                    ELIMINA
+                </button>
+            </form></td>
         </tr>';
     }
-    replaceContent("mie-recensioni", $recensioniHtml, $paginaHTML);
+    replaceContent("mie-recensioni-table", $recensioniHtml, $paginaHTML);
 } else {
     replaceContent("mie-recensioni-section", $noRecensioni, $paginaHTML);
-    replaceContent("tabella-recensioni", "", $paginaHTML);
 }
 
 echo $paginaHTML;
