@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Area personale | Prophit</title> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina dei corsi Prophit di finanza personale su crypto, azioni ed ETF"> <!-- Placeholder -->
+    <meta name="keywords" content="Prophit, area personale, area riservata, utente, profilo"> <!-- Aggiungerne eventualmente altre in base alle funzioni che mettiamo -->
+    
+    <link rel="stylesheet" href="../css/styles.css" media="screen">
+    <!--<script src="../js/buttonsManager.js" defer></script>-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1>Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="../php/index.php">Home</a></li>
+                <li><a href="../php/chisiamo.php">Chi siamo</a></li>
+                <li><a href="../php/corsi.php">Corsi</a></li>
+                <li lang="en"><a href="../php/news">News</a></li>
+                <li><a href="../php/contatti.php">Contatti</a></li>
+            </ul>
+        </nav>
+        <div>
+            <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
+            <a href="../php/areapersonale.php" class="highlight-button">Area personale</a>
+        </div>
+    </header>   
+
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="../php/index.php" lang="en">Home</a> > <a class="breadcrumb-link" href="../php/areapersonale.php">Area personale</a> > Modifica recensione</p>
+    </nav>
+
+    <main id="main">
+        <section class="welcome-form">
+            <h4 class="viz-msg">Modifica la tua recensione:</h4>
+        </section>
+
+        <section class="modifica-recensione-section">
+            <!--{start-azione-form}-->
+            <form action="../php/modificarecensione.php" method="POST" class="register-form">    
+            <!--{end-azione-form}-->             
+                <div class="form-group">
+                    <label for="rating">Voto (1-5)</label>
+                    <input type="number" id="rating" name="rating" min="1" max="5" step="0.5" value="{rating}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descrizione">Recensione</label>
+                    <textarea id="descrizione" name="descrizione" rows="4" required>{descrizione}</textarea>
+                </div>
+
+                <div class="errore">
+                <!--{start-errore}-->
+                
+                <!--{end-errore}-->
+                </div>
+
+                <button type="submit" class="confirm-registration">Invia recensione</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        
+    </footer>
+</body>
+</html>

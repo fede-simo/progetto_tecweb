@@ -33,7 +33,7 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = isset($_POST['action']) ? $_POST['action'] : '';
         if (!isset($_SESSION['user'])) {
-            header("Location: /src/php/accedi.php");
+            header("Location: ../php/accedi.php");
             exit();
         }
         if ($action === 'acquista') {
@@ -93,15 +93,13 @@ $paginaHTML = str_replace('{durata}', htmlspecialchars($corso['durata']), $pagin
 $paginaHTML = str_replace('{desc_completa}', nl2br(htmlspecialchars($corso['desc_completa'])), $paginaHTML);
 
 $azioneHtml = '';
-if (!empty($_SESSION['is_admin'])) {
-    $azioneHtml = '<p>Sei amministratore. Gestisci i corsi dal <a href="/src/php/admin.php">pannello admin</a>.</p>';
-} else {
+if (empty($_SESSION['is_admin'])) {
     if (!isset($_SESSION['user'])) {
-        $azioneHtml = '<a href="/src/php/accedi.php" class="confirm-registration">Accedi per acquistare</a>';
+        $azioneHtml = '<a href="../php/accedi.php" class="confirm-registration">Accedi per acquistare</a>';
     } elseif ($haAcquistato) {
-        /*$azioneHtml = '<form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="confirm-registration">Elimina</button></form>';*/
+        /*$azioneHtml = '<form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="confirm-registration">Elimina</button></form>';*/
     } else {
-        $azioneHtml = '<form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="confirm-registration">Compra gratis</button></form>';
+        $azioneHtml = '<form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="confirm-registration">Compra gratis</button></form>';
     }
 }
 
@@ -124,7 +122,7 @@ replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
-        <form action="/src/php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="register-form">
+        <form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="register-form">
             <input type="hidden" name="action" value="recensisci">
             <div class="form-group">
                 <label for="rating">Voto (1-5)</label>

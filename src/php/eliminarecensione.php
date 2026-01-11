@@ -4,13 +4,14 @@ require_once "dbConnection.php";
 require_once "helpers.php";
 
 session_start();
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-// per debug
-if ($id <= 0) {
-    echo $id;
+if (!isset($_SESSION['user'])) {
+    header('Location: ../php/accedi.php');
     exit();
 }
+
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
 
 if (!isset($_SESSION['user'])) {
     header("Location: accedi.php");
@@ -32,8 +33,9 @@ try {
     }
 
     $connessione->eliminaRecensione($id, $_SESSION['user']);
+    $connessione->closeConnection();
+
 } catch (Throwable $e) {
-    echo 'errore nella query';
 }
 
 header("Location: areapersonale.php");

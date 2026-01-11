@@ -599,16 +599,44 @@ class DBAccess {
 		return $ok;
 	}
 
-	public function modificaRecensione($id, $rating, $descrizione) : bool {
-		$query = "UPDATE Recensione SET rating = ?, descrizione = ? WHERE id = ?";
+	public function modificaRecensione($user, $id, $rating, $descrizione) : bool {
+		$query = "UPDATE Recensione SET rating = ?, descrizione = ? WHERE id = ? AND id_user = ?";
 		$stmt = $this->connection->prepare($query);
 		if ($stmt === false) {
 			return false;
 		}
-		$stmt->bind_param("dsi", $rating, $descrizione, $id);
+		$stmt->bind_param("dsis", $rating, $descrizione, $id, $user);
 		$ok = $stmt->execute();
 		$stmt->close();
 		return $ok;
+	}
+
+	public function getRecensioneById($id) : array {
+		$query = "SELECT rating, descrizione FROM Recensione WHERE id = ?";
+		$stmt = $this->connection->prepare($query);
+		if ($stmt === false) {
+			return [];
+		}
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$rows = [];
+		if (method_exists($stmt, 'get_result')) {
+			$result = $stmt->get_result();
+			if ($result && $result->num_rows > 0) {
+				$rows = $result->fetch_all(MYSQLI_ASSOC);
+			}
+		} else {
+			$stmt->bind_result($rating, $descrizione);
+			while ($stmt->fetch()) {
+				$rows[] = [
+					'rating' => $rating,
+					'descrizione' => $descrizione
+				];
+			}
+		}
+		$stmt->close();
+		return $rows;
+
 	}
 }
 
