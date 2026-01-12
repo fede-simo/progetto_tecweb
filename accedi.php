@@ -1,9 +1,9 @@
 <?php
 
-require_once "helpers.php";
-require_once "dbConnection.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
-$paginaHTML = file_get_contents('../html/accedi.html');
+$paginaHTML = file_get_contents('./html/accedi.html');
 $err = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION['user'] = $utente['username'];
             $_SESSION['is_admin'] = (bool) $utente['isAdmin'];
-            header("Location: ../php/areapersonale.php");
+            header("Location: ./areapersonale.php");
             exit();
         }
 

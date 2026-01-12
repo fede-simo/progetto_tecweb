@@ -1,9 +1,9 @@
 <?php
 
-require_once "helpers.php";
-require_once "dbConnection.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
-$paginaHTML = file_get_contents('../html/corsi.html');
+$paginaHTML = file_get_contents('./html/corsi.html');
 $corsi = "";
 $corsiUpdated = "";
 

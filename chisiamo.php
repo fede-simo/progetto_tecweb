@@ -1,4 +1,4 @@
 <?php
-$paginaHTML = file_get_contents('../html/chisiamo.html');
+$paginaHTML = file_get_contents('./html/chisiamo.html');
 echo $paginaHTML;
 ?>

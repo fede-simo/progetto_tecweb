@@ -3,20 +3,20 @@
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: ../php/accedi.php");
+    header("Location: ./accedi.php");
     exit();
 }
 
-$paginaHTML = file_get_contents('../html/areapersonale.html');
+$paginaHTML = file_get_contents('./html/areapersonale.html');
 $username = htmlspecialchars($_SESSION['user'], ENT_QUOTES);
 $paginaHTML = str_replace('{username}', $username, $paginaHTML);
 
-require_once "dbConnection.php";
-require_once "helpers.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
 
 if (!empty($_SESSION['is_admin'])) {
-    header("Location: ../php/admin.php");
+    header("Location: ./admin.php");
     exit();
 }
  
@@ -24,7 +24,7 @@ $corsiHtml = '';
 $corsi = [];
 $noCorsi ='
     <section class="welcome-form">
-        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="../php/corsi.php">rimedia</a>.</h4>
+        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="./php/corsi.php">rimedia</a>.</h4>
     </section>';
 
 $recensioni = [];

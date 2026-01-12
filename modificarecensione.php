@@ -1,16 +1,16 @@
 <?php
 
-require_once "helpers.php";
-require_once "dbConnection.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: ../php/accedi.php');
+    header('Location: ./accedi.php');
     exit();
 }
 
-$paginaHTML = file_get_contents('../html/modificarecensione.html');
+$paginaHTML = file_get_contents('./html/modificarecensione.html');
 
 $err = '';
 $recensione = "";
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 }
 
-$form = '<form action="../php/modificarecensione.php?id='. urlencode($id) .'" method="POST" class="register-form">  ';
+$form = '<form action="./modificarecensione.php?id='. urlencode($id) .'" method="POST" class="register-form">  ';
 replaceContent('azione-form', $form, $paginaHTML);
 
 $paginaHTML = str_replace("{rating}",htmlspecialchars($recensione['rating']), $paginaHTML);

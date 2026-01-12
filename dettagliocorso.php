@@ -1,16 +1,16 @@
 <?php
 
-require_once "helpers.php";
-require_once "dbConnection.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
 session_start();
 
-$paginaHTML = file_get_contents('../html/dettagliocorso.html');
+$paginaHTML = file_get_contents('./html/dettagliocorso.html');
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 if ($id <= 0) {
     $paginaHTML = str_replace('{titolo}', 'Corso non trovato', $paginaHTML);
-    $paginaHTML = str_replace('{immagine}', '../../img/foto-corso-1.jpg', $paginaHTML);
+    $paginaHTML = str_replace('{immagine}', './img/foto-corso-1.jpg', $paginaHTML);
     $paginaHTML = str_replace('{breve_desc}', 'Il corso richiesto non esiste.', $paginaHTML);
     $paginaHTML = str_replace('{prezzo}', '--', $paginaHTML);
     $paginaHTML = str_replace('{tipologia}', '--', $paginaHTML);
@@ -33,7 +33,7 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = isset($_POST['action']) ? $_POST['action'] : '';
         if (!isset($_SESSION['user'])) {
-            header("Location: ../php/accedi.php");
+            header("Location: ./accedi.php");
             exit();
         }
         if ($action === 'acquista') {
@@ -56,7 +56,7 @@ try {
     $connessione->closeConnection();
 } catch (Throwable $e) {
     $paginaHTML = str_replace('{titolo}', 'Errore', $paginaHTML);
-    $paginaHTML = str_replace('{immagine}', '../../img/foto-corso-1.jpg', $paginaHTML);
+    $paginaHTML = str_replace('{immagine}', './img/foto-corso-1.jpg', $paginaHTML);
     $paginaHTML = str_replace('{breve_desc}', 'Si è verificato un errore. Riprova più tardi.', $paginaHTML);
     $paginaHTML = str_replace('{prezzo}', '--', $paginaHTML);
     $paginaHTML = str_replace('{tipologia}', '--', $paginaHTML);
@@ -71,7 +71,7 @@ try {
 
 if (!$corso) {
     $paginaHTML = str_replace('{titolo}', 'Corso non trovato', $paginaHTML);
-    $paginaHTML = str_replace('{immagine}', '../../img/foto-corso-1.jpg', $paginaHTML);
+    $paginaHTML = str_replace('{immagine}', './img/foto-corso-1.jpg', $paginaHTML);
     $paginaHTML = str_replace('{breve_desc}', 'Il corso richiesto non esiste.', $paginaHTML);
     $paginaHTML = str_replace('{prezzo}', '--', $paginaHTML);
     $paginaHTML = str_replace('{tipologia}', '--', $paginaHTML);
@@ -95,11 +95,11 @@ $paginaHTML = str_replace('{desc_completa}', nl2br(htmlspecialchars($corso['desc
 $azioneHtml = '';
 if (empty($_SESSION['is_admin'])) {
     if (!isset($_SESSION['user'])) {
-        $azioneHtml = '<a href="../php/accedi.php" class="confirm-registration">Accedi per acquistare</a>';
+        $azioneHtml = '<a href="../accedi.php" class="confirm-registration">Accedi per acquistare</a>';
     } elseif ($haAcquistato) {
         /*$azioneHtml = '<form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="confirm-registration">Elimina</button></form>';*/
     } else {
-        $azioneHtml = '<form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="confirm-registration">Compra gratis</button></form>';
+        $azioneHtml = '<form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="confirm-registration">Compra gratis</button></form>';
     }
 }
 
@@ -122,7 +122,7 @@ replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
-        <form action="../php/dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="register-form">
+        <form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="register-form">
             <input type="hidden" name="action" value="recensisci">
             <div class="form-group">
                 <label for="rating">Voto (1-5)</label>

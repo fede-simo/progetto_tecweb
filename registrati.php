@@ -40,16 +40,16 @@ function fieldsRestriction($campo, &$err) : bool {
     return true;
 }
 
-require_once "helpers.php";
-require_once "dbConnection.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
-$paginaHTML = file_get_contents("../html/registrati.html");
+$paginaHTML = file_get_contents("./html/registrati.html");
 replaceContent("errore-registrazione", "", $paginaHTML);
 
 session_start();
 
 if (isset($_SESSION["user"])) {
-    header("Location: ../php/areapersonale.php");
+    header("Location: ./areapersonale.php");
     exit();
 }
 
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($result) {
             $_SESSION['user'] = $_POST['username'];
             $_SESSION['is_admin'] = $isAdmin;
-            header("Location: ../php/areapersonale.php");
+            header("Location: ./areapersonale.php");
             exit();
         } else {
             replaceContent("errore-registrazione", $err, $paginaHTML);

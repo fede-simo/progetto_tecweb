@@ -3,7 +3,7 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: ../php/index.php");
+header("Location: ./index.php");
 exit();
 
 ?>

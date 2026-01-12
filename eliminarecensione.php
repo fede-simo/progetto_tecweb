@@ -1,12 +1,12 @@
 <?php
 
-require_once "dbConnection.php";
-require_once "helpers.php";
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
 
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: ../php/accedi.php');
+    header('Location: accedi.php');
     exit();
 }
 

@@ -17,12 +17,12 @@ php -S localhost:8000 -t .
 ```
 
 2) URL principali:
-- Home: `http://localhost:8000/src/php/index.php`
-- Corsi: `http://localhost:8000/src/php/corsi.php`
-- Dettaglio corso: `http://localhost:8000/src/php/dettagliocorso.php?id=1`
-- Area personale: `http://localhost:8000/src/php/areapersonale.php`
-- Admin: `http://localhost:8000/src/php/admin.php`
-- Contatti: `http://localhost:8000/src/php/contatti.php`
+- Home: `http://localhost:8000/index.php`
+- Corsi: `http://localhost:8000/corsi.php`
+- Dettaglio corso: `http://localhost:8000/dettagliocorso.php?id=1`
+- Area personale: `http://localhost:8000/areapersonale.php`
+- Admin: `http://localhost:8000/admin.php`
+- Contatti: `http://localhost:8000/contatti.php`
 
 ## Funzionalita principali
 
@@ -41,6 +41,6 @@ php -S localhost:8000 -t .
 ## Note DB
 
 Lo schema completo e i dati di default sono in:
-- `src/sql/reset_default.sql`
-- `src/sql/prophit.sql`
-- `src/sql/dump.sql`
+- `sql/reset_default.sql`
+- `sql/prophit.sql`
+- `sql/dump.sql`
