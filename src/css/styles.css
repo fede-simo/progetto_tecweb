@@ -296,6 +296,47 @@
         font-size: 2rem;
     }
 
+    .register-form .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .register-form .form-group input,
+    .register-form .form-group select,
+    .register-form .form-group textarea {
+        width: 100%;
+    }
+
+    .register-form .inline-field {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .register-form .inline-field label {
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+
+    .admin-course-form .form-group {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .admin-course-form .form-group label {
+        margin-bottom: 0;
+    }
+
+    .admin-course-form .form-group > input,
+    .admin-course-form .form-group > select,
+    .admin-course-form .form-group > textarea,
+    .admin-course-form .form-group > div {
+        width: 100%;
+    }
+
     fieldset {
         border: 0;
         border-top: 1px solid;
@@ -569,4 +610,12 @@
 img {
     display: none;
 }
+    .admin-course-form .form-group {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .admin-course-form .form-group label {
+        margin-bottom: 0.3rem;
+    }
 }

@@ -132,7 +132,7 @@
         <details>
             <summary>Aggiungi corso</summary>
             <section class="register-form">
-                <form action="../php/admin.php" method="POST" enctype="multipart/form-data">
+                <form action="../php/admin.php" method="POST" enctype="multipart/form-data" class="admin-course-form">
                     <input type="hidden" name="action" value="add-corso">
                     <div class="form-group">
                         <label for="titolo">Titolo</label>
@@ -143,7 +143,7 @@
                         <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.png" required>
                     </div>
                     <div class="form-group">
-                        <label>Categorie</label>
+                        <label for="categorie">Categoria</label>
                         <div>
                             <!--{start-categorie-list}-->
                             <!--{end-categorie-list}-->
@@ -154,7 +154,7 @@
                         <input type="number" id="durata" name="durata" min="1" required>
                     </div>
                     <div class="form-group">
-                        <label for="costo">Costo (euro, multipli di 5)</label>
+                        <label for="costo">Costo (euro)</label>
                         <input type="number" id="costo" name="costo" min="0" step="5" required>
                     </div>
                     <div class="form-group">

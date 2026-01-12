@@ -98,8 +98,6 @@ try {
                 $messaggio = '<p class="errore-registrazione">Carica un\'immagine valida (jpg o png).</p>';
             } elseif ($titolo === '' || empty($categorie) || $durata <= 0 || $modalita === '' || $breveDesc === '' || $descCompleta === '') {
                 $messaggio = '<p class="errore-registrazione">Compila tutti i campi obbligatori.</p>';
-            } elseif ($costo % 5 !== 0.0) {
-                $messaggio = '<p class="errore-registrazione">Il costo deve essere un multiplo di 5.</p>';
             } else {
                 $ok = $connessione->addCorso($titolo, $immaginePath, $categorie, $durata, $costo, $modalita, $breveDesc, $descCompleta);
                 $messaggio = $ok ? '<p>Corso aggiunto.</p>' : '<p class="errore-registrazione">Errore durante l\'inserimento del corso.</p>';
@@ -149,11 +147,12 @@ replaceContent("admin-confirm", $confirmHtml, $paginaHTML);
 
 $categorieHtml = '';
 if (!empty($categorie)) {
-    $categorieHtml .= '<table><tbody>';
+    $categorieHtml .= '<select id="categorie" name="categorie[]" required>';
+    $categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
     foreach ($categorie as $cat) {
-        $categorieHtml .= '<tr><td><label><input type="checkbox" name="categorie[]" value="' . htmlspecialchars($cat['nome']) . '"> ' . htmlspecialchars($cat['nome']) . '</label></td></tr>';
+        $categorieHtml .= '<option value="' . htmlspecialchars($cat['nome']) . '">' . htmlspecialchars($cat['nome']) . '</option>';
     }
-    $categorieHtml .= '</tbody></table>';
+    $categorieHtml .= '</select>';
 }
 replaceContent("categorie-list", $categorieHtml, $paginaHTML);
 
