@@ -2,10 +2,12 @@
 
 session_start();
 
+
 if (!isset($_SESSION['user'])) {
     header("Location: ./accedi.php");
     exit();
 }
+
 
 $paginaHTML = file_get_contents('./html/areapersonale.html');
 $username = htmlspecialchars($_SESSION['user'], ENT_QUOTES);
@@ -24,7 +26,7 @@ $corsiHtml = '';
 $corsi = [];
 $noCorsi ='
     <section class="welcome-form">
-        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="./php/corsi.php">rimedia</a>.</h4>
+        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="./corsi.php">rimedia</a>.</h4>
     </section>';
 
 $recensioni = [];
@@ -65,7 +67,7 @@ if (!empty($corsi)) {
         $modalita = allyModCorso($corso['modalita']);
         $corsiHtml .=
         '<tr>
-            <th scope="row"><a href="../php/dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></th>
+            <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></th>
             <td data-title="Categoria">' . htmlspecialchars($corso['categoria']) . '</td>
             <td data-title="Durata">' . htmlspecialchars($corso['durata']) . ' ore</td>
             <td data-title="Prezzo">€ ' . htmlspecialchars($corso['costo']) . '</td>
@@ -83,11 +85,16 @@ if (!empty($recensioni)) {
         // se vuole modificare la recensione, cancella e ne fa un'altra
         $recensioniHtml .=
         '<tr>
-            <th scope="row"><a href="../php/dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
+            <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
             <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
             <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
-            <td data-title=""><a class="action-btn" href="../php/modificarecensione.php?id=' . urlencode($recensione['id']) . '">MODIFICA</a></td>
-            <td data-title=""><form action="../php/eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
+            <td data-title=""><form action="./modificarecensione.php" method="GET">
+                <input type="hidden" name="id" value="' . $recensione['id'] . '">
+                <button type="submit" class="action-btn">
+                    MODIFICA
+                </button>
+            </form></td>
+            <td data-title=""><form action="./eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
                 onsubmit="return confirm(\'Sei sicuro di voler eliminare questa recensione?\');">
                 <button type="submit" class="action-btn action-btn-danger">
                     ELIMINA

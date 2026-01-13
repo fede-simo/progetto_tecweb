@@ -33,29 +33,29 @@
     }
 
     .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    border: 0;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        border: 0;
     }
 
     .show-on-focus:focus {
-    position: fixed;
-    top: 1em;
-    left: 1em;
-    width: auto;
-    height: auto;
-    padding: 0.5em 1em;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-decoration: underline;
-    clip: auto;
-    overflow: visible;
-    z-index: 1;
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        width: auto;
+        height: auto;
+        padding: 0.5em 1em;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        text-decoration: underline;
+        clip: auto;
+        overflow: visible;
+        z-index: 1;
     }
 
     body {
@@ -153,11 +153,17 @@
         background-color: rgb(31, 145, 99);
     }
 
-    /* main */
+    /*
+    #######################################################################
+    MAIN
+    #######################################################################
+    */
 
 
     main {
         text-align: center;
+        word-break: keep-all; /*per fare in modo che non spezzi le parole*/
+        overflow-wrap: normal;
     }
 
     #breadcrumb {
@@ -271,13 +277,13 @@
     }
 
 
- /*
+    /*
     #######################################################################
-    REGISTRAZIONE
+    REGISTRAZIONE/LOGIN
     #######################################################################
     */
 
-    #register-form, #login-form {
+    .default-form {
         width: 40%;
         margin: 3rem auto;
         padding: 2rem;
@@ -291,42 +297,36 @@
         gap: 1.5rem;
     }
 
-    #register-form h1, #login-form h1 {
+    .default-form h1 {
         text-align: center;
         font-size: 2rem;
     }
 
-    fieldset {
+    .default-form-fieldset {
         border: 0;
         border-top: 1px solid;
     }
 
-    fieldset div{
+    .default-form-fieldset div{
         display: flex;
         flex-direction: column;
     }
 
-    fieldset div label {
+    .default-form-label {
         text-align: left;
         font-size: 1.rem;
         font-weight: bold;
         margin-bottom: 0.3rem;
     }
 
-    fieldset div p {
-        text-align: left;
-    }
-
-    fieldset div input,
-    fieldset div textarea,
-    fieldset div select {
+    .default-form-field {
         padding: 0.8rem;
         border: none;
         border-radius: 8px;
         font-size: 1rem;
     }
 
-    form div button {
+    .default-form-confirm-button {
         padding: 0.8rem;
         background: var(--highlight-background-color);
         border: 2px solid var(--border-color);
@@ -337,17 +337,17 @@
         transition: 0.3s;
     }
 
-    form div button:hover {
+    .default-form-confirm-button:hover {
         transform: scale(1.04);
     }
 
-    .login-link {
+    .default-form-login-link {
         margin-top: 1rem;
         text-align: center;
         font-size: 0.9rem;
     }
 
-    .login-link a {
+    .default-form-login-link a {
         color: var(--highlight-color);
     }
 
@@ -358,11 +358,11 @@
         text-align: left;
     }
 
-    .errore-registrazione p {
+    .default-form-error p {
         color: var(--error-text-color);
         font-size: 1rem;
         font-weight: bold;
-        text-align: left;
+        text-align: center;
     }
 
     .suggerimento {
@@ -461,6 +461,7 @@
         font-weight: 700;
         text-align: left;
         padding-left: 2rem;
+        padding-right: 2rem;
     }
 
     .img-corso{
@@ -657,9 +658,31 @@
         border-radius: 0.4rem;
         cursor: pointer;
     }
+
     .action-btn-danger:hover {
         color: var(--error-text-color);
     }
 
+    /*
+    #######################################################################
+    MODIFICA RECENSIONE
+    #######################################################################
+    */
+
+    #modifica-recensione-form{
+        width: 50%;
+    }
+
+    #modifica-recensione-form .default-form-group {
+        margin-top: 0.5rem;
+    }
+
+    #modifica-recensione-form label {
+        font-size: 1.5rem;
+    }
 
 
+    .recensione-legend {
+        font-size: 1.2rem;
+        padding-right:0.3rem
+    }

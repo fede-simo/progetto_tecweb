@@ -619,24 +619,21 @@ class DBAccess {
 		}
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
-		$rows = [];
+		$row = [];
 		if (method_exists($stmt, 'get_result')) {
 			$result = $stmt->get_result();
-			if ($result && $result->num_rows > 0) {
-				$rows = $result->fetch_all(MYSQLI_ASSOC);
-			}
+			$row = $result->fetch_assoc();
 		} else {
 			$stmt->bind_result($rating, $descrizione);
-			while ($stmt->fetch()) {
-				$rows[] = [
+			if ($stmt->fetch()) {
+				$row[] = [
 					'rating' => $rating,
 					'descrizione' => $descrizione
 				];
-			}
+			} else $row = null;
 		}
 		$stmt->close();
-		return $rows;
-
+		return $row;
 	}
 }
 

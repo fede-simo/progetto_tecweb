@@ -45,26 +45,27 @@
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
 
-        <form id="login-form" name="login-form" action="./accedi.php" method="POST" autocomplete="on">
+        <form id="login-form" class="default-form" name="login-form" action="./accedi.php" method="POST" autocomplete="on">
             <h1>Accedi su Prophit!</h1>
-            <!--{start-errore-login}-->
-            <!--{end-errore-login}-->
-            <fieldset id="Dati di accesso">
-                <legend>Dati di accesso</legend>     
-                 
+            <div class="default-form-error">
+                <!--{start-errore-login}-->
+                <!--{end-errore-login}-->
+            </div>
+            <fieldset class="default-form-fieldset" id="Dati-di-accesso">
+                <legend>Dati di accesso</legend>                 
                 <div>
-                    <label for="username">Nome utente:</label>
-                    <input type="text" name="username" id="username" autocomplete="username">
-                </div>
+                    <label class="default-form-label" for="username">Nome utente:</label>
+                    <input class="default-form-field" type="text" name="username" id="username" autocomplete="username">
+                </div>             
                 <div>
-                    <label for="password" lang="en">Password:</label>
-                    <input type="password" name="password" id="password" autocomplete="current-password">
+                    <label class="default-form-label" for="password" lang="en">Password:</label>
+                    <input class="default-form-field" type="password" name="password" id="password" autocomplete="current-password">
                 </div>
             </fieldset>
             <div>
-                <button type="submit" aria-label="Registrati su Prophit">Accedi</button>
-                <button type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
-                <p class="login-link">Non hai un <span lang="en">account</span>? <a href="./registrati.php">Registrati</a></p>
+                <button class="default-form-confirm-button" type="submit" aria-label="Registrati su Prophit">Accedi</button>
+                <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                <p class="default-form-login-link">Non hai un <span lang="en">account</span>? <a href="./registrati.php">Registrati</a></p>
             </div>
         </form>
     </main>

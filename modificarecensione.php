@@ -16,11 +16,6 @@ $err = '';
 $recensione = "";
 
 
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-if ($id <= 0) {
-    echo $paginaHTML;
-    exit();
-}
 
 /*
 provato a farlo con le robe gia impostate ma non va :(
@@ -40,8 +35,37 @@ try {
 
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
+    $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+    if ($id <= 0) {
+        header("Location: ./areapersonale.php");
+        exit();
+    }
+
+    try {
+        $connessione = new DB\DBAccess();
+        $conn = $connessione->openConnection();
+        if (!$conn) throw new Exception('Connessione al database non riuscita.');
+
+        $recensione = $connessione->getRecensioneById($id);
+        $connessione->closeConnection();
+
+
+    } catch (Exception $e){
+        echo $e->getMessage();
+    }
+
+    $paginaHTML = str_replace("{rating}",htmlspecialchars($recensione['rating']), $paginaHTML);
+    $paginaHTML = str_replace("{descrizione}",htmlspecialchars($recensione['descrizione']), $paginaHTML);
+    $paginaHTML = str_replace("{id}", $id, $paginaHTML);
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "din";
+
+    $id = isset($_POST['id']) ? (int) $_POST['id'] : 0;
     $rating = isset($_POST['rating']) ? trim($_POST['rating']) : "";
     $descrizione = isset($_POST['descrizione']) ? trim($_POST['descrizione']) : "";
 
@@ -69,16 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 }
 
-$form = '<form action="./modificarecensione.php?id='. urlencode($id) .'" method="POST" class="register-form">  ';
-replaceContent('azione-form', $form, $paginaHTML);
-
-$paginaHTML = str_replace("{rating}",htmlspecialchars($recensione['rating']), $paginaHTML);
-$paginaHTML = str_replace("{descrizione}",htmlspecialchars($recensione['descrizione']), $paginaHTML);
-
 echo $paginaHTML;
-
-
-
-
 
 ?>

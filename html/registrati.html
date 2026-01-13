@@ -49,66 +49,58 @@
 
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-        <!-- DA NON CAVARE I value{} PORCACCIODDIO-->
 
         <!--{start-form-registrazione}-->
 
-        <form id="register-form" name="register-form" action="./registrati.php" method="POST" autocomplete="on">
+        <form id="register-form" class="default-form" name="register-form" action="./registrati.php" method="POST" autocomplete="on">
             <h1>Registrati su Prophit!</h1>
 
-            <fieldset id="Dati personali">
+            <fieldset class="default-form-fieldset" id="Dati-personali">
                 <legend>Dati personali</legend>      
 
                 <div>
-                    <label for="nome" class="register-label">Nome:</label>
-                    <input type="text" name="nome" id="nome" value="{nome}">
+                    <label class="default-form-label" for="nome" class="register-label">Nome:</label>
+                    <input class="reg-form-field" type="text" name="nome" id="nome" value="{nome}">
                 </div>
                 <div>
-                    <label for="cognome">Cognome:</label>
-                    <input type="text" name="cognome" id="cognome" value="{cognome}">
+                    <label class="default-form-label" for="cognome">Cognome:</label>
+                    <input class="default-form-field" type="text" name="cognome" id="cognome" value="{cognome}">
                 </div>
                 <div>
-                    <label for="data_di_nascita">Data di nascita:</label>
-                    <input type="date" name="data_di_nascita" id="data_di_nascita" value="{data_di_nascita}">
+                    <label class="default-form-label" for="data_di_nascita">Data di nascita:</label>
+                    <input class="default-form-field" type="date" name="data_di_nascita" id="data_di_nascita" value="{data_di_nascita}">
                 </div>
             </fieldset>
 
-            <fieldset id="Dati di accesso">
+            <fieldset class="default-form-fieldset" id="Dati-di-accesso">
                 <legend>Dati di accesso</legend>      
 
                 <div>
-                    <label for="username">Nome utente:</label>
-                    <input type="text" name="username" id="username" autocomplete="username" value="{username}">
+                    <label class="default-form-label" for="username">Nome utente:</label>
+                    <input class="default-form-field" type="text" name="username" id="username" autocomplete="username" value="{username}">
                 </div>
                 <div>
-                    <label for="password" lang="en">Password:</label>
-                    <input type="password" name="password" id="password" autocomplete="new-password">
+                    <label class="default-form-label" for="password" lang="en">Password:</label>
+                    <input class="default-form-field" type="password" name="password" id="password" autocomplete="new-password">
                 </div>
                 <div>
-                    <label for="password_confirm">Conferma <span lang="en">password</span>:</label>
-                    <input type="password" name="password_confirm" id="password_confirm" autocomplete="new-password">
+                    <label class="default-form-label" for="password_confirm">Conferma <span lang="en">password</span>:</label>
+                    <input class="default-form-field" type="password" name="password_confirm" id="password_confirm" autocomplete="new-password">
                 </div>
             </fieldset>            
             <div>
-                <button type="submit" aria-label="Registrati su Prophit">Registrati</button>
-                <button type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
-                <p class="login-link">Hai già un <span lang="en">account</span>? <a href="./accedi.php">Accedi</a></p>
+                <button class="default-form-confirm-button" type="submit" aria-label="Registrati su Prophit">Registrati</button>
+                <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                <p class="default-form-login-link">Hai già un <span lang="en">account</span>? <a href="./accedi.php">Accedi</a></p>
             </div>
-            <div class="errore-registrazione">
+            <div class="default-form-error">
             <!--{start-errore-registrazione}-->
 
             <!--{end-errore-registrazione}-->
-        </div>
-            
+            </div>   
         </form>
-
-        
-        
-        
+   
         <!--{end-form-registrazione}-->
-
-        
-        
 
     </main>
 
