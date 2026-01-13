@@ -15,26 +15,6 @@ $paginaHTML = file_get_contents('./html/modificarecensione.html');
 $err = '';
 $recensione = "";
 
-
-
-/*
-provato a farlo con le robe gia impostate ma non va :(
-try {
-    $connessione = new DB\DBAccess();
-    $conn = $connessione->openConnection();
-    if (!$conn) throw new Exception('Connessione al database non riuscita.');
-
-    $recensione = $connessione->getRecensioneById($id);
-    $connessione->closeConnection();
-
-
-} catch (Exception $e){
-    echo $e->getMessage();
-}*/
-
-
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
