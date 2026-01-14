@@ -82,7 +82,6 @@ if (!empty($corsi)) {
 
 if (!empty($recensioni)) {   
     foreach ($recensioni as $recensione) {
-        // se vuole modificare la recensione, cancella e ne fa un'altra
         $recensioniHtml .=
         '<tr>
             <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>

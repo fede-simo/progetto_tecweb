@@ -28,9 +28,9 @@
             <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
             <ul>
                 <li lang="en"><a href="./index.php">Home</a></li>
-                <li><a href="../html/chisiamo.html">Chi siamo</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
                 <li class="current-page">Corsi</li>
-                <li lang="en"><a href="../html/news.html">News</a></li>
+                <li lang="en"><a href="./news.php">News</a></li>
                 <li><a href="./contatti.php">Contatti</a></li>
             </ul>
         </nav>
@@ -43,38 +43,57 @@
         <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> > <a class="breadcrumb-link" href="./corsi.php">Corsi</a> > {titolo}</p>
     </nav>
 
-    <main id="main">
+    <main id="main" class="pagina-corso">
 
-        <section class="corso-hero">
-            <div class="corso-hero-media">
-                <img src="{immagine}" alt="Immagine del corso: {titolo}">
-            </div>
-            <div class="corso-hero-info">
-                <h1>{titolo}</h1>
-                <p class="corso-intro">{breve_desc}</p>
+        <div class="corso-content">
+            
+            <section class="corso-appearance">
+                <h1 class="dettaglio-corso-titolo">{titolo}</h1>
+
+                <div class="corso-hero-media">
+                    <img src="{immagine}" alt="Immagine del corso: {titolo}">
+                </div>
+                
+                <div class="corso-hero-info">
+                    <ul id="corso-hero-list" class="lista-info-corso">
+                        <li>{categoria}</li>
+                        <li>€ {prezzo}</li>
+                        <li>{tipologia}</li>
+                        <li>{durata} ore</li>
+                    </ul>
+                </div>
+
+                <div class="corso-description">
+                    <h3 class="corso-description-header">Dettagli del corso</h3>
+                    <p class="corso-description-content">
+                       {desc_completa}
+                    </p>
+                </div>
+                
+            </section>
+
+            <section id="corso-side-box" class="default-form">
+                <h3 class="side-box-title">{azione-titolo-corso}</h3>
                 <ul class="corso-badges">
-                    <li>€ {prezzo}</li>
-                    <li>{tipologia}</li>
-                    <li>{durata} ore</li>
+                    <li><h6>Categoria:</h6> {categoria}</li>
+                    <li><h6>Durata:</h6> {durata} ore</li>
+                    <li><h6>Prezzo:</h6> € {prezzo}</li>
+                    <li><h6>Tipologia:</h6> {tipologia}</li>
                 </ul>
                 <!--{start-azione-corso}-->
                 <!--{end-azione-corso}-->
-            </div>
-        </section>
+            </section>
+        </div>
+        
 
-        <section class="corso-section">
-            <h2>Descrizione completa</h2>
-            <p>{desc_completa}</p>
-        </section>
-
-        <section class="corso-section">
+        <section class="recensioni-section">  
+            <!--{start-form-recensione}-->
+            <!--{end-form-recensione}-->
             <h2>Recensioni</h2>
             <div class="corso-recensioni">
                 <!--{start-recensioni}-->
                 <!--{end-recensioni}-->
             </div>
-            <!--{start-form-recensione}-->
-            <!--{end-form-recensione}-->
         </section>
     </main>
 

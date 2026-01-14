@@ -16,6 +16,7 @@
 
         --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
         --text-color: #fff;
+        --text-color-2: #a0a0a0;
         --highlight-background-color: linear-gradient(45deg, #A6EDFF  0%, #46DBF5 30%, #A6EDFF  100%);
 
         --highlight-text-color: #17243A;
@@ -345,10 +346,11 @@
         margin-top: 1rem;
         text-align: center;
         font-size: 0.9rem;
+        color: var(--text-color);
     }
 
-    .default-form-login-link a {
-        color: var(--highlight-color);
+    .default-form-login-link a:visited {
+        color: var(--a-visited-text-color);
     }
 
     .errore {
@@ -482,10 +484,11 @@
 
     .lista-info-corso > li{
         border: 2px solid var(--border-color);
-        border-radius: 25px;
+        border-radius: 60px;
         background-color: #111111;
-        padding: 0.8rem;
+        padding: 0.6rem 1rem 0.6rem 1rem;
         font-size: 1rem;
+        white-space: nowrap;
     }
 
     .descrizione-corso{
@@ -606,10 +609,13 @@
         border: 2px solid var(--border-color);
     }
 
-    .tabella-corsi-acquistati th, .tabella-corsi-acquistati td, .cont, .tabella-recensioni-effettuate td {
+    .tabella-corsi-acquistati th, .tabella-corsi-acquistati td, .tabella-recensioni-effettuate td, .tabella-recensioni-effettuate th {
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
     }
 
     .rec-titolo {
@@ -686,3 +692,90 @@
         font-size: 1.2rem;
         padding-right:0.3rem
     }
+
+    /*
+    #######################################################################
+    DETTAGLIO CORSO
+    #######################################################################
+    */
+
+    .pagina-corso {
+        text-align: left;
+    }
+
+    .corso-content {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+    }
+
+    .corso-appearance {
+        flex: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .dettaglio-corso-titolo {
+        font-size: 3rem;
+        margin-bottom: 1rem
+    }
+
+    .corso-hero-media {
+        border: 2px solid var(--border-color);
+        border-radius: 20px;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    .corso-hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /*.corso-hero-info {
+        margin-top: -5rem;
+        margin-bottom: 2rem;
+    }*/
+
+    #corso-hero-list {
+        padding-left: 0rem;
+    }
+
+    .corso-description-header {
+        font-size: 2rem;
+    }
+    
+    #corso-side-box {
+        flex: 0.5;
+        max-height: fit-content;
+        margin-top: 10rem;
+    }
+
+    .side-box-title {
+        font-size: 2rem;
+    }
+
+    .corso-badges {
+        list-style: none;
+    }
+
+    .corso-badges h6 {
+        font-size: 1rem;
+        font-weight: 100;
+        color: var(--a-text-color-2);
+        padding-right: 1rem;
+    }
+
+    .corso-badges li {
+        display: flex;
+        align-items: baseline;
+    }
+
+
+
+
