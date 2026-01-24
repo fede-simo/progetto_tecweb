@@ -109,6 +109,8 @@ if (empty($_SESSION['is_admin'])) {
         $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
         $azioneHtml = '<form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="default-form-confirm-button">Compra gratis</button></form>';
     }
+} else {
+    $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
 }
 
 if (!empty($azioneHtml)) {

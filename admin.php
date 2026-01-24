@@ -52,7 +52,7 @@ try {
                     $confirmHtml .= '<input type="hidden" name="change_user[]" value="' . htmlspecialchars($change['username']) . '">';
                     $confirmHtml .= '<input type="hidden" name="change_admin[]" value="' . ($change['new_admin'] ? '1' : '0') . '">';
                 }
-                $confirmHtml .= '<button type="submit" class="confirm-registration">Conferma</button></form></div>';
+                $confirmHtml .= '<button type="submit" class="default-form-confirm-button">Conferma</button></form></div>';
             }
         } elseif ($action === 'apply-admin') {
             $users = isset($_POST['change_user']) ? (array) $_POST['change_user'] : [];
@@ -65,7 +65,7 @@ try {
                     $okAll = false;
                 }
             }
-            $messaggio = $okAll ? '<p>Ruoli aggiornati.</p>' : '<p class="errore-registrazione">Errore durante l\'aggiornamento dei ruoli.</p>';
+            $messaggio = $okAll ? '<p>Ruoli aggiornati.</p>' : '<p class="errore">Errore durante l\'aggiornamento dei ruoli.</p>';
         } elseif ($action === 'add-corso') {
             $titolo = isset($_POST['titolo']) ? trim($_POST['titolo']) : '';
             $categorie = isset($_POST['categorie']) ? (array) $_POST['categorie'] : [];
@@ -82,9 +82,9 @@ try {
                 $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
                 $allowed = ['jpg', 'jpeg', 'png'];
                 if (in_array($extension, $allowed, true)) {
-                    $uploadDir = dirname(__DIR__, 2) . '/img';
+                    $uploadDir = __DIR__ . '/img';
                     if (!is_dir($uploadDir)) {
-                        $messaggio = '<p class="errore-registrazione">Cartella immagini non trovata.</p>';
+                        $messaggio = '<p class="errore">Cartella immagini non trovata.</p>';
                     }
                     $fileName = 'corso_' . uniqid('', true) . '.' . $extension;
                     $destPath = $uploadDir . '/' . $fileName;
@@ -95,14 +95,14 @@ try {
             }
 
             if ($immaginePath === '') {
-                $messaggio = '<p class="errore-registrazione">Carica un\'immagine valida (jpg o png).</p>';
+                $messaggio = '<p class="errore">Carica un\'immagine valida (jpg o png).</p>';
             } elseif ($titolo === '' || empty($categorie) || $durata <= 0 || $modalita === '' || $breveDesc === '' || $descCompleta === '') {
-                $messaggio = '<p class="errore-registrazione">Compila tutti i campi obbligatori.</p>';
+                $messaggio = '<p class="errore">Compila tutti i campi obbligatori.</p>';
             } elseif (fmod($costo, 5) !== 0.0) {
-                $messaggio = '<p class="errore-registrazione">Il costo deve essere un multiplo di 5.</p>';
+                $messaggio = '<p class="errore">Il costo deve essere un multiplo di 5.</p>';
             } else {
                 $ok = $connessione->addCorso($titolo, $immaginePath, $categorie, $durata, $costo, $modalita, $breveDesc, $descCompleta);
-                $messaggio = $ok ? '<p>Corso aggiunto.</p>' : '<p class="errore-registrazione">Errore durante l\'inserimento del corso.</p>';
+                $messaggio = $ok ? '<p>Corso aggiunto.</p>' : '<p class="errore">Errore durante l\'inserimento del corso.</p>';
             }
         }
     }
@@ -113,14 +113,14 @@ try {
     $acquisti = $connessione->getAcquisti();
     $connessione->closeConnection();
 } catch (Throwable $e) {
-    $messaggio = '<p class="errore-registrazione">Errore interno.</p>';
+    $messaggio = '<p class="errore">Errore interno.</p>';
     $utenti = [];
     $categorie = [];
     $contatti = [];
     $acquisti = [];
 }
 
-$lista = '<form action="/src/php/admin.php" method="POST" id="utenti-form">';
+$lista = '<form action="./admin.php" method="POST" id="utenti-form">';
 $lista .= '<input type="hidden" name="action" value="preview-admin">';
 $lista .= '<div style="max-height: 220px; overflow: auto;">';
 $lista .= '<table><thead><tr><th>Admin</th><th>Username</th><th>Nome</th><th>Cognome</th><th>Data</th></tr></thead><tbody>';
@@ -136,7 +136,7 @@ foreach ($utenti as $utente) {
     $lista .= '</tr>';
 }
 $lista .= '</tbody></table></div>';
-$lista .= '<button type="submit" class="confirm-registration">Anteprima cambiamenti</button>';
+$lista .= '<button type="submit" class="default-form-confirm-button">Anteprima cambiamenti</button>';
 $lista .= '</form>';
 
 replaceContent("utenti-list", $lista, $paginaHTML);

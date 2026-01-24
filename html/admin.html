@@ -114,14 +114,14 @@
 
         <details>
             <summary>Utenti</summary>
-            <section class="register-form">
-                <div class="form-group">
+            <section id="modifica-utente-form" class="default-form">
+                <div class="default-form-group">
                     <label for="user-filter">Filtro live utenti</label>
                     <input type="text" id="user-filter" placeholder="Filtra per username" class="placeholder-transparent">
                 </div>
-                <div class="form-group">
-                    <button type="button" id="order-toggle" class="confirm-registration">Ordina per nome</button>
-                    <button type="button" id="order-dir" class="confirm-registration">↑</button>
+                <div id="modifica-utente-buttons" class="default-form-group">
+                    <button type="button" id="order-toggle" class="default-form-confirm-button">Ordina per nome</button>
+                    <button type="button" id="order-dir" class="default-form-confirm-button">↑</button>
                 </div>
                 <div>
                     <!--{start-utenti-list}-->
@@ -132,33 +132,33 @@
 
         <details>
             <summary>Aggiungi corso</summary>
-            <section class="default-form">
-                <form action="./admin.php" method="POST" enctype="multipart/form-data">
+            <section id="nuovo-corso-form" class="default-form">
+                <form class="new-corso-form" action="./admin.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="add-corso">
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="titolo">Titolo</label>
                         <input type="text" id="titolo" name="titolo" required>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="immagine">Carica immagine (jpg/png)</label>
                         <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.png" required>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label>Categorie</label>
                         <div>
                             <!--{start-categorie-list}-->
                             <!--{end-categorie-list}-->
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="durata">Durata (ore)</label>
                         <input type="number" id="durata" name="durata" min="1" required>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="costo">Costo (euro, multipli di 5)</label>
                         <input type="number" id="costo" name="costo" min="0" step="5" required>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="modalita">Modalità</label>
                         <select id="modalita" name="modalita" required>
                             <option value="In aula">In aula</option>
@@ -166,22 +166,22 @@
                             <option value="Online registrata">Online registrata</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="breve_desc">Breve descrizione</label>
                         <input type="text" id="breve_desc" name="breve_desc" maxlength="200" required>
                     </div>
-                    <div class="form-group">
+                    <div class="default-form-group">
                         <label for="desc_completa">Descrizione completa</label>
                         <textarea id="desc_completa" name="desc_completa" rows="6" required></textarea>
                     </div>
-                    <button type="submit" class="confirm-registration">Aggiungi corso</button>
+                    <button type="submit" class="default-form-confirm-button">Aggiungi corso</button>
                 </form>
             </section>
         </details>
 
         <details>
             <summary>Messaggi <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
-            <section class="register-form">
+            <section class="default-form">
                 <div>
                     <!--{start-contatti-list}-->
                     <!--{end-contatti-list}-->
@@ -191,7 +191,7 @@
 
         <details>
             <summary>Acquisti</summary>
-            <section class="register-form">
+            <section id="visualizza-acquisti-form" class="default-form">
                 <div class="form-group">
                     <label for="acquisti-filter">Filtro live acquisti</label>
                     <input type="text" id="acquisti-filter" placeholder="Filtra per username" class="placeholder-transparent">

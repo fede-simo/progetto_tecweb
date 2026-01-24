@@ -308,19 +308,19 @@
         border-top: 1px solid;
     }
 
-    .default-form-fieldset div{
+    .default-form-group {
         display: flex;
         flex-direction: column;
     }
 
-    .default-form-label {
+    .default-form-group label {
         text-align: left;
         font-size: 1.rem;
         font-weight: bold;
         margin-bottom: 0.3rem;
     }
 
-    .default-form-field {
+    .default-form-group input, .default-form-group textarea, .default-form-group select{
         padding: 0.8rem;
         border: none;
         border-radius: 8px;
@@ -737,11 +737,6 @@
         display: block;
     }
 
-    /*.corso-hero-info {
-        margin-top: -5rem;
-        margin-bottom: 2rem;
-    }*/
-
     #corso-hero-list {
         padding-left: 0rem;
     }
@@ -777,5 +772,22 @@
     }
 
 
+    /*
+    #######################################################################
+    AREA ADMIN
+    #######################################################################
+    */
 
+    .new-corso-form label, .new-corso-form button {
+        margin-top: 0.8rem;
+    }
 
+    #visualizza-acquisti-form, #nuovo-corso-form, #modifica-utente-form {
+        width:100%;
+    }
+
+    #modifica-utente-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
