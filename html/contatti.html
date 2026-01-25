@@ -107,7 +107,7 @@
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="./areapersonale.php" class="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
+            <a href="./areapersonale.php" id="highlight-button">Area personale</a> <!-- bottone da rendere dinamico con php -->
         </div>
     </header>   
 
@@ -118,7 +118,7 @@
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
 
-        <section>
+        <section id="first-sec">
             <div class="content">
                 <h1>Parla con i fuffaguru</h1>
                 <p>Scrivici per info sui corsi, partnership o supporto tecnico.</p>
@@ -129,31 +129,33 @@
                 <p>Orari: lun-ven 9:00-18:00 <span id="orari-status"></span> <a id="apri-sveglia" href="#">Imposta promemoria</a></p>
             </div>  
             <div class="img">
-                <img src="../../img/homepage.jpg" alt="Contatti Prophit">
+                <img src="./img/homepage.jpg" alt="Contatti Prophit">
             </div>
         </section>
         <!--{start-contatti-message}-->
         <!--{end-contatti-message}-->
-        <section class="register-form">
-            <h2>Invia un messaggio</h2>
-            <form action="/src/php/contatti.php" method="POST" autocomplete="on">
-                <div class="form-group">
+        <section id="form-messaggio">
+            <h2>Invia un messaggio al team</h2>
+            <form action="./contatti.php" class="default-form" method="POST" autocomplete="on">              
+                    
+                <div class="default-form-group">
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome" class="placeholder-transparent" required>
                 </div>
-                <div class="form-group">
+                <div class="default-form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Email" class="placeholder-transparent" autocomplete="email" required>
                 </div>
-                <div class="form-group">
+                <div class="default-form-group">
                     <label for="oggetto">Oggetto</label>
                     <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto" class="placeholder-transparent" required>
                 </div>
-                <div class="form-group">
+                <div class="default-form-group">
                     <label for="messaggio">Messaggio</label>
                     <textarea id="messaggio" name="messaggio" rows="5" placeholder="Messaggio" class="placeholder-transparent" required></textarea>
                 </div>
-                <button type="submit" class="confirm-registration">Invia</button>
+
+                <button type="submit" class="default-form-confirm-button" aria-label="Invia il messaggio">Invia</button>
             </form>
         </section>
     </main>

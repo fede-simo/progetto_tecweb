@@ -45,9 +45,9 @@ if (!empty($corsi)) {
     foreach ($corsi as $corso) {
         $modalita = allyModCorso(htmlspecialchars($corso['modalita']));
         $corsiUpdated .= 
-        '<div class="corsi">
-            <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-corso">
-            <dt class="titolo-corso"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
+        '<div class="default-container">
+            <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-container">
+            <dt class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
                 <dd>
                 <ul class="lista-info-corso">
                     <li class="categoria-corso">' . htmlspecialchars($corso['categoria']) . '</li>
@@ -56,7 +56,7 @@ if (!empty($corsi)) {
                     <li class="locazione-corso">' . $modalita . '</li>
                 </ul>
             </dd>
-            <h6 class="descrizione-corso">' . htmlspecialchars($corso['breve_desc']) . '</h6>
+            <h6 class="descrizione-container">' . htmlspecialchars($corso['breve_desc']) . '</h6>
         </div>';
     }
 } else {

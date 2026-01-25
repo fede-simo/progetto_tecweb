@@ -27,6 +27,7 @@
         --a-visited-text-color: #fff; /*DA DEFINIRE*/
         
         --a-highlight-background-color: #46DBF5;
+        --a-highlight-visited-background-color: rgb(47, 179, 126);
         --a-highlight-text-color: #17243A;
         --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
 
@@ -66,11 +67,26 @@
         font-weight: lighter;
         color: var(--text-color);
         background: var(--background-color);  
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
-    /* HOME */
+    a {
+        color: var(--a-text-color);
+    }
 
-    /* header */
+    a:visited {
+        color: var(--a-visited-text-color);
+    }
+
+    /* INDEX */
+
+    /*
+    #######################################################################
+    HEADER
+    #######################################################################
+    */
 
     header,
     #breadcrumb,
@@ -91,7 +107,8 @@
         position: sticky;
         top: 0;
         background: var(--background-color);
-        border-bottom: 2px solid var(--border-color)
+        border-bottom: 2px solid var(--border-color);
+        z-index: 1000;
     }
 
     header h1 {
@@ -141,8 +158,9 @@
         font-weight: 1000;
     }
 
-    .highlight-button {
+    #highlight-button {
         border: 2px solid var(--border-color);
+        font-weight: 500;
         border-radius: 10px;
         padding: 0.5rem;
         background-color: var(--a-highlight-background-color);
@@ -150,8 +168,8 @@
         text-decoration: none;
     }
 
-    .highlight-button:hover {
-        background-color: rgb(31, 145, 99);
+    #highlight-button:hover {
+        background-color: var(--a-highlight-visited-background-color);
     }
 
     /*
@@ -161,10 +179,11 @@
     */
 
 
-    main {
+    #main {
         text-align: center;
         word-break: keep-all; /*per fare in modo che non spezzi le parole*/
         overflow-wrap: normal;
+        flex: 1;
     }
 
     #breadcrumb {
@@ -177,6 +196,10 @@
 
     .breadcrumb-link:visited {
         color: var(--a-visited-text-color);
+    }
+
+    #first-sec {
+        margin-top: 2.4rem;
     }
 
     section {
@@ -196,6 +219,7 @@
         background: var(--highlight-background-color);
         color: var(--highlight-text-color);
         flex-direction: column;
+        padding-bottom: 1rem;
     }
 
     .content {
@@ -433,23 +457,24 @@
     #######################################################################
     */
 
-    .content-corsi{
+    .content-container{
         margin-top: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr; /* NEL CASO DI RESIZE DELLA FINESTRA O MOBILE SI POTREBBE METTERE A COLONNA SINGOLA */
         grid-gap: 2rem;
         margin-left: 1%;
         margin-right: 1%;
+        align-items: stretch;
     }
 
-    .corso-link{
+    .container-link{
         text-decoration: underline;
         text-decoration-thickness: 3px;
         color: inherit;
         display: block;
     }
 
-    .corsi{
+    .default-container{
         border: 2px solid var(--border-color);
         border-radius: 25px;
         text-align: left;
@@ -457,7 +482,7 @@
         overflow: hidden;
     }
 
-    .titolo-corso{
+    .titolo-container{
         padding-top: 1rem;
         font-size: 2rem;
         font-weight: 700;
@@ -466,7 +491,7 @@
         padding-right: 2rem;
     }
 
-    .img-corso{
+    .img-container{
         width: 100%;
         height: 15rem;
         object-fit: cover;
@@ -491,7 +516,7 @@
         white-space: nowrap;
     }
 
-    .descrizione-corso{
+    .descrizione-container{
         font-size: 1rem;
         font-weight: 400;
         padding-top: 1rem;
@@ -499,7 +524,7 @@
         padding-right: 2rem;
     }
 
-    .corso-hero img{
+    .container-hero img{
         width: 100%;
         height: 18rem;
         object-fit: cover;
@@ -600,16 +625,17 @@
         width: 100%;
     }
 
-    .tabella-corsi-acquistati, .tabella-recensioni-effettuate {
+    .tabella-default {
         text-align: center;
         width: 100%;
         table-layout: fixed;
         border-collapse: collapse;
         margin-top: 1rem;
         border: 2px solid var(--border-color);
+        margin-bottom: 1rem;
     }
 
-    .tabella-corsi-acquistati th, .tabella-corsi-acquistati td, .tabella-recensioni-effettuate td, .tabella-recensioni-effettuate th {
+    .tabella-default th, .tabella-default td{
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;
@@ -791,3 +817,71 @@
         flex-direction: row;
         gap: 1rem;
     }
+
+    #messaggi-form {
+        width: 100%;
+    }
+
+    .default-form ul {
+        list-style-type: none;
+    }
+
+    .default-form ul li {
+        font-size: 1.3rem;
+    }
+
+    .summary-admin {
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+        list-style: none;
+        cursor: pointer;
+        font-weight: 600;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .summary-admin:hover {
+        transform: scale(1.04);
+    }
+
+    details {
+        margin-top: 2rem;
+    }
+
+    /*
+    #######################################################################
+    CONTATTI
+    #######################################################################
+    */
+
+    #form-messaggio {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #form-messaggio .default-form {
+        margin-top: -0.6rem;
+    }
+
+    /*
+    #######################################################################
+    NEWS
+    #######################################################################
+    */
+
+    
+
+    /*
+    #######################################################################
+    CHI SIAMO
+    #######################################################################
+    */
+
+    .team-list {
+        list-style-type: disc;
+        margin-left: 2rem;
+        margin-top: 0.3rem;
+    }
+
+    

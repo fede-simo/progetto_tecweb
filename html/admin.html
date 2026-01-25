@@ -98,7 +98,7 @@
             </ul>
         </nav>
         <div>
-            <a href="./logout.php" class="highlight-button">Esci</a>
+            <a href="./logout.php" id="highlight-button">Esci</a>
         </div>
     </header>
 
@@ -113,7 +113,7 @@
         <!--{end-admin-confirm}-->
 
         <details>
-            <summary>Utenti</summary>
+            <summary class="summary-admin">Utenti</summary>
             <section id="modifica-utente-form" class="default-form">
                 <div class="default-form-group">
                     <label for="user-filter">Filtro live utenti</label>
@@ -131,7 +131,7 @@
         </details>
 
         <details>
-            <summary>Aggiungi corso</summary>
+            <summary class="summary-admin">Aggiungi corso</summary>
             <section id="nuovo-corso-form" class="default-form">
                 <form class="new-corso-form" action="./admin.php" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="add-corso">
@@ -144,11 +144,11 @@
                         <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.png" required>
                     </div>
                     <div class="default-form-group">
-                        <label>Categorie</label>
-                        <div>
+                        <label for="categoria">Categoria</label>
+                        
                             <!--{start-categorie-list}-->
                             <!--{end-categorie-list}-->
-                        </div>
+                        
                     </div>
                     <div class="default-form-group">
                         <label for="durata">Durata (ore)</label>
@@ -180,8 +180,8 @@
         </details>
 
         <details>
-            <summary>Messaggi <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
-            <section class="default-form">
+            <summary class="summary-admin">Messaggi <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
+            <section id="messaggi-form" class="default-form">
                 <div>
                     <!--{start-contatti-list}-->
                     <!--{end-contatti-list}-->
@@ -190,9 +190,9 @@
         </details>
 
         <details>
-            <summary>Acquisti</summary>
+            <summary class="summary-admin">Acquisti</summary>
             <section id="visualizza-acquisti-form" class="default-form">
-                <div class="form-group">
+                <div class="default-form-group">
                     <label for="acquisti-filter">Filtro live acquisti</label>
                     <input type="text" id="acquisti-filter" placeholder="Filtra per username" class="placeholder-transparent">
                 </div>

@@ -42,11 +42,11 @@ try {
             if (empty($changes)) {
                 $messaggio = '<p>Nessun cambiamento da confermare.</p>';
             } else {
-                $confirmHtml = '<div class="register-form"><h2>Conferma cambiamenti</h2><ul>';
+                $confirmHtml = '<div class="default-form"><h2>Conferma cambiamenti</h2><ul>';
                 foreach ($changes as $change) {
                     $confirmHtml .= '<li>' . htmlspecialchars($change['username']) . ' => ' . ($change['new_admin'] ? 'admin' : 'utente') . '</li>';
                 }
-                $confirmHtml .= '</ul><form action="/src/php/admin.php" method="POST">';
+                $confirmHtml .= '</ul><form action="./admin.php" method="POST">';
                 $confirmHtml .= '<input type="hidden" name="action" value="apply-admin">';
                 foreach ($changes as $change) {
                     $confirmHtml .= '<input type="hidden" name="change_user[]" value="' . htmlspecialchars($change['username']) . '">';
@@ -123,13 +123,25 @@ try {
 $lista = '<form action="./admin.php" method="POST" id="utenti-form">';
 $lista .= '<input type="hidden" name="action" value="preview-admin">';
 $lista .= '<div style="max-height: 220px; overflow: auto;">';
-$lista .= '<table><thead><tr><th>Admin</th><th>Username</th><th>Nome</th><th>Cognome</th><th>Data</th></tr></thead><tbody>';
+$lista .= '<p id="sum-users" class="visually-hidden">La tabella, ordinata per colonne, mostra tutti gli utenti registrati, con l\'indicazione se sono amministratori o meno, e permette di modificare i loro ruoli.</p>';
+$lista .= '<table class="tabella-default" aria-describedby="sum-users">
+            <caption class="table-caption">Utenti</caption>
+                <thead>
+                    <tr>
+                    <th scope="col" lang="en">Admin</th>
+                    <th scope="col" lang="en">Username</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Data</th>
+                    </tr>
+                </thead>
+                <tbody>';
 foreach ($utenti as $utente) {
     $isAdmin = !empty($utente['isAdmin']);
     $mark = $isAdmin ? 'V' : 'X';
     $lista .= '<tr data-utente="' . htmlspecialchars($utente['username']) . '" data-data="' . htmlspecialchars($utente['data_di_nascita']) . '">';
     $lista .= '<td><input type="checkbox" name="admin_users[]" value="' . htmlspecialchars($utente['username']) . '"' . ($isAdmin ? ' checked' : '') . '> ' . $mark . '</td>';
-    $lista .= '<td>' . htmlspecialchars($utente['username']) . '</td>';
+    $lista .= '<th scope="row">' . htmlspecialchars($utente['username']) . '</th>';
     $lista .= '<td>' . htmlspecialchars($utente['nome']) . '</td>';
     $lista .= '<td>' . htmlspecialchars($utente['cognome']) . '</td>';
     $lista .= '<td>' . htmlspecialchars($utente['data_di_nascita']) . '</td>';
@@ -150,9 +162,10 @@ replaceContent("admin-confirm", $confirmHtml, $paginaHTML);
 $categorieHtml = '';
 if (!empty($categorie)) {
     $categorieHtml .= '<select id="categorie" name="categorie[]" required>';
-    $categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
+    //$categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
     foreach ($categorie as $cat) {
-        $categorieHtml .= '<tr><td><label><input type="radio" name="categorie[]" value="' . htmlspecialchars($cat['nome']) . '"> ' . htmlspecialchars($cat['nome']) . '</label></td></tr>';
+        $categorieHtml .= '<option value="' . htmlspecialchars($cat['id']) . '">' . htmlspecialchars($cat['nome']) . '</option>';
+        //$categorieHtml .= '<tr><td><label><input type="radio" name="categorie[]" value="' . htmlspecialchars($cat['nome']) . '"> ' . htmlspecialchars($cat['nome']) . '</label></td></tr>';
     }
     $categorieHtml .= '</select>';
 }
@@ -178,10 +191,20 @@ replaceContent("messaggi-count", $messaggiCount, $paginaHTML);
 
 $acquistiHtml = '';
 if (!empty($acquisti)) {
-    $acquistiHtml .= '<table><thead><tr><th>Utente</th><th>Corso</th><th>Data</th></tr></thead><tbody>';
+    $acquistiHtml .= '<p id="sum" class="visually-hidden">La tabella, ordinata per colonne, mostra tutti gli acquisti effettuati dagli utenti, con le rispettive date.</p>
+                        <table class="tabella-default" aria-describedby="sum">
+                            <caption class="table-caption">Acquisti</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Utente</th>
+                                    <th scope="col">Corso</th>
+                                    <th scope="col">Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
     foreach ($acquisti as $acquisto) {
         $acquistiHtml .= '<tr data-acquisto="' . htmlspecialchars($acquisto['id_user']) . '">';
-        $acquistiHtml .= '<td>' . htmlspecialchars($acquisto['id_user']) . '</td>';
+        $acquistiHtml .= '<th scope="row">' . htmlspecialchars($acquisto['id_user']) . '</th>';
         $acquistiHtml .= '<td>' . htmlspecialchars($acquisto['titolo']) . '</td>';
         $acquistiHtml .= '<td>' . htmlspecialchars($acquisto['data']) . '</td>';
         $acquistiHtml .= '</tr>';

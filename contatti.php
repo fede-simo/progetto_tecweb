@@ -3,7 +3,7 @@
 require_once "./php/dbConnection.php";
 require_once "./php/helpers.php";
 
-$paginaHTML = file_get_contents('../html/contatti.html');
+$paginaHTML = file_get_contents('./html/contatti.html');
 $messaggio = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

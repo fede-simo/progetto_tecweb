@@ -35,7 +35,7 @@
         </nav>
         <div>
             <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
-            <a href="./logout.php" class="highlight-button">Esci</a>
+            <a href="./logout.php" id="highlight-button">Esci</a>
         </div>
     </header>   
 
@@ -46,7 +46,7 @@
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
 
-        <section class="welcome-form">
+        <section id="first-sec" class="welcome-form">
             <h3 class="welcome-msg">Benvenuto <strong>{username}</strong>,</h3>
             <h4 class="viz-msg">visualizza i corsi che hai acquistato e le recensioni che hai pubblicato:</h4>
         </section>
@@ -56,7 +56,7 @@
             <!--{start-tabella-corsi-acquistati}-->
             <div class="corsi-acquistati">
                 <span id="sumAcquisti" class="visually-hidden">In questa tabella vengono riassunti i dati dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
-                <table class="tabella-corsi-acquistati" aria-describedby="sumAcquisti">
+                <table class="tabella-default" aria-describedby="sumAcquisti">
                     <caption class="table-caption">CORSI</caption>
                     <colgroup>
                         <col>
@@ -94,7 +94,7 @@
             <!--{start-tabella-recensioni}-->
             <div class="recensioni-effettuate">
                 <span id="sumRecensioni" class="visually-hidden">In questa tabella vengono riassunti i dati delle recensioni pubblicate: titolo corso, voto, descrizione.</span>
-                <table class="tabella-recensioni-effettuate" aria-describedby="sumRecensioni">
+                <table class="tabella-default" aria-describedby="sumRecensioni">
                     <caption class="table-caption">RECENSIONI</caption>
                     <colgroup>
                         <col class="rec-titolo">
