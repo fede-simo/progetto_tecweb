@@ -34,4 +34,24 @@ function allyModCorso($modalita): string {
 	}
 }
 
+function allyModTesto($testo): string {
+
+    $map  = [
+		'ETF' => '<abbr title="Exchange Traded Fund" lang="en">ETF</abbr>',
+		'PIR' => '<abbr title="Piani Individuali di Risparmio">PIR</abbr>',
+		'TFR' => '<abbr title="Trattamento di Fine Rapporto">TFR</abbr>',
+		'PIP' => '<abbr title="Piani Individuali Pensionistici">PIP</abbr>',
+		'long-term' => '<span lang="en">long-term</span>',
+		'budget' => '<span lang="en">budget</span>',
+		'minimal' => '<span lang="en">minimal</span>',
+		'envelope' => '<span lang="en">envelope</span>'
+	];
+
+	foreach ($map as $key => $replacement) {
+		$testo = str_replace($key, $replacement, $testo);
+	}
+
+	return $testo;
+}
+
 ?>

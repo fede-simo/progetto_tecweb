@@ -28,8 +28,10 @@ try {
     $connessione->closeConnection();
 
 } catch (Exception $e) {
-    $paginaHTML .= "<p>Si è verificato un errore. Riprova più tardi.</p>";
-    echo $paginaHTML;
+    /*
+    $paginaHTML .= "<p class=\"errore\">Si è verificato un errore. Riprova più tardi.</p>";
+    echo $paginaHTML;*/
+    header("location: ./html/500.html");
     exit();
 }
 
@@ -43,20 +45,19 @@ $formCategoria = 'value="'.$categoria.'"';
 if (!empty($corsi)) {
 
     foreach ($corsi as $corso) {
-        $modalita = allyModCorso(htmlspecialchars($corso['modalita']));
         $corsiUpdated .= 
         '<div class="default-container">
             <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-container">
-            <dt class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></dt>
+            <dt class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link"><strong>' . allyModTesto(htmlspecialchars($corso['titolo'])) . '</strong></a></dt>
                 <dd>
                 <ul class="lista-info-corso">
                     <li class="categoria-corso">' . htmlspecialchars($corso['categoria']) . '</li>
                     <li class="durata-corso">' . htmlspecialchars($corso['durata']) . ' ore</li>
                     <li class="prezzo-corso">€ ' . htmlspecialchars($corso['costo']) . '</li>
-                    <li class="locazione-corso">' . $modalita . '</li>
+                    <li class="locazione-corso">' . allyModCorso(htmlspecialchars($corso['modalita'])) . '</li>
                 </ul>
             </dd>
-            <h6 class="descrizione-container">' . htmlspecialchars($corso['breve_desc']) . '</h6>
+            <h6 class="descrizione-container">' . allyModTesto(htmlspecialchars($corso['breve_desc'])) . '</h6>
         </div>';
     }
 } else {

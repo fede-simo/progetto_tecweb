@@ -20,13 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conn = $connessione->openConnection();
             if ($conn) {
                 $ok = $connessione->addContatto($nome, $email, $oggetto, $testo);
-                $messaggio = $ok ? '<p>Messaggio inviato.</p>' : '<p class="errore-registrazione">Errore durante l\'invio.</p>';
+                $messaggio = $ok ? '<p class="">Messaggio inviato.</p>' : '<p class="errore">Errore durante l\'invio.</p>';
                 $connessione->closeConnection();
             } else {
-                $messaggio = '<p class="errore-registrazione">Connessione al database non riuscita.</p>';
+                $messaggio = '<p class="errore">Connessione al <span lang="en">database</span> non riuscita.</p>';
             }
         } catch (Throwable $e) {
-            $messaggio = '<p class="errore-registrazione">Errore interno: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '</p>';
+            //$messaggio = '<p class="errore">Errore interno: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '</p>';
+            header("location: ./html/500.html");
+            exit();
         }
     }
 }

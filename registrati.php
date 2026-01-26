@@ -26,14 +26,14 @@ function fieldsRestriction($campo, &$err) : bool {
         }
     } elseif ($campo === 'password') {
         if (strlen($_POST[$campo]) < 8 || !preg_match('/[a-z]/', $_POST[$campo]) || !preg_match('/[A-Z]/', $_POST[$campo]) || !preg_match('/[0-9]/', $_POST[$campo]) || !preg_match('/[!@#$%^&*(),.?":{}|<>]/', $_POST[$campo])) {
-            $err .= '<p>La password deve essere lunga almeno 8 caratteri, contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.</p>';
+            $err .= '<p>La <span lang="en">password</span> deve essere lunga almeno 8 caratteri, contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.</p>';
             return false;
         }
     } elseif ($campo === 'data_di_nascita') {
         $data = DateTime::createFromFormat('Y-m-d', $_POST[$campo]);
         $now = new DateTime();
         if (!$data || $data > $now || $now->diff($data)->y < 18) {
-            $err .= '<p>Per registrati a Prophit devi essere maggiorenne e la data di nascita deve essere valida.</p>';
+            $err .= '<p>Per registrati a <span lang="en">Prophit</span> devi essere maggiorenne e la data di nascita deve essere valida.</p>';
             return false;
         }
     } 
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($password === '' || $passwordConfirm === '') {
             $err .= '<p>Tutti i campi sono obbligatori.</p>';
         } elseif ($password !== $passwordConfirm) {
-            $err .= '<p>Le password non coincidono.</p>';
+            $err .= '<p>Le <span lang="en">password</span> non coincidono.</p>';
         } else {
             $_POST['password'] = $password;
             fieldsRestriction('password', $err);
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $conn = $connessione->openConnection();
         if (!$conn) {
-            $err .= '<p class="errore-registrazione">Connessione al database non riuscita.</p>';
+            $err .= '<p class="errore-registrazione">Connessione al <span lang="en">database</span> non riuscita.</p>';
             replaceContent("errore-registrazione", $err, $paginaHTML);
             $paginaHTML = stickyForm($paginaHTML, $campi);
             echo $paginaHTML;

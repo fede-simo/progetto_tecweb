@@ -58,6 +58,8 @@ try {
     $haRecensito = isset($_SESSION['user']) ? $connessione->hasRecensione($_SESSION['user'], $id) : false;
     $connessione->closeConnection();
 } catch (Throwable $e) {
+    header("location: ./html/500.html");
+    /*
     $paginaHTML = str_replace('{titolo}', 'Errore', $paginaHTML);
     $paginaHTML = str_replace('{immagine}', './img/foto-corso-1.jpg', $paginaHTML);
     $paginaHTML = str_replace('{breve_desc}', 'Si è verificato un errore. Riprova più tardi.', $paginaHTML);
@@ -69,7 +71,7 @@ try {
     replaceContent("azione-corso", '', $paginaHTML);
     replaceContent("recensioni", '<p>Nessuna recensione disponibile.</p>', $paginaHTML);
     replaceContent("form-recensione", '', $paginaHTML);
-    echo $paginaHTML;
+    echo $paginaHTML;*/
     exit();
 }
 
@@ -89,19 +91,19 @@ if (!$corso) {
     exit();
 }
 
-$paginaHTML = str_replace('{titolo}', htmlspecialchars($corso['titolo']), $paginaHTML);
+$paginaHTML = str_replace('{titolo}', allyModTesto(htmlspecialchars($corso['titolo'])), $paginaHTML);
 $paginaHTML = str_replace('{immagine}', htmlspecialchars($corso['immagine']), $paginaHTML);
-$paginaHTML = str_replace('{breve_desc}', htmlspecialchars($corso['breve_desc']), $paginaHTML);
+$paginaHTML = str_replace('{breve_desc}', allyModTesto(htmlspecialchars($corso['breve_desc'])), $paginaHTML);
 $paginaHTML = str_replace('{categoria}', htmlspecialchars($corso['categoria']), $paginaHTML);
 $paginaHTML = str_replace('{prezzo}', htmlspecialchars($corso['costo']), $paginaHTML);
-$paginaHTML = str_replace('{tipologia}', htmlspecialchars($corso['modalita']), $paginaHTML);
+$paginaHTML = str_replace('{tipologia}', allyModCorso(htmlspecialchars($corso['modalita'])), $paginaHTML);
 $paginaHTML = str_replace('{durata}', htmlspecialchars($corso['durata']), $paginaHTML);
-$paginaHTML = str_replace('{desc_completa}', nl2br(htmlspecialchars($corso['desc_completa'])), $paginaHTML);
+$paginaHTML = str_replace('{desc_completa}', nl2br(allyModTesto(htmlspecialchars($corso['desc_completa']))), $paginaHTML);
 
 $azioneHtml = '';
 if (empty($_SESSION['is_admin'])) {
     if (!isset($_SESSION['user'])) {
-        $azioneHtml = '<a href="../accedi.php" class="default-form-login-link">Accedi per acquistare</a>';
+        $azioneHtml = '<a href="../accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per acquistare</a>';
     } elseif ($haAcquistato) {
         $paginaHTML = str_replace('{azione-titolo-corso}', 'Disiscriviti', $paginaHTML);
         $azioneHtml = '<form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="default-form-confirm-button">Disiscriviti</button></form>';
@@ -122,7 +124,10 @@ if (!empty($azioneHtml)) {
 $recensioniHtml = '';
 if (!empty($recensioni)) {
     foreach ($recensioni as $recensione) {
-        $recensioniHtml .= '<article class="corso-recensione"><h3>' . htmlspecialchars($recensione['id_user']) . ' - ' . htmlspecialchars($recensione['rating']) . '/5</h3><p>' . htmlspecialchars($recensione['descrizione']) . '</p></article>';
+        $recensioniHtml .= '<article class="default-form recensione-article">
+                                <h3>' . htmlspecialchars($recensione['id_user']) . ' - ' . htmlspecialchars($recensione['rating']) . '/5</h3>
+                                <p>' . htmlspecialchars($recensione['descrizione']) . '</p>
+                            </article>';
     }
 } else {
     $recensioniHtml = '<p>Nessuna recensione disponibile.</p>';
@@ -160,7 +165,7 @@ if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato &&
             </form>
         </section>';
 } elseif (!isset($_SESSION['user'])) {
-    $formRecensione = '<a href="../accedi.php" class="default-form-login-link">Accedi per pubblicare una recensione.</a>';
+    $formRecensione = '<a href="../accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per pubblicare una recensione</a>';
 }
 replaceContent("form-recensione", $formRecensione, $paginaHTML);
 

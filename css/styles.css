@@ -80,6 +80,11 @@
         color: var(--a-visited-text-color);
     }
 
+    abbr {
+        text-decoration: none;
+        border-bottom: none;
+    }
+
     /* INDEX */
 
     /*
@@ -259,7 +264,7 @@
         font-size: 1.2rem;
     }
 
-    .content a {
+    .content a, .info-orari {
         display: inline-block;
         margin-top: 1rem;
         font-size: 1rem;
@@ -703,6 +708,7 @@
 
     #modifica-recensione-form{
         width: 50%;
+        margin-bottom: -2rem;
     }
 
     #modifica-recensione-form .default-form-group {
@@ -787,14 +793,31 @@
 
     .corso-badges h6 {
         font-size: 1rem;
-        font-weight: 100;
+        font-weight: 500;
         color: var(--a-text-color-2);
         padding-right: 1rem;
     }
 
     .corso-badges li {
         display: flex;
-        align-items: baseline;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+
+    .corso-content {
+        display: flex;
+        gap: 4rem;
+        align-items: flex-start;
+    }
+
+    .login-azione-dettagliocorso{
+        font-size: 1.2rem;
+    }
+
+    #recensioni-title {
+        font-size: 2.4rem;
     }
 
 
@@ -864,12 +887,44 @@
         margin-top: -0.6rem;
     }
 
+    #content-contatti h6 {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+    }
+
     /*
     #######################################################################
     NEWS
     #######################################################################
     */
 
+    .news-banner h1 {
+        font-size: 3.5rem;
+    }
+
+    .news-banner p {
+        font-size: 1.2rem;
+        padding-left: 10%;
+        padding-right: 10%;
+        font-weight: 400;
+    }
+
+    .titolo-news {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .descrizione-news {
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: 400;
+        padding-top: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     
 
     /*

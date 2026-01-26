@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = isset($_POST['password']) ? $_POST['password'] : "";
 
     if ($username === "" || $password === "") {
-        $err = '<p class="errore-registrazione">Inserisci username e password.</p>';
+        $err = '<p class="errore-registrazione">Inserisci <span lang="en">username</span> e <span lang="en">password</span>.</p>';
         replaceContent("errore-login", $err, $paginaHTML);
         echo $paginaHTML;
         exit();
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = $connessione->openConnection();
 
         if (!$conn) {
-            $err = '<p class="errore-registrazione">Connessione al database non riuscita.</p>';
+            $err = '<p class="errore-registrazione">Connessione al <span lang="en">database</span> non riuscita.</p>';
             replaceContent("errore-login", $err, $paginaHTML);
             echo $paginaHTML;
             exit();

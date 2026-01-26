@@ -162,7 +162,7 @@ replaceContent("admin-confirm", $confirmHtml, $paginaHTML);
 $categorieHtml = '';
 if (!empty($categorie)) {
     $categorieHtml .= '<select id="categorie" name="categorie[]" required>';
-    //$categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
+    $categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
     foreach ($categorie as $cat) {
         $categorieHtml .= '<option value="' . htmlspecialchars($cat['id']) . '">' . htmlspecialchars($cat['nome']) . '</option>';
         //$categorieHtml .= '<tr><td><label><input type="radio" name="categorie[]" value="' . htmlspecialchars($cat['nome']) . '"> ' . htmlspecialchars($cat['nome']) . '</label></td></tr>';
