@@ -18,8 +18,8 @@
 <body>
     <header>
         <nav aria-label="Aiuti alla navigazione">
-            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
-            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
         </nav>
 
         <h1 lang="en">Prophit</h1>
@@ -39,87 +39,79 @@
         </div>
     </header>   
 
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> > Area personale</p>
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / Area personale</p>
     </nav>
 
     <main id="main">
         <!--<button id="back-to-top">&#8593</button> -->
-
-        <section id="first-sec" class="welcome-form">
-            <h3 class="welcome-msg">Benvenuto <strong>{username}</strong>,</h3>
-            <h4 class="viz-msg">visualizza i corsi che hai acquistato e le recensioni che hai pubblicato:</h4>
+        <section class="alt3">
+            <h1>Area personale</h1>
+            <h2>Benvenuto <strong>{username}</strong>!</h2>
+            <p>Visualizza i corsi che hai acquistato e le recensioni che hai pubblicato:</p>
         </section>
         <!--{start-miei-corsi-section}-->
-        <section class="corso-section">
-
+        <section class="alt3">
             <!--{start-tabella-corsi-acquistati}-->
-            <div class="corsi-acquistati">
-                <span id="sumAcquisti" class="visually-hidden">In questa tabella vengono riassunti i dati dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
-                <table class="tabella-default" aria-describedby="sumAcquisti">
-                    <caption class="table-caption">CORSI</caption>
-                    <colgroup>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                        <col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th scope="col" abbr="Corso">TITOLO CORSO</th>
-                            <th scope="col">CATEGORIA</th>
-                            <th scope="col">DURATA</th>
-                            <th scope="col">PREZZO</th>
-                            <th scope="col">MODALITÀ</th>
-                            <!--<th scope="col">BREVE DESCRIZIONE</th>-->
-                            <th scope="col">DATA ACQUISTO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--{start-miei-corsi-table}-->
-                        <!--{end-miei-corsi-table}-->
-                    </tbody>
-                </table>  
-                <!--{end-tabella-corsi-acquistati}-->  
-            </div>
-
+            <span id="sumAcquisti" class="visually-hidden">In questa tabella organizzata per colonne vengono riassunte le informazioni dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
+            <table aria-describedby="sumAcquisti">
+                <caption>Corsi</caption>
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" abbr="Corso">Titolo del corso</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Durata</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">Modalità</th>
+                        <!--<th scope="col">BREVE DESCRIZIONE</th>-->
+                        <th scope="col" abbr="Data acquisto">Data di acquisto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{start-miei-corsi-table}-->
+                    <!--{end-miei-corsi-table}-->
+                </tbody>
+            </table>  
+            <!--{end-tabella-corsi-acquistati}-->  
         </section>
         <!--{end-miei-corsi-section}-->
 
         <!--{start-mie-recensioni-section}-->
-        <section class="recensioni-section">
-
+        <section class="alt3">
             <!--{start-tabella-recensioni}-->
-            <div class="recensioni-effettuate">
-                <span id="sumRecensioni" class="visually-hidden">In questa tabella vengono riassunti i dati delle recensioni pubblicate: titolo corso, voto, descrizione.</span>
-                <table class="tabella-default" aria-describedby="sumRecensioni">
-                    <caption class="table-caption">RECENSIONI</caption>
-                    <colgroup>
-                        <col class="rec-titolo">
-                        <col class="rec-voto">
-                        <col class="rec-descrizione">
-                        <col class="rec-modifica">
-                        <col class="rec-elimina">
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th class="cont" scope="col" abbr="Corso">TITOLO CORSO</th>
-                            <th class="cont" scope="col">VOTO</th>
-                            <th class="cont" scope="col">DESCRIZIONE</th>
-                            <th scope="col">Modifica</th>
-                            <th scope="col">Elimina</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--{start-mie-recensioni-table}-->
-                        <!--{end-mie-recensioni-table}-->
-                    </tbody>
-                </table> 
+            <span id="sumRecensioni" class="visually-hidden">In questa tabella organizzata per colonne vengono riassunte le recensioni pubblicate: titolo del corso, voto, descrizione.</span>
+            <table aria-describedby="sumRecensioni">
+                <caption>Recensioni</caption>
+                <colgroup>
+                    <col class="rec-titolo">
+                    <col class="rec-voto">
+                    <col class="rec-descrizione">
+                    <col class="rec-modifica">
+                    <col class="rec-elimina">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" abbr="Corso">Titolo del corso</th>
+                        <th scope="col">Voto</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">Modifica</th>
+                        <th scope="col">Elimina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{start-mie-recensioni-table}-->
+                    <!--{end-mie-recensioni-table}-->
+                </tbody>
+            </table> 
             <!--{end-tabella-recensioni}-->
-            </div>
-
         </section>
         <!--{end-mie-recensioni-section}-->
     </main>

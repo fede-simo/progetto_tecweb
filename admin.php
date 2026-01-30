@@ -11,6 +11,8 @@ if (!isset($_SESSION['user']) || empty($_SESSION['is_admin'])) {
 }
 
 $paginaHTML = file_get_contents('./html/admin.html');
+$username = htmlspecialchars($_SESSION['user'], ENT_QUOTES);
+$paginaHTML = str_replace('{username}', $username, $paginaHTML);
 $messaggio = "";
 $confirmHtml = "";
 
@@ -122,7 +124,6 @@ try {
 
 $lista = '<form action="./admin.php" method="POST" id="utenti-form">';
 $lista .= '<input type="hidden" name="action" value="preview-admin">';
-$lista .= '<div style="max-height: 220px; overflow: auto;">';
 $lista .= '<p id="sum-users" class="visually-hidden">La tabella, ordinata per colonne, mostra tutti gli utenti registrati, con l\'indicazione se sono amministratori o meno, e permette di modificare i loro ruoli.</p>';
 $lista .= '<table class="tabella-default" aria-describedby="sum-users">
             <caption class="table-caption">Utenti</caption>
@@ -147,7 +148,7 @@ foreach ($utenti as $utente) {
     $lista .= '<td>' . htmlspecialchars($utente['data_di_nascita']) . '</td>';
     $lista .= '</tr>';
 }
-$lista .= '</tbody></table></div>';
+$lista .= '</tbody></table>';
 $lista .= '<button type="submit" class="default-form-confirm-button">Anteprima cambiamenti</button>';
 $lista .= '</form>';
 

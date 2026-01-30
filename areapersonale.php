@@ -25,15 +25,17 @@ if (!empty($_SESSION['is_admin'])) {
 $corsiHtml = '';
 $corsi = [];
 $noCorsi ='
-    <section class="welcome-form">
-        <h4 class="viz-msg">Non hai ancora acquistato alcun corso, <a href="./corsi.php">rimedia</a>.</h4>
+    <section class="alt3">
+        <h3>Corsi</h3>
+        <p>Non hai ancora acquistato alcun corso, <a href="./corsi.php">rimedia</a>.</p>
     </section>';
 
 $recensioni = [];
 $recensioniHtml = '';
 $noRecensioni ='
-    <section class="welcome-form">
-        <h4 class="viz-msg">Non hai alcuna recensione pubblicata.</h4>
+    <section class="alt3">
+        <h3>Recensioni</h3>
+        <p>Non hai alcuna recensione pubblicata.</p>
     </section>';
 
 
@@ -87,18 +89,18 @@ if (!empty($recensioni)) {
             <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
             <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
             <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
-            <td data-title=""><form action="./modificarecensione.php" method="GET">
-                <input type="hidden" name="id" value="' . $recensione['id'] . '">
-                <button type="submit" class="action-btn">
-                    MODIFICA
-                </button>
-            </form></td>
-            <td data-title=""><form action="./eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
+            <td data-title="">
+                <form action="./modificarecensione.php" method="GET">
+                    <input type="hidden" name="id" value="' . $recensione['id'] . '">
+                    <button type="submit" class="action-btn">Modifica</button>
+                </form>
+            </td>
+            <td data-title="">
+                <form action="./eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
                 onsubmit="return confirm(\'Sei sicuro di voler eliminare questa recensione?\');">
-                <button type="submit" class="action-btn action-btn-danger">
-                    ELIMINA
-                </button>
-            </form></td>
+                    <button type="submit" class="action-btn action-btn-danger">Elimina</button>
+                </form>
+            </td>
         </tr>';
     }
     replaceContent("mie-recensioni-table", $recensioniHtml, $paginaHTML);
