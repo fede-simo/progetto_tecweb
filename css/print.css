@@ -1,0 +1,50 @@
+    @page {
+        margin: 1cm;
+        size: A4;
+    }
+
+
+    *{
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.5em;
+        text-decoration: none;
+        color: black;
+        font-size: 1em;
+    }
+
+
+    img {
+        width: 30%;
+    }
+
+    /*nascosto tutto l'header tranne il titolo che fa da logo*/
+    #menu, #highlight-button, .visually-hidden {
+        display: none;
+    }
+
+    form {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    #corso-side-box {
+        display: none;
+    }
+
+    caption {
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    td, th{
+        border: 1px solid black;
+        padding: 0.4em;
+    }
