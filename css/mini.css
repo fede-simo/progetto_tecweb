@@ -1,7 +1,205 @@
-#back-to-top {
-    bottom: 1rem;
-    right: 1rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.2rem;
-}
+    header,
+    #breadcrumb,
+    main,
+    footer {
+        padding-left: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
+        padding-right: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
+    }
+
+
+    /*
+    #######################################################################
+    HEADER
+    #######################################################################
+    */
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 1rem;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    #menu {
+        width: 100%;
+    }
+
+    #menu ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0;
+    }
+
+    #menu li,
+    #menu a {
+        text-align: center;
+        padding: 0.4rem 0;
+    }
+
+    header div {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    /*
+    #######################################################################
+    MAIN
+    #######################################################################
+    */
+
+    #back-to-top {
+        bottom: 1rem;
+        right: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    #homepage-hero-img {
+        display: none;
+    }
+
+    .content {
+        width: 90%;
+    }
+
+    #first-sec .content {
+        text-align: center;
+    }
+
+
+    /*
+    #######################################################################
+    CHI SIAMO
+    #######################################################################
+    */
+
+    #first-sec {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #chisiamo-hero-img {
+        margin-top: 2rem;
+    }
+
+    #img-team {
+        display: none;
+    }
+
+    /*
+    #######################################################################
+    CORSI
+    #######################################################################
+    */
+
+    #catalog {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #desc-catalog {
+        margin-bottom: 0rem;
+    }
+
+    .label-filtro {
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .filtro-catalog {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .content-container{
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    /*
+    #######################################################################
+    DETTAGLIO CORSO
+    #######################################################################
+    */
+
+    .corso-content {
+        flex-direction: column;
+    }
+
+    #corso-appearance {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #corso-side-box{
+        margin-top: 0rem;
+        width: 80%;
+    }
+    
+
+    /*
+    #######################################################################
+    MODIFICA-RECENSIONE
+    #######################################################################
+    */
+
+    .default-form {
+        width: 80%;
+    }
+
+    #modifica-recensione-form {
+        width: 80%;
+    }
+
+    /*
+    #######################################################################
+    CONTATTI
+    #######################################################################
+    */ 
+
+    #contacts-first-sec {
+        margin-bottom: 0rem;
+        flex-direction: column;
+    }
+
+    #contacts-hero-sec {
+        text-align: center;
+    }
+
+    #contacts-hero-img {
+        padding-top: 2rem;
+        width: 70%;
+    }
+
+    .alt3 {
+        margin-bottom: 0rem;
+    }
+
+
+    /*
+    #######################################################################
+    AREA USER
+    #######################################################################
+    */
+
+    
+

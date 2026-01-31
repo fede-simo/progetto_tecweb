@@ -125,7 +125,8 @@ $recensioniHtml = '';
 if (!empty($recensioni)) {
     foreach ($recensioni as $recensione) {
         $recensioniHtml .= '<article class="default-form recensione-article">
-                                <h3>' . htmlspecialchars($recensione['id_user']) . ' - ' . htmlspecialchars($recensione['rating']) . '/5</h3>
+                                <h3 class="recensione-rating">' . htmlspecialchars($recensione['rating']) . '/5</h3>
+                                <h3 class="recensione-user">' . htmlspecialchars($recensione['id_user']) .'</h3>
                                 <p>' . htmlspecialchars($recensione['descrizione']) . '</p>
                             </article>';
     }
@@ -138,7 +139,7 @@ $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
         <section class="modifica-recensione-section">
-            <form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST" id="modifica-recensione-form" class="default-form">       
+            <form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" id="modifica-recensione-form" class="default-form">       
             <input type="hidden" name="action" value="recensisci">
             <h1>Aggiungi una recensione:</h1>
                 <fieldset class="default-form-fieldset"> 
