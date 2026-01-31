@@ -141,11 +141,11 @@ foreach ($utenti as $utente) {
     $isAdmin = !empty($utente['isAdmin']);
     $mark = $isAdmin ? 'V' : 'X';
     $lista .= '<tr data-utente="' . htmlspecialchars($utente['username']) . '" data-data="' . htmlspecialchars($utente['data_di_nascita']) . '">';
-    $lista .= '<td><input type="checkbox" name="admin_users[]" value="' . htmlspecialchars($utente['username']) . '"' . ($isAdmin ? ' checked' : '') . '> ' . $mark . '</td>';
-    $lista .= '<th scope="row">' . htmlspecialchars($utente['username']) . '</th>';
-    $lista .= '<td>' . htmlspecialchars($utente['nome']) . '</td>';
-    $lista .= '<td>' . htmlspecialchars($utente['cognome']) . '</td>';
-    $lista .= '<td>' . htmlspecialchars($utente['data_di_nascita']) . '</td>';
+    $lista .= '<td data-title="Admin: Si(V) No(X) "><input type="checkbox" name="admin_users[]" value="' . htmlspecialchars($utente['username']) . '"' . ($isAdmin ? ' checked' : '') . '> ' . $mark . '</td>';
+    $lista .= '<th data-title="Username" datascope="row">' . htmlspecialchars($utente['username']) . '</th>';
+    $lista .= '<td data-title="Nome">' . htmlspecialchars($utente['nome']) . '</td>';
+    $lista .= '<td data-title="Cognome">' . htmlspecialchars($utente['cognome']) . '</td>';
+    $lista .= '<td data-title="Data di nascita">' . htmlspecialchars($utente['data_di_nascita']) . '</td>';
     $lista .= '</tr>';
 }
 $lista .= '</tbody></table>';

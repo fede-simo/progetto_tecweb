@@ -1,9 +1,31 @@
+    :root{
+        --weight-bold: 600;
+        --weight-regular: 400;
+        --weight-light: 300;
+
+        --text-size-normal: 1rem;
+        --text-size-small: 0.875rem;
+        --text-size-large: 1.625rem;
+        --text-size-link: 1.25rem;
+
+        --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
+        --text-color: #fff;
+        --dark-text-color: #17243A;
+        
+        --a-highlight-text-color: #17243A;
+        --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
+
+        --border-color: #46DBF5;
+    }
+    
     header,
     #breadcrumb,
     main,
     footer {
-        padding-left: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
-        padding-right: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
+        /*padding-left: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
+        padding-right: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));*/
+        padding-left: 4%;
+        padding-right: 4%;
     }
 
 
@@ -29,7 +51,7 @@
         width: 100%;
     }
 
-    #menu {
+    #menu, footer {
         width: 100%;
     }
 
@@ -66,16 +88,33 @@
         font-size: 1.5rem;
     }
 
-    #homepage-hero-img {
+    #desc-index-img {
         display: none;
     }
 
-    .content {
-        width: 90%;
+    #index-hero-img {
+        width: 80%;
+        margin-top: 2rem;
     }
 
-    #first-sec .content {
+    .content {
+        width: auto;
+    }
+
+    #intro-index .content {
         text-align: center;
+    }
+
+    #index-ending-img {
+        display: none;
+    }
+
+    #index-ending-sec {
+        text-align: center;
+    }
+
+    #lista-prophit {
+        padding-left: 1rem;
     }
 
 
@@ -85,17 +124,41 @@
     #######################################################################
     */
 
-    #first-sec {
+    .first-sec {
         display: flex;
         flex-direction: column;
     }
 
+    .first-sec .content {
+        text-align: center;
+    }
+
     #chisiamo-hero-img {
         margin-top: 2rem;
+        width: 80%;
     }
 
     #img-team {
         display: none;
+    }
+
+    #team-section {
+        align-items: center;
+    }
+
+    #chisiamo-last-sec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chisiamo-last-sec .content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    #chisiamo-last-sec .img {
+        width: 80%;
     }
 
     /*
@@ -154,6 +217,10 @@
         margin-top: 0rem;
         width: 80%;
     }
+
+    .side-box-title {
+        padding-bottom: 0rem;
+    }
     
 
     /*
@@ -194,6 +261,19 @@
         margin-bottom: 0rem;
     }
 
+    /*
+    #######################################################################
+    AREA ADMIN
+    #######################################################################
+    */
+
+    #welcome-profile {
+        align-items: center;
+    }
+    
+    #welcome-profile p, #welcome-profile h2 {
+        text-align: center;
+    }
 
     /*
     #######################################################################
@@ -201,5 +281,53 @@
     #######################################################################
     */
 
-    
+    @media screen and (max-width: 768px) {
 
+        thead {
+            display: none;
+        }
+
+        tr, th, td{
+            display: block;
+            text-align: left;
+            white-space: normal;
+            border-collapse: collapse;
+            border: none;
+            text-align: center;
+        }
+
+        tr {
+            border: 2px solid var(--border-color);
+        }
+
+        th{
+            background-color: var(--border-color);
+            color: var(--dark-text-color);
+            padding-top: 0.5rem;
+        }
+
+        th a {
+            color: var(--a-highlight-text-color);
+        }
+
+        th a:visited {
+            color: var(--a-highlight-text-color);
+        }
+
+        td {
+            padding-top: 0.5rem;
+        }
+
+        th[data-title]:before, td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            font-weight: bold;
+        }
+
+        td form {
+            display: inline-flex;
+        }
+
+        footer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }

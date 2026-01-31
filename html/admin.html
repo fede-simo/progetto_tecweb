@@ -48,8 +48,8 @@
 
     <main id="main">
         <button id="back-to-top">&#8593</button>
-        <section class="alt3">
-            <h1>Area amministratore</h1>
+        <section id="welcome-profile" class="first-sec alt3">
+            <h1 id="title-profile">Area amministratore</h1>
             <h2>Benvenuto <strong>{username}</strong>!</h2>
             <p>Utilizza il pannello di controllo per gestire utenti, corsi, messaggi e acquisti.</p>
         </section>
@@ -58,7 +58,7 @@
         <!--{end-admin-message}-->
         <!--{start-admin-confirm}-->
         <!--{end-admin-confirm}-->
-        <section class="alt3">
+        <section id="control-sec" class="alt3">
             <h3>Pannello di controllo</h3>
             <details>
                 <summary>Elenco degli utenti registrati</summary>
@@ -137,7 +137,7 @@
 
             <details>
                 <summary>Elenco degli acquisti</summary>
-                <div class="default-form">
+                <div id="acquisti-form" class="default-form">
                     <div class="default-form-group">
                         <label for="acquisti-filter">Filtra per nome utente:</label>
                         <input type="text" id="acquisti-filter">

@@ -17,6 +17,7 @@
         --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
         --text-color: #fff;
         --text-color-2: #a0a0a0;
+        --dark-text-color: #17243A;
         --highlight-background-color: linear-gradient(45deg, #A6EDFF  0%, #46DBF5 30%, #A6EDFF  100%);
 
         --highlight-text-color: #17243A;
@@ -661,36 +662,19 @@
     table {
         text-align: center;
         width: 100%;
-        table-layout: fixed;
         border-collapse: collapse;
         margin-top: 1rem;
         border: 2px solid var(--border-color);
         margin-bottom: 1rem;
     }
 
-    table th, table td{
+    th, td{
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;
         word-wrap: break-word;
         overflow-wrap: break-word;
         white-space: normal;
-    }
-
-    .rec-titolo {
-        width: 25%;
-    }
-
-    .rec-voto {
-        width: 9%;
-    }
-
-    .rec-modifica, .rec-elimina {
-        width: 13%;
-    }
-
-    .rec-descrizione {
-        width: 40%;
     }
 
     .corso-link-tabella {
@@ -713,7 +697,9 @@
         align-items: center;
         justify-content: center;
 
-        padding: 0.4rem 0.8rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+
         font-size: 1rem;
         font-weight: 500;
 

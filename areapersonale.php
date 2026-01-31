@@ -89,13 +89,13 @@ if (!empty($recensioni)) {
             <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
             <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
             <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
-            <td data-title="">
+            <td data-title="Modifica">
                 <form action="./modificarecensione.php" method="GET">
                     <input type="hidden" name="id" value="' . $recensione['id'] . '">
                     <button type="submit" class="action-btn">Modifica</button>
                 </form>
             </td>
-            <td data-title="">
+            <td data-title="Elimina">
                 <form action="./eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
                 onsubmit="return confirm(\'Sei sicuro di voler eliminare questa recensione?\');">
                     <button type="submit" class="action-btn action-btn-danger">Elimina</button>
