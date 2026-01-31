@@ -85,6 +85,31 @@
         border-bottom: none;
     }
 
+    #back-to-top {
+        position: fixed;
+        bottom: 3rem;
+        right: 6rem;
+
+        width: 4rem;
+        height: 4rem;
+
+        border: none;
+        border-radius: 50%;
+        background-color: var(--border-color);
+        color: var(--highlight-text-color);
+
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+
+        display: none;              /* nascosto di default */
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
     /* INDEX */
 
     /*
@@ -607,7 +632,7 @@
         font-size: 1.5rem;
     }
 
-    table {
+    .tabella-default {
         text-align: center;
         width: 100%;
         table-layout: fixed;
@@ -617,7 +642,7 @@
         margin-bottom: 1rem;
     }
 
-    table th, table td{
+    .tabella-default th, .tabella-default td{
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;

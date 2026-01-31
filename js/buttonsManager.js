@@ -1,29 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const backToTop = document.getElementById("back-to-top");
 
-// BOTTONE PER TORNARE AL TOP COMPARE QUANDO SCENDE SOTTO IL 70% DELLA PRIMA SECTION
+    if (!backToTop) return;
 
-
-const backToTop = document.getElementById('back-to-top');
-
-
-const trigger = document.getElementById('section1')
-
-const backToTopObs = new IntersectionObserver( (entries) => {
-    entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-            backToTop.classList.add("visible");
+    // Mostra il bottone dopo un po' di scroll
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+            backToTop.style.display = "flex";
         } else {
-            backToTop.classList.remove("visible");
+            backToTop.style.display = "none";
         }
     });
-},
-  { threshold: 0.7 }
-);
 
-backToTopObs.observe(trigger);
-
-backToTop.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    // Torna in cima
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
 });

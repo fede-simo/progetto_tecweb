@@ -8,8 +8,9 @@
     <meta name="keywords" content="Prophit, area personale, area riservata, utente, profilo"> <!-- Aggiungerne eventualmente altre in base alle funzioni che mettiamo -->
     
     <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 768px)">
     <link rel="stylesheet" href="./css/print.css" media="print">
-    <!--<script src="../js/buttonsManager.js" defer></script>-->
+    <script src="../js/buttonsManager.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +24,7 @@
             <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
         </nav>
 
-        <h1 lang="en">Prophit</h1>
+        <h1 class="logo" lang="en">Prophit</h1>
         <nav id="menu" aria-label="Menù di navigazione">
             <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
             <ul>
@@ -35,7 +36,6 @@
             </ul>
         </nav>
         <div>
-            <!-- Checkbox da trasformare in icona per ricerca cliccabile che poi mostra casella di testo <input type="checkbox" id="search-checkbox" aria-label="Cerca"> -->
             <a href="./logout.php" id="highlight-button">Esci</a>
         </div>
     </header>   
@@ -45,7 +45,7 @@
     </nav>
 
     <main id="main">
-        <!--<button id="back-to-top">&#8593</button> -->
+        <button id="back-to-top">&#8593</button>
         <section class="alt3">
             <h1>Area personale</h1>
             <h2>Benvenuto <strong>{username}</strong>!</h2>
