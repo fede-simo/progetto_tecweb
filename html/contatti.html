@@ -8,9 +8,9 @@
     <meta name="keywords" content="Prophit, accesso, accedi, login, area personale, area riservata, fuffaguru">
     
     <link rel="stylesheet" href="./css/styles.css" media="screen">
-    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 768px)">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
     <link rel="stylesheet" href="./css/print.css" media="print">
-    <script src="../js/buttonsManager.js" defer></script>
+    <script src="./js/buttonsManager.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,18 +119,23 @@
     <main id="main">
         <button id="back-to-top">&#8593</button>
 
-        <section id="first-sec">
-            <div id="content-contatti" class="content">
-                <h1>Parla con i fuffaguru</h1>
+        <section class="first-sec" id="contacts-first-sec">
+            <div id="contacts-hero-sec">
+                <h1 class="contacts-title">Parla con i fuffaguru</h1>
                 <p>Scrivici per info sui corsi, partnership o supporto tecnico. Rispondiamo entro 24 ore lavorative, con numeri alla mano.</p>
+            </div>
+            <div id="contacts-hero-img" class="img">
+                <img src="./img/homepage.jpg" alt=""> <!-- Alt vuoto immagine decorativa -->
+            </div>
+        </section>
+
+        <section>
+            <div id="content-contatti" class="content">
                 <h6>Orari:</h6><p class="info-orari">lunedì-venerdì 9:00-18:00 <span id="orari-status"></span></p>
                 <h6 lang="en">Email:</h6> <p><a href="mailto:supporto@prophit.it">supporto@prophit.it</a></p>
                 <h6>Telefono:</h6> <p><a href="tel:+390491234567">+39 049 123 4567</a></p>
                 <h6>Indirizzo:</h6> <p><a href="https://maps.google.com/?q=120%20North%20Sound%20Rd,%20George%20Town,%20Cayman%20Islands" target="_blank" rel="noopener" lang="en">120 North Sound Rd, George Town, Cayman Islands</a></p>
-            </div>  
-            <div class="img">
-                <img src="./img/homepage.jpg" alt="Contatti Prophit">
-            </div>
+            </div> 
         </section>
         <!--{start-contatti-message}-->
         <!--{end-contatti-message}-->

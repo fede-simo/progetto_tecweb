@@ -166,7 +166,6 @@ if (!empty($categorie)) {
     $categorieHtml .= '<option value="" disabled selected>Seleziona categoria</option>';
     foreach ($categorie as $cat) {
         $categorieHtml .= '<option value="' . htmlspecialchars($cat['id']) . '">' . htmlspecialchars($cat['nome']) . '</option>';
-        //$categorieHtml .= '<tr><td><label><input type="radio" name="categorie[]" value="' . htmlspecialchars($cat['nome']) . '"> ' . htmlspecialchars($cat['nome']) . '</label></td></tr>';
     }
     $categorieHtml .= '</select>';
 }
@@ -174,7 +173,7 @@ replaceContent("categorie-list", $categorieHtml, $paginaHTML);
 
 $contattiHtml = '';
 if (!empty($contatti)) {
-    $contattiHtml .= '<ul>';
+    $contattiHtml .= '<ul class="messaggi-list">';
     foreach ($contatti as $contatto) {
         $contattiHtml .= '<li><strong>' . htmlspecialchars($contatto['oggetto']) . '</strong> - ' . htmlspecialchars($contatto['nome']) . ' (' . htmlspecialchars($contatto['email']) . ')<br>' . htmlspecialchars($contatto['messaggio']) . '<br><small>' . htmlspecialchars($contatto['created_at']) . '</small></li>';
     }
