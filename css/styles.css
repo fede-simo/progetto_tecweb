@@ -915,18 +915,12 @@
     #######################################################################
     */
 
-    .contacts-title {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
-
-    #contacts-hero-sec {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    #contacts-hero-img {
-        width: 100%;
+    #contatti{
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     #form-messaggio {
