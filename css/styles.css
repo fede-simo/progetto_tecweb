@@ -550,48 +550,29 @@
     */
 
     footer{
-        background-color: black;
+        background: var(--background-color);
+        color: var(--text-color);
+        border-top: 2px solid var(--border-color);
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-items: center;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
 
-    footer img{
-        width: 100px;
-        height: 61px;
-    }
-
-    .center-footer{
-        margin-top: 0.5rem;
-    }
-
-    .right-footer{
-        margin-top: 0.5rem;
-    }
-
-    footer h4{
+    footer h2{
         font-size: 1.5rem;
     }
 
-    footer ul{
-        margin-top: 0.5rem;
-        list-style: none;
+    footer ul {
+        list-style-type: none;
     }
 
-    #lista-account-footer li, #lista-pagine-footer li{
-        padding-top: 1rem;
-    }
-
-    footer a{
-        color: inherit;
-    }
-
-    #contatti-footer-link{
-        font-size: 1rem;
-        font-weight: 100;
-        padding-left: 5px;
+    .copyright {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: var(--text-size-small);
+        margin-top: 1.25rem;
     }
 
     /*
