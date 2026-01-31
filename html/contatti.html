@@ -92,8 +92,8 @@
 <body>
     <header>
         <nav aria-label="Aiuti alla navigazione">
-            <a href="#main" class="visually-hidden show-on-focus">Vai al contenuto</a>
-            <a href="#footer" class="visually-hidden show-on-focus">Vai al <span lang="en">footer</span></a>
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
         </nav>
 
         <h1 class="logo" lang="en">Prophit</h1>
@@ -113,54 +113,70 @@
     </header>   
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> > Contatti </p>
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / Contatti </p>
     </nav>
 
     <main id="main">
         <button id="back-to-top">&#8593</button>
 
-        <section class="first-sec" id="contacts-first-sec">
-            <div id="contacts-hero-sec">
-                <h1 class="contacts-title">Parla con i fuffaguru</h1>
-                <p>Scrivici per info sui corsi, partnership o supporto tecnico. Rispondiamo entro 24 ore lavorative, con numeri alla mano.</p>
+        <section class="first-sec">
+            <div class="content">
+                <h1>Contatta <span lang="en">Prophit</span></h1>
+                <h2>Siamo qui per te, parla con noi!</h2>
+                <p>Contattaci se hai bisogno di supporto tecnico o hai bisogno di maggiori informazioni sui corsi.</p>
             </div>
-            <div id="contacts-hero-img" class="img">
-                <img src="./img/homepage.jpg" alt=""> <!-- Alt vuoto immagine decorativa -->
+            <div class="img">
+                <img src="./img/homepage.jpg" alt=""> <!-- Alt vuoto, immagine decorativa -->
             </div>
         </section>
 
-        <section>
-            <div id="content-contatti" class="content">
-                <h6>Orari:</h6><p class="info-orari">lunedì-venerdì 9:00-18:00 <span id="orari-status"></span></p>
-                <h6 lang="en">Email:</h6> <p><a href="mailto:supporto@prophit.it">supporto@prophit.it</a></p>
-                <h6>Telefono:</h6> <p><a href="tel:+390491234567">+39 049 123 4567</a></p>
-                <h6>Indirizzo:</h6> <p><a href="https://maps.google.com/?q=120%20North%20Sound%20Rd,%20George%20Town,%20Cayman%20Islands" target="_blank" rel="noopener" lang="en">120 North Sound Rd, George Town, Cayman Islands</a></p>
-            </div> 
+        <section id="contatti">
+            <div>
+                <h3 lang="en">Email:</h3>
+                <p><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></p>
+            </div>
+            <div>
+                <h3>Telefono:</h3>
+                <p><a href="tel:+391234567890">+39 123 456 7890</a></p>
+            </div>
+            <div>
+                <h3>Indirizzo:</h3>
+                <p>Via Trieste, 63, 35121 Padova (PD)</p>
+            </div>
         </section>
         <!--{start-contatti-message}-->
         <!--{end-contatti-message}-->
         <section id="form-messaggio">
-            <h2>Invia un messaggio al <span lang="en">team</span></h2>
             <form action="./contatti.php" class="default-form" method="POST" autocomplete="on">              
+                <h3>Invia un messaggio al <span lang="en">team</span></h3>
+                
+                <fieldset class="default-form-fieldset">
+                    <legend>Dati personali</legend>
                     
-                <div class="default-form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome" class="placeholder-transparent" required>
+                    <div class="default-form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome" class="placeholder-transparent" required>
+                    </div>
+                    <div class="default-form-group">
+                        <label for="email" lang="en">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" class="placeholder-transparent" autocomplete="email" required>
+                    </div>
+                </fieldset>
+                <fieldset class="default-form-fieldset">
+                    <legend>Dati messaggio</legend>
+                    <div class="default-form-group">
+                        <label for="oggetto">Oggetto</label>
+                        <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto" class="placeholder-transparent" required>
+                    </div>
+                    <div class="default-form-group">
+                        <label for="messaggio">Messaggio</label>
+                        <textarea id="messaggio" name="messaggio" rows="5" placeholder="Messaggio" class="placeholder-transparent" required></textarea>
+                    </div>
+                </fieldset>
+                <div>
+                    <button class="default-form-confirm-button" type="submit" aria-label="Invia il messaggio">Invia</button>
+                    <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
                 </div>
-                <div class="default-form-group">
-                    <label for="email" lang="en">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Email" class="placeholder-transparent" autocomplete="email" required>
-                </div>
-                <div class="default-form-group">
-                    <label for="oggetto">Oggetto</label>
-                    <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto" class="placeholder-transparent" required>
-                </div>
-                <div class="default-form-group">
-                    <label for="messaggio">Messaggio</label>
-                    <textarea id="messaggio" name="messaggio" rows="5" placeholder="Messaggio" class="placeholder-transparent" required></textarea>
-                </div>
-
-                <button type="submit" class="default-form-confirm-button" aria-label="Invia il messaggio">Invia</button>
             </form>
         </section>
     </main>
