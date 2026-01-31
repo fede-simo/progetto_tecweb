@@ -653,7 +653,7 @@
         font-size: 1.5rem;
     }
 
-    .tabella-default {
+    table {
         text-align: center;
         width: 100%;
         table-layout: fixed;
@@ -663,7 +663,7 @@
         margin-bottom: 1rem;
     }
 
-    .tabella-default th, .tabella-default td{
+    table th, table td{
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;
@@ -958,9 +958,9 @@
     #######################################################################
     */
 
-    .team-list {
+    #team-list {
         list-style-type: disc;
-        margin-left: 2rem;
+        list-style-position: inside;
         margin-top: 0.3rem;
     }
 
