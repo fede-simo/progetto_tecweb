@@ -42,21 +42,21 @@
     </header>   
 
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="./index.php" lang="en" class="breadcrumb-link">Home</a> > Corsi</p>
+        <p>Ti trovi in: <a href="./index.php" lang="en" class="breadcrumb-link">Home</a> / Corsi</p>
     </nav>
 
     <main id="main">
         <button id="back-to-top">&#8593</button>
         
-        <section class="first-sec" id="catalog">
-            <div class="left-catalog">
-                <h3 id="header-catalog">Catalogo corsi</h3>
-                <p id="desc-catalog">Filtra per categoria (Investimenti, Risparmio, Previdenza)</p>
-            </div>
-            <div class="right-catalog">
-                <form action="./corsi.php" method="get" id="form-catalog">
-                    <label for="categoria" class="label-filtro">Categoria</label>
-                    <select name="categoria" id="categoria" class="filtro-catalog" onchange="this.form.submit()">
+        <section class="alt3">
+            <h1>Catalogo dei corsi offerti da <strong lang="en">Prophit</strong></h1>
+            <h2>Scopri percorsi formativi pensati per aiutarti a comprendere i mercati finanziari.</h2>
+            <p>Costruiamo strategie di investimento personalizzate, partendo dalle basi fino ai livelli più avanzati.</p>
+            
+            <form action="./corsi.php" method="get" class="default-form">
+                <div class="default-form-group">
+                    <label for="categoria">Filtra per categoria:</label>
+                    <select name="categoria" id="categoria" onchange="this.form.submit()">
                         <!--{start-select-categoria}-->
                         <option value="all" selected>Tutti</option>
                         <option value="Investimenti">Investimenti</option>
@@ -64,8 +64,8 @@
                         <option value="Previdenza">Previdenza</option>
                         <!--{end-select-categoria}-->
                     </select>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
 
         <section class="content-container">
