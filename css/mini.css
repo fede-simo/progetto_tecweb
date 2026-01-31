@@ -243,16 +243,16 @@
     #######################################################################
     */ 
 
-    #contacts-first-sec {
-        margin-bottom: 0rem;
+    #contatti {
+        display: flex;
         flex-direction: column;
     }
 
-    #contacts-hero-sec {
-        text-align: center;
+    #contatti-hero-sec {
+        margin-bottom: 0rem;
     }
 
-    #contacts-hero-img {
+    #contatti-img {
         padding-top: 2rem;
         width: 70%;
     }
