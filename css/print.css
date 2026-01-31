@@ -14,7 +14,21 @@
 
 
     img {
-        width: 30%;
+        width: 25%;
+    }
+
+    .asset-grid img {
+        display: none;
+    }
+
+    .asset-grid a:after {
+        content: " [" attr(href) "]";  /* aggiunge il link tra parentesi */
+    }
+
+    .asset-grid a {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
     }
 
     /*nascosto tutto l'header tranne il titolo che fa da logo*/
@@ -37,7 +51,7 @@
         display: none;
     }
 
-    #corso-side-box {
+    #corso-side-box, #back-to-top {
         display: none;
     }
 
