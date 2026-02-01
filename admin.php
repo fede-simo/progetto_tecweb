@@ -130,6 +130,7 @@ $lista .= '<table class="tabella-default" aria-describedby="sum-users">
                 <thead>
                     <tr>
                     <th scope="col" lang="en">Username</th>
+                    <th scope="col">Admin</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Data</th>
