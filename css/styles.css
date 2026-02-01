@@ -370,6 +370,10 @@
     #######################################################################
     */
 
+    form {
+        text-align: center;
+    }
+
     .default-form {
         width: 60%;
         margin: 3rem auto;
@@ -407,6 +411,7 @@
     }
 
     .default-form-group input, .default-form-group textarea, .default-form-group select{
+        width: 100%;
         padding: 0.8rem;
         border: none;
         border-radius: 8px;
@@ -746,6 +751,14 @@
 
     dt {
         font-weight: var(--weight-bold);
+    }
+
+    #recensione {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-bottom: 1rem;
+        text-align: center;  
     }
 
     .login-azione-dettagliocorso{

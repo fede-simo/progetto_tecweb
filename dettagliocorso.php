@@ -138,12 +138,11 @@ replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
-        <section class="alt3">
             <form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="default-form">       
                 <input type="hidden" name="action" value="recensisci">
                 <h3>Aggiungi una recensione:</h3>
                 <fieldset class="default-form-fieldset"> 
-                    <legend class="recensione-legend">Recensione</legend>    
+                    <legend class="recensione-legend">Dati Recensione</legend>    
 
                         <div class="default-form-group">
                             <label class="default-form-label" for="rating">Voto (1-5)</label>
@@ -155,16 +154,18 @@ if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato &&
                             <textarea class="default-form-field" id="descrizione" name="descrizione" rows="4" required></textarea>
                         </div>
                 </fieldset>      
-
-                <button type="submit" class="default-form-confirm-button">Invia recensione</button>
+                <div>
+                    <button type="submit" class="default-form-confirm-button">Invia recensione</button>
+                    <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                </div>
+                
 
                 <div class="default-form-error">
                 <!--{start-errore}-->
                 
                 <!--{end-errore}-->
                 </div>
-            </form>
-        </section>';
+            </form>';
 } elseif (!isset($_SESSION['user'])) {
     $formRecensione = '<a href="./accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per pubblicare una recensione</a>';
 }

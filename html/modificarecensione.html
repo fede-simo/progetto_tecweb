@@ -53,7 +53,7 @@
             <!--{end-azione-form}-->      
             <h1>Modifica la tua recensione:</h1>
                 <fieldset class="default-form-fieldset"> 
-                    <legend class="recensione-legend">Recensione</legend>    
+                    <legend class="recensione-legend">Dati recensione</legend>    
                     
                     <input type="hidden" name="id" value="{id}">
 
@@ -67,8 +67,11 @@
                             <textarea id="descrizione" name="descrizione" rows="4" required>{descrizione}</textarea>
                         </div>
                 </fieldset>      
-
-                <button type="submit" class="default-form-confirm-button">Invia recensione</button>
+                <div>
+                    <button type="submit" class="default-form-confirm-button">Invia recensione</button>
+                    <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                </div>
+                
 
                 <div class="default-form-error">
                 <!--{start-errore}-->
