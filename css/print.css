@@ -3,69 +3,188 @@
         size: A4;
     }
 
+    * {
+        background: transparent !important;
+        color: black !important;
+        background: white;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
 
-    *{
-        font-family: "Times New Roman", Times, serif;
-        line-height: 1.5em;
-        text-decoration: none;
+
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        overflow-wrap: anywhere;
+    }
+
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Arial, Helvetica, sans-serif;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        font-weight: bold;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        font-size: 24pt;
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 18pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+    }
+
+    h4, h5, h6 {
+        font-size: 12pt;
+    }
+
+
+    p {
+        margin-bottom: 0.75em;
+    }
+
+
+    a {
+        text-decoration: underline;
         color: black;
-        font-size: 1em;
+    }
+
+    a:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        font-style: italic;
+    }
+
+    ul {
+        margin: 0.5em 0;
+        padding-left: 2em;
+    }
+
+    li {
+        margin-bottom: 0.25em;
+        page-break-inside: avoid;
+    }
+
+    header nav,
+    #menu,
+    #breadcrumb,
+    #back-to-top,
+    #highlight-button,
+    button,
+    footer,
+    .visually-hidden,
+    .show-on-focus,
+    .decoration-img img {
+        display: none !important;
+    }
+
+    header {
+        border-bottom: 2px solid black;
+        padding-bottom: 10pt;
+        margin-bottom: 20pt;
+    }
+
+    .logo {
+        font-size: 28pt;
+        font-weight: bold;
+        margin: 0;
+        text-align: center;
+    }
+
+
+    main {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    section {
+        margin-bottom: 20pt;
+    }
+
+    .content {
+        width: 100%;
     }
 
 
     img {
-        width: 25%;
+        max-width: 40% !important;
+        height: auto !important;
+        display: block;
+        margin: 10pt 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
     }
 
-    .asset-grid img {
-        display: none;
-    }
-
-    .asset-grid a:after {
-        content: " [" attr(href) "]";  /* aggiunge il link tra parentesi */
+    .asset-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10pt;
+        margin: 15pt 0;
     }
 
     .asset-grid a {
-        color: black;
-        text-decoration: none;
+        display: inline-block;
+        margin-right: 15pt;
+    }
+
+    .asset-grid img {
+        width: 40pt !important;
+        height: 40pt !important;
+        display: inline-block;
+        margin: 0;
+    }
+
+
+    #start,
+    #more-info {
+        display: none;
+    }
+
+
+    strong {
         font-weight: bold;
     }
 
-    /*nascosto tutto l'header tranne il titolo che fa da logo*/
-    #menu, #highlight-button, .visually-hidden {
-        display: none;
-    }
-
-    .logo {
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 1em;
-        text-align: center;
-    }
-
-    button, #back-to-top {
-        display: none;
-    }
-
-    footer {
-        display: none;
-    }
-
-    #corso-side-box, #back-to-top {
-        display: none;
+    em {
+        font-style: italic;
     }
 
     caption {
         font-weight: bold;
+        font-size: 14pt;
+        margin-bottom: 5pt;
     }
+
+    th{
+        word-wrap: break-word;
+        overflow-wrap: break-word
+    }  
 
     table {
         width: 100%;
         border: 1px solid black;
         border-collapse: collapse;
+        margin-bottom: 15pt;
     }
 
-    td, th{
-        border: 1px solid black;
-        padding: 0.4em;
+    .content-container{
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-gap: 2rem;
+        margin-left: 1%;
+        margin-right: 1%;
+        align-items: stretch;
     }
+
