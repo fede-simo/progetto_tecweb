@@ -813,6 +813,7 @@
 
     summary:hover {
         transform: scale(1.04);
+        padding-left: 1rem;
     }
 
     details {

@@ -130,7 +130,6 @@ $lista .= '<table class="tabella-default" aria-describedby="sum-users">
                 <thead>
                     <tr>
                     <th scope="col" lang="en">Username</th>
-                    <th scope="col" lang="en">Admin</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Data</th>
@@ -204,9 +203,9 @@ if (!empty($acquisti)) {
                             <tbody>';
     foreach ($acquisti as $acquisto) {
         $acquistiHtml .= '<tr data-acquisto="' . htmlspecialchars($acquisto['id_user']) . '">';
-        $acquistiHtml .= '<th scope="row">' . htmlspecialchars($acquisto['id_user']) . '</th>';
-        $acquistiHtml .= '<td>' . htmlspecialchars($acquisto['titolo']) . '</td>';
-        $acquistiHtml .= '<td>' . htmlspecialchars($acquisto['data']) . '</td>';
+        $acquistiHtml .= '<th data-title="Username" scope="row">' . htmlspecialchars($acquisto['id_user']) . '</th>';
+        $acquistiHtml .= '<td data-title="Corso">' . htmlspecialchars($acquisto['titolo']) . '</td>';
+        $acquistiHtml .= '<td data-title="Data di acquisto">' . htmlspecialchars($acquisto['data']) . '</td>';
         $acquistiHtml .= '</tr>';
     }
     $acquistiHtml .= '</tbody></table>';
