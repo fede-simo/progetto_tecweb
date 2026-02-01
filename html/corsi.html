@@ -41,12 +41,12 @@
         </div>
     </header>   
 
-    <nav id="breadcrumb">
+    <nav id="breadcrumb" aria-label="Percorso">
         <p>Ti trovi in: <a href="./index.php" lang="en" class="breadcrumb-link">Home</a> / Corsi</p>
     </nav>
 
     <main id="main">
-        <button id="back-to-top">&#8593</button>
+        <button id="back-to-top">&#8593;</button>
         
         <section class="first-sec alt3">
             <h1>Catalogo dei corsi offerti da <strong lang="en">Prophit</strong></h1>
@@ -56,7 +56,7 @@
             <form action="./corsi.php" method="get" class="default-form">
                 <div class="default-form-group">
                     <label for="categoria">Filtra per categoria:</label>
-                    <select name="categoria" id="categoria" onchange="this.form.submit()">
+                    <select name="categoria" id="categoria">
                         <!--{start-select-categoria}-->
                         <option value="all" selected>Tutti</option>
                         <option value="Investimenti">Investimenti</option>
@@ -65,6 +65,7 @@
                         <!--{end-select-categoria}-->
                     </select>
                 </div>
+                <button class="default-form-confirm-button" type="submit" aria-label="Conferma filtro">Filtra</button>
             </form>
         </section>
 

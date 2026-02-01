@@ -47,7 +47,7 @@
     </nav>
 
     <main id="main">
-        <button id="back-to-top">&#8593</button>
+        <button id="back-to-top">&#8593;</button>
         <section id="welcome-profile" class="first-sec alt3">
             <h1 id="title-profile">Area amministratore</h1>
             <h2>Benvenuto <strong>{username}</strong>!</h2>
@@ -90,7 +90,7 @@
                             <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.webp" required>
                         </div>
                         <div class="default-form-group">
-                            <label for="categoria">Categoria:</label>                            
+                            <label for="categorie">Categoria:</label>                            
                                 <!--{start-categorie-list}-->
                                 <!--{end-categorie-list}-->    
                         </div>
@@ -105,9 +105,10 @@
                         <div class="default-form-group">
                             <label for="modalita">Modalità:</label>
                             <select id="modalita" name="modalita" required>
+                                <option value="" disabled selected>Seleziona modalità</option>
                                 <option value="In aula">In aula</option>
                                 <option value="Online live" lang="en">Online live</option>
-                                <option value="Online registrata"><span lang="en">Online</span> registrata</option>
+                                <option value="Online registrata">Online registrata</option>
                             </select>
                         </div>
                         <div class="default-form-group">
@@ -127,12 +128,8 @@
             </details>
             <details>
                 <summary>Elenco dei messaggi ricevuti <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
-                <section id="messaggi-form" class="default-form">
-                    <div>
-                        <!--{start-contatti-list}-->
-                        <!--{end-contatti-list}-->
-                    </div>
-                </section>
+                <!--{start-contatti-list}-->
+                <!--{end-contatti-list}-->                
             </details>
 
             <details>

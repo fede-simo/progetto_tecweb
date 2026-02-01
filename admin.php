@@ -129,8 +129,8 @@ $lista .= '<table class="tabella-default" aria-describedby="sum-users">
             <caption class="table-caption">Utenti</caption>
                 <thead>
                     <tr>
-                    <th scope="col" lang="en">Admin</th>
                     <th scope="col" lang="en">Username</th>
+                    <th scope="col" lang="en">Admin</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Data</th>
@@ -141,8 +141,8 @@ foreach ($utenti as $utente) {
     $isAdmin = !empty($utente['isAdmin']);
     $mark = $isAdmin ? 'V' : 'X';
     $lista .= '<tr data-utente="' . htmlspecialchars($utente['username']) . '" data-data="' . htmlspecialchars($utente['data_di_nascita']) . '">';
+    $lista .= '<th data-title="Username" scope="row">' . htmlspecialchars($utente['username']) . '</th>';
     $lista .= '<td data-title="Admin: Si(V) No(X) "><input type="checkbox" name="admin_users[]" value="' . htmlspecialchars($utente['username']) . '"' . ($isAdmin ? ' checked' : '') . '> ' . $mark . '</td>';
-    $lista .= '<th data-title="Username" datascope="row">' . htmlspecialchars($utente['username']) . '</th>';
     $lista .= '<td data-title="Nome">' . htmlspecialchars($utente['nome']) . '</td>';
     $lista .= '<td data-title="Cognome">' . htmlspecialchars($utente['cognome']) . '</td>';
     $lista .= '<td data-title="Data di nascita">' . htmlspecialchars($utente['data_di_nascita']) . '</td>';

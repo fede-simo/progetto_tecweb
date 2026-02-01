@@ -37,15 +37,15 @@
         </nav>
     </header>   
 
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / <a class="breadcrumb-link" href="./areapersonale.php" lang="en">Area personale</a> / Accedi </p>
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / <a class="breadcrumb-link" href="./areapersonale.php">Area personale</a> / Accedi </p>
     </nav>
     
     <main id="main">
-        <button id="back-to-top">&#8593</button>
+        <button id="back-to-top">&#8593;</button>
 
         <form id="login-form" class="default-form" name="login-form" action="./accedi.php" method="POST" autocomplete="on">
-            <h1>Accedi su Prophit!</h1>
+            <h1>Accedi su <span lang="en">Prophit</span>!</h1>
             <div class="default-form-error">
                 <!--{start-errore-login}-->
                 <!--{end-errore-login}-->

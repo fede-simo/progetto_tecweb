@@ -47,7 +47,7 @@ if (!empty($corsi)) {
     foreach ($corsi as $corso) {
         $corsiUpdated .= 
         '<div class="default-container">
-            <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-container">
+            <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-container" alt="">
             <h3 class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link">' . allyModTesto(htmlspecialchars($corso['titolo'])) . '</a></h3>
             <p class="descrizione-container">' . allyModTesto(htmlspecialchars($corso['breve_desc'])) . '<p>
             <ul class="lista-info-corso">
