@@ -15,6 +15,10 @@
         --text-size-link: 1.25rem;
 
         --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
+        --background-corso-info-color: #111111;
+        --more-info-hover-background-color: rgb(17, 17, 31);
+        --start-hover-background-color: rgb(31, 145, 99);
+
         --text-color: #fff;
         --text-color-2: #a0a0a0;
         --dark-text-color: #17243A;
@@ -318,7 +322,7 @@
     }
 
     #start:hover {
-        background-color: rgb(31, 145, 99);
+        background-color: var(--start-hover-background-color);
     }
 
     #more-info {
@@ -326,7 +330,7 @@
     }
 
     #more-info:hover {
-        background-color: rgb(17, 17, 31);
+        background-color: var(--more-info-hover-background-color);
     }
 
 
@@ -377,7 +381,7 @@
         width: 60%;
         margin: 3rem auto;
         padding: 2rem;
-        background: var(--background-color);
+        background-color: var(--background-color);
         color: var(--text-color);
         border-radius: 10px;
         border: 2px solid var(--border-color);
@@ -568,7 +572,7 @@
     .lista-info-corso > li{
         border: 2px solid var(--border-color);
         border-radius: 60px;
-        background-color: #111111;
+        background-color: var(--background-corso-info-color);
         padding: 0.6rem 1rem 0.6rem 1rem;
         font-size: 1rem;
     }
@@ -620,10 +624,6 @@
 
     .alt3 {
         margin-bottom: 0rem;
-    }
-
-    .confirm-registration{
-        color: var(--text-color);
     }
 
     .welcome-form {
@@ -696,7 +696,7 @@
         font-weight: 500;
 
         text-decoration: underline;
-        color: #fff;
+        color: var(--text-color);
         background-color: var(--primary-color);
 
         border: none;
