@@ -7,7 +7,7 @@ session_start();
 
 $paginaHTML = file_get_contents('./html/dettagliocorso.html');
 
-if (!isset($_SESSION['user'])) $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
+if (!isset($_SESSION['user'])) $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora!', $paginaHTML);
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 if ($id <= 0) {
@@ -103,13 +103,13 @@ $paginaHTML = str_replace('{desc_completa}', nl2br(allyModTesto(htmlspecialchars
 $azioneHtml = '';
 if (empty($_SESSION['is_admin'])) {
     if (!isset($_SESSION['user'])) {
-        $azioneHtml = '<a href="../accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per acquistare</a>';
+        $azioneHtml = '<a href="./accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per acquistare</a>';
     } elseif ($haAcquistato) {
-        $paginaHTML = str_replace('{azione-titolo-corso}', 'Disiscriviti', $paginaHTML);
-        $azioneHtml = '<form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="default-form-confirm-button">Disiscriviti</button></form>';
+        $paginaHTML = str_replace('{azione-titolo-corso}', 'Annulla prenotazione', $paginaHTML);
+        $azioneHtml = '<form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="elimina"><button type="submit" class="default-form-confirm-button">Disiscriviti</button></form>';
     } else {
         $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
-        $azioneHtml = '<form action="../dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="default-form-confirm-button">Compra gratis</button></form>';
+        $azioneHtml = '<form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST"><input type="hidden" name="action" value="acquista"><button type="submit" class="default-form-confirm-button">Compra gratis</button></form>';
     }
 } else {
     $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
@@ -124,9 +124,9 @@ if (!empty($azioneHtml)) {
 $recensioniHtml = '';
 if (!empty($recensioni)) {
     foreach ($recensioni as $recensione) {
-        $recensioniHtml .= '<article class="default-form recensione-article">
-                                <h3 class="recensione-rating">' . htmlspecialchars($recensione['rating']) . '/5</h3>
-                                <h3 class="recensione-user">' . htmlspecialchars($recensione['id_user']) .'</h3>
+        $recensioniHtml .= '<article class="default-form">
+                                <p class="recensione-rating">' . htmlspecialchars($recensione['rating']) . '/5</p>
+                                <p class="recensione-user">' . htmlspecialchars($recensione['id_user']) .'</p>
                                 <p>' . htmlspecialchars($recensione['descrizione']) . '</p>
                             </article>';
     }
@@ -138,10 +138,10 @@ replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
-        <section class="modifica-recensione-section">
-            <form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" id="modifica-recensione-form" class="default-form">       
-            <input type="hidden" name="action" value="recensisci">
-            <h1>Aggiungi una recensione:</h1>
+        <section class="alt3">
+            <form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="default-form">       
+                <input type="hidden" name="action" value="recensisci">
+                <h3>Aggiungi una recensione:</h3>
                 <fieldset class="default-form-fieldset"> 
                     <legend class="recensione-legend">Recensione</legend>    
 
@@ -166,7 +166,7 @@ if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato &&
             </form>
         </section>';
 } elseif (!isset($_SESSION['user'])) {
-    $formRecensione = '<a href="../accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per pubblicare una recensione</a>';
+    $formRecensione = '<a href="./accedi.php" class="default-form-login-link login-azione-dettagliocorso">Accedi per pubblicare una recensione</a>';
 }
 replaceContent("form-recensione", $formRecensione, $paginaHTML);
 

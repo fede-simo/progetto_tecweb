@@ -31,7 +31,7 @@
             <ul>
                 <li lang="en"><a href="./index.php">Home</a></li>
                 <li><a href="./chisiamo.php">Chi siamo</a></li>
-                <li class="current-page">Corsi</li>
+                <li><a href="./corsi.php">Corsi</a></li>
                 <li lang="en"><a href="./news.php">News</a></li>
                 <li><a href="./contatti.php">Contatti</a></li>
             </ul>
@@ -41,63 +41,51 @@
         </div>
     </header>
 
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> > <a class="breadcrumb-link" href="./corsi.php">Corsi</a> > {titolo}</p>
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / <a class="breadcrumb-link" href="./corsi.php">Corsi</a> / {titolo}</p>
     </nav>
 
-    <main id="main" class="pagina-corso">
+    <main id="main">
         <button id="back-to-top">&#8593</button>
-
-        <div class="corso-content">
-            
-            <section class="first-sec" id="corso-appearance">
-                <h1 class="dettaglio-corso-titolo">{titolo}</h1>
-
-                <div class="corso-hero-media">
-                    <img src="{immagine}" alt="Immagine del corso: {titolo}">
-                </div>
-                
-                <div class="corso-hero-info">
-                    <ul id="corso-hero-list" class="lista-info-corso">
-                        <li>{categoria}</li>
-                        <li>€ {prezzo}</li>
-                        <li>{tipologia}</li>
-                        <li>{durata} ore</li>
-                    </ul>
-                </div>
-
-                <div class="corso-description">
-                    <h3 class="corso-description-header">Dettagli del corso</h3>
-                    <p class="corso-description-content">
-                       {desc_completa}
-                    </p>
-                </div>
-                
-            </section>
-
-            <section id="corso-side-box" class="default-form">
-                <h3 class="side-box-title">{azione-titolo-corso}</h3>
-                <ul class="corso-badges">
-                    <li><h6>Categoria:</h6> {categoria}</li>
-                    <li><h6>Durata:</h6> {durata} ore</li>
-                    <li><h6>Prezzo:</h6> € {prezzo}</li>
-                    <li><h6>Tipologia:</h6> {tipologia}</li>
+        
+        <div id="corso-content">
+            <article class="first-sec" id="corso-appearance">
+                <h1>{titolo}</h1>
+                <img src="{immagine}" alt="">
+                <ul class="lista-info-corso">
+                    <li>{categoria}</li>
+                    <li>€ {prezzo}</li>
+                    <li>{tipologia}</li>
+                    <li>{durata} ore</li>
                 </ul>
+                <section class="alt3">
+                    <h2>Dettagli del corso</h2>
+                    <p>{desc_completa}</p>
+                </section> 
+            </article>
+            <aside id="corso-side-box" class="default-form">
+                <h3>{azione-titolo-corso}</h3>
+                <dl>
+                    <dt>Categoria:</dt>
+                    <dd>{categoria}</dd>
+                    <dt>Durata:</dt>
+                    <dd>{durata} ore</dd>
+                    <dt>Prezzo:</dt>
+                    <dd>€ {prezzo}</dd>
+                    <dt>Tipologia:</dt>
+                    <dd>{tipologia}</dd>
+                </dl>
                 <!--{start-azione-corso}-->
                 <!--{end-azione-corso}-->
-            </section>
+            </aside>
         </div>
-        
-
-        <section class="recensioni-section">  
-            <h2 id="recensioni-title">Recensioni</h2>
+        <section class="alt3">  
+            <h2>Recensioni</h2>
             <!--{start-form-recensione}-->
             <!--{end-form-recensione}-->
             
-            <div class="corso-recensioni">
-                <!--{start-recensioni}-->
-                <!--{end-recensioni}-->
-            </div>
+            <!--{start-recensioni}-->
+            <!--{end-recensioni}-->
         </section>
     </main>
 

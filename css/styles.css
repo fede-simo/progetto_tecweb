@@ -276,7 +276,7 @@
         border-radius: 10px;
     }
 
-    section h1 {
+    section h1, article h1 {
         font-size: 3.5rem;   
     }
 
@@ -538,7 +538,6 @@
     .descrizione-container{
         font-size: 1rem;
         font-weight: 400;
-        padding-top: 1rem;
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -551,12 +550,15 @@
     }
 
     .lista-info-corso{
+        width: 100%;
         padding-top: 1rem;
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        padding-left: 5%;
+        padding-left: 1rem;
+        padding-right: 1rem;
         gap: 1rem;
+        justify-content: center;
     }
 
     .lista-info-corso > li{
@@ -701,40 +703,11 @@
 
     /*
     #######################################################################
-    MODIFICA RECENSIONE
-    #######################################################################
-    */
-
-    #modifica-recensione-form{
-        width: 50%;
-        margin-bottom: -2rem;
-    }
-
-    #modifica-recensione-form .default-form-group {
-        margin-top: 0.5rem;
-    }
-
-    #modifica-recensione-form label {
-        font-size: 1.5rem;
-    }
-
-
-    .recensione-legend {
-        font-size: 1.2rem;
-        padding-right:0.3rem
-    }
-
-    /*
-    #######################################################################
     DETTAGLIO CORSO
     #######################################################################
     */
 
-    .pagina-corso {
-        text-align: left;
-    }
-
-    .corso-content {
+    #corso-content {
         display: flex;
         gap: 4rem;
         align-items: flex-start;
@@ -748,83 +721,35 @@
         text-align: left;
     }
 
-    .dettaglio-corso-titolo {
-        font-size: 3rem;
-        margin-bottom: 1rem
-    }
-
-    .corso-hero-media {
+    #corso-content img {
         border: 2px solid var(--border-color);
         border-radius: 20px;
         overflow: hidden;
         width: 100%;
         aspect-ratio: 16/9;
     }
-
-    .corso-hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-
-    #corso-hero-list {
-        padding-left: 0rem;
-    }
-
-    .corso-description-header {
-        font-size: 2rem;
-    }
     
-    #corso-side-box {
+    aside {
         flex: 0.5;
         max-height: fit-content;
-        margin-top: 10rem;
     }
 
-    .side-box-title {
-        font-size: 2rem;
+    aside h3 {
+        font-size: 2.5rem;
     }
 
-    .corso-badges {
-        list-style: none;
+    dl {
+        width: max-content; 
+        margin: 0 auto;
+        text-align: left;
     }
 
-    .corso-badges h6 {
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--a-text-color-2);
-        padding-right: 1rem;
-    }
-
-    .corso-badges li {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.6rem 1rem;
-        font-size: 1rem;
-    }
-
-    .corso-content {
-        display: flex;
-        gap: 4rem;
-        align-items: flex-start;
+    dt {
+        font-weight: var(--weight-bold);
     }
 
     .login-azione-dettagliocorso{
         font-size: 1.2rem;
-    }
-
-    #recensioni-title {
-        font-size: 2.4rem;
-    }
-
-    .recensioni-section {
-        flex-direction: column;
-    }
-
-    .recensione-article {
-        overflow-wrap: anywhere;
     }
 
     .recensione-user, .recensione-rating {
@@ -935,23 +860,6 @@
     #######################################################################
     */
 
-    #news-banner {
-        padding: 1rem;
-        margin-bottom: 4rem;
-    }
-
-    #news-banner h1 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-    }
-
-    #news-banner p {
-        font-size: 1.2rem;
-        padding-left: 10%;
-        padding-right: 10%;
-        font-weight: 400;
-    }
-
     .titolo-news {
         font-size: 2rem;
         font-weight: 700;
@@ -964,7 +872,6 @@
         font-size: 1.2rem;
         text-align: center;
         font-weight: 400;
-        padding-top: 1rem;
         padding-left: 2rem;
         padding-right: 2rem;
     }

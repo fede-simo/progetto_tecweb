@@ -49,13 +49,13 @@ if (!empty($corsi)) {
         '<div class="default-container">
             <img src="' . htmlspecialchars($corso['immagine']) . '" class="img-container">
             <h3 class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link">' . allyModTesto(htmlspecialchars($corso['titolo'])) . '</a></h3>
+            <p class="descrizione-container">' . allyModTesto(htmlspecialchars($corso['breve_desc'])) . '<p>
             <ul class="lista-info-corso">
                 <li>' . htmlspecialchars($corso['categoria']) . '</li>
                 <li>' . htmlspecialchars($corso['durata']) . ' ore</li>
                 <li>€ ' . htmlspecialchars($corso['costo']) . '</li>
                 <li>' . allyModCorso(htmlspecialchars($corso['modalita'])) . '</li>
             </ul>
-            <p class="descrizione-container">' . allyModTesto(htmlspecialchars($corso['breve_desc'])) . '<p>
         </div>';
     }
 } else {

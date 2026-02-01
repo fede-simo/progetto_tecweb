@@ -204,7 +204,7 @@
     #######################################################################
     */
 
-    .corso-content {
+    #corso-content {
         flex-direction: column;
     }
 
@@ -216,10 +216,6 @@
     #corso-side-box{
         margin-top: 0rem;
         width: 80%;
-    }
-
-    .side-box-title {
-        padding-bottom: 0rem;
     }
     
 
