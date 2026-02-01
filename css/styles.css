@@ -210,11 +210,10 @@
     #######################################################################
     */
 
-
     #main {
         text-align: center;
-        word-break: keep-all; /*per fare in modo che non spezzi le parole*/
-        overflow-wrap: normal;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
         flex: 1;
     }
 
@@ -509,7 +508,7 @@
     .content-container{
         margin-top: 2rem;
         display: grid;
-        grid-template-columns: 1fr 1fr; /* NEL CASO DI RESIZE DELLA FINESTRA O MOBILE SI POTREBBE METTERE A COLONNA SINGOLA */
+        grid-template-columns: 1fr 1fr; 
         grid-gap: 2rem;
         margin-left: 1%;
         margin-right: 1%;
@@ -662,10 +661,13 @@
         border: 1px solid var(--border-color);
         padding: 0.5rem;
         font-size: 1rem;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
         white-space: normal;
     }
+
+    th{
+        word-wrap: break-word;
+        overflow-wrap: break-word
+    }   
 
     .corso-link-tabella {
         text-decoration: underline;
@@ -770,10 +772,6 @@
         font-size: 2rem;
         font-weight: 700;
         padding-bottom: 0rem;
-    }
-
-    article {
-        overflow-wrap: anywhere;
     }
 
     /*
@@ -895,6 +893,10 @@
         font-weight: 400;
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+
+    #news-sec {
+        margin-bottom: 5rem;
     }
     
 
