@@ -772,6 +772,9 @@
         padding-bottom: 0rem;
     }
 
+    article {
+        overflow-wrap: anywhere;
+    }
 
     /*
     #######################################################################
@@ -813,6 +816,7 @@
 
     summary:hover {
         transform: scale(1.04);
+        padding-left: 1rem;
     }
 
     details {
@@ -830,6 +834,10 @@
     .messaggi-list strong {
         font-size: 1.6rem;
         font-weight: var(--weight-bold);
+    }
+
+    .messaggi-list {
+        padding-left: 2rem;
     }
 
 
