@@ -114,12 +114,9 @@ try {
     $contatti = $connessione->getContatti();
     $acquisti = $connessione->getAcquisti();
     $connessione->closeConnection();
-} catch (Throwable $e) {
-    $messaggio = '<p class="errore">Errore interno.</p>';
-    $utenti = [];
-    $categorie = [];
-    $contatti = [];
-    $acquisti = [];
+}catch (Throwable $e) {
+    error_log($e->__toString());
+    throw $e;
 }
 
 $lista = '<form action="./admin.php" method="POST" id="utenti-form">';

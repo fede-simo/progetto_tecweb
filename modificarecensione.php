@@ -26,14 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     try {
         $connessione = new DB\DBAccess();
         $conn = $connessione->openConnection();
-        if (!$conn) throw new Exception('Connessione al database non riuscita.');
+        if (!$conn) {
+            throw new RuntimeException('DB connection failed');
+        }
 
         $recensione = $connessione->getRecensioneById($id);
         $connessione->closeConnection();
-
-
-    } catch (Exception $e){
-        echo $e->getMessage();
+    } catch (Throwable $e) {
+        error_log($e->__toString());
+        throw $e;
     }
 
     $paginaHTML = str_replace("{rating}",htmlspecialchars($recensione['rating']), $paginaHTML);

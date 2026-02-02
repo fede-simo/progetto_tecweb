@@ -109,11 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $conn = $connessione->openConnection();
         if (!$conn) {
-            $err .= '<p class="errore-registrazione">Connessione al <span lang="en">database</span> non riuscita.</p>';
-            replaceContent("errore-registrazione", $err, $paginaHTML);
-            $paginaHTML = stickyForm($paginaHTML, $campi);
-            echo $paginaHTML;
-            exit();
+            throw new RuntimeException('DB connection failed');
         }
 
         $totaleUtenti = $connessione->countUtenti();
@@ -143,15 +139,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo $paginaHTML;
             exit();
         }
-            
-
     } catch (Throwable $e) {
-        $err .= '<p class="errore-registrazione">Errore durante la registrazione.</p>';
-        replaceContent("errore-registrazione", $err, $paginaHTML);
-        $paginaHTML = stickyForm($paginaHTML, $campi);
-        echo $paginaHTML;
-        exit();
-    }
+        error_log($e->__toString());
+        throw $e;
+    } 
 } else {
     $paginaHTML = stickyForm($paginaHTML, $campi);
     echo $paginaHTML;

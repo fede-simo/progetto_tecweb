@@ -64,8 +64,8 @@ try {
     $haRecensito = isset($_SESSION['user']) ? $connessione->hasRecensione($_SESSION['user'], $id) : false;
     $connessione->closeConnection();
 } catch (Throwable $e) {
-    header("location: ./html/500.html");
-    exit();
+    error_log($e->__toString());
+    throw $e;
 }
 
 if (!$corso) {

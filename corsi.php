@@ -12,7 +12,10 @@ try {
     $connessione = new DB\DBAccess();
 
     $conn = $connessione->openConnection();
-
+    if (!$conn) {
+        throw new RuntimeException('DB connection failed');
+    }
+    
     $rawCategoria = isset($_GET['categoria']) ? trim(urldecode($_GET['categoria'])) : 'all';
     $categoryMap = [
         'investimenti' => 'Investimenti',
@@ -27,12 +30,9 @@ try {
 
     $connessione->closeConnection();
 
-} catch (Exception $e) {
-    /*
-    $paginaHTML .= "<p class=\"errore\">Si è verificato un errore. Riprova più tardi.</p>";
-    echo $paginaHTML;*/
-    header("location: ./html/500.html");
-    exit();
+} catch (Throwable $e) {
+    error_log($e->__toString());
+    throw $e;
 }
 
 //variabile per fare in modo che il form mostri l'impostazione giusta

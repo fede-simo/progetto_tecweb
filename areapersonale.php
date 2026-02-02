@@ -43,25 +43,18 @@ try {
     $db = new DB\DBAccess();
     $conn = $db->openConnection();
 
-    if ($conn) {
-        try {
-            $corsi = $db->getCorsiByUser($_SESSION['user']);
-        } catch (Throwable $e) {
-            $corsi = [];
-        }
-
-        try {
-            $recensioni = $db->getRecensioniByUser($_SESSION['user']);
-        } catch (Throwable $e) {
-            $recensioni = [];
-        }
-
-        $db->closeConnection();
+    if (!$conn) {
+        throw new RuntimeException('DB connection failed');
     }
+
+    $corsi = $db->getCorsiByUser($_SESSION['user']);
+    $recensioni = $db->getRecensioniByUser($_SESSION['user']);
+
+    $db->closeConnection();
 } catch (Throwable $e) {
-    $corsiHtml .= '<p>Si è verificato un errore. Riprova più tardi.</p>';
-    // TODO: POSSIBILE PAG 500 O 404??
-}
+    error_log($e->__toString());
+    throw $e;
+} 
 
 
 if (!empty($corsi)) {    

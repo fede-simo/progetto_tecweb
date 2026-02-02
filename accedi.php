@@ -22,10 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = $connessione->openConnection();
 
         if (!$conn) {
-            $err = '<p class="errore-registrazione">Connessione al <span lang="en">database</span> non riuscita.</p>';
-            replaceContent("errore-login", $err, $paginaHTML);
-            echo $paginaHTML;
-            exit();
+            throw new RuntimeException('DB connection failed');
         }
 
         $utente = $connessione->getUtenteByUsername($username);
@@ -44,10 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo $paginaHTML;
         exit();
     } catch (Throwable $e) {
-        $err = '<p class="errore-registrazione">Errore durante l\'accesso: ' . htmlspecialchars($e->getMessage(), ENT_QUOTES) . '</p>';
-        replaceContent("errore-login", $err, $paginaHTML);
-        echo $paginaHTML;
-        exit();
+        error_log($e->__toString());
+        throw $e;
     }
 }
 
