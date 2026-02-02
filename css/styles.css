@@ -22,8 +22,8 @@
         --text-color: #fff;
         --text-color-2: #a0a0a0;
         --dark-text-color: #17243A;
-        --highlight-background-color: linear-gradient(45deg, #A6EDFF  0%, #46DBF5 30%, #A6EDFF  100%);
 
+        --highlight-background-color: linear-gradient(45deg, #A6EDFF  0%, #46DBF5 30%, #A6EDFF  100%);
         --highlight-text-color: #17243A;
         --error-text-color: #EE2F2F;
 
@@ -31,11 +31,6 @@
         --a-text-color: #fff;
         --a-visited-text-color: #b48adf; 
         
-        --a-highlight-background-color: #46DBF5;
-        --a-highlight-visited-background-color: rgb(47, 179, 126);
-        --a-highlight-text-color: #17243A;
-        --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
-
         --border-color: #46DBF5;
     }
 
@@ -153,21 +148,23 @@
     }
 
     #menu {
-        width: 60%;
-        text-align: center;
-    }
-
-    header div {
-        width: 20%;
-        text-align: right;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
     }
 
     #menu ul {
+        width: 80%;
         list-style-type: none;
+        text-align: center;
     }
 
+    #menu div {
+        text-align: right;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        line-height: 1.5rem;
+    }
 
     #menu li {
         display: inline-block;
@@ -193,20 +190,23 @@
         font-weight: 1000;
     }
 
-    #highlight-button {
+    .highlight-button {
         border: 2px solid var(--border-color);
         font-weight: 500;
         border-radius: 10px;
         padding: 0.5rem;
-        background-color: var(--a-highlight-background-color);
-        color: var(--a-highlight-text-color);
+        background-color: var(--a-background-color);
+        color: var(--a-text-color);
         text-decoration: none;
         white-space: nowrap;
         transition: 0.3s;
     }
 
-    #highlight-button:hover {
-        background-color: var(--start-hover-background-color);
+    .highlight-button:visited {
+        color: var(--a-visited-text-color)
+    }
+
+    .highlight-button:hover {
         transform: scale(1.04);
     }
 
@@ -317,28 +317,6 @@
         text-align: center;
         width: 40%;
     }
-
-    #start {
-        background-color: var(--a-highlight-background-color);
-        color: var(--a-highlight-text-color);
-        transition: 0.3s;
-    }
-
-    #start:hover {
-        background-color: var(--start-hover-background-color);
-        transform: scale(1.04);
-    }
-
-    #more-info {
-        color: var(--a-text-color);
-        transition: 0.3s;
-    }
-
-    #more-info:hover {
-        background-color: var(--more-info-hover-background-color);
-        transform: scale(1.04);
-    }
-
 
     .subtitle {
         width: 100%;
