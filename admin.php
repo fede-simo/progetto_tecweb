@@ -42,7 +42,7 @@ try {
                 }
             }
             if (empty($changes)) {
-                $messaggio = '<p>Nessun cambiamento da confermare.</p>';
+                $messaggio = '<p class="admin-msg">Nessun cambiamento da confermare.</p>';
             } else {
                 $confirmHtml = '<div class="default-form"><h2>Conferma cambiamenti</h2><ul>';
                 foreach ($changes as $change) {
@@ -67,7 +67,7 @@ try {
                     $okAll = false;
                 }
             }
-            $messaggio = $okAll ? '<p>Ruoli aggiornati.</p>' : '<p class="errore">Errore durante l\'aggiornamento dei ruoli.</p>';
+            $messaggio = $okAll ? '<p class="admin-msg">Ruoli aggiornati.</p>' : '<p class="errore">Errore durante l\'aggiornamento dei ruoli.</p>';
         } elseif ($action === 'add-corso') {
             $titolo = isset($_POST['titolo']) ? trim($_POST['titolo']) : '';
             $categorie = isset($_POST['categorie']) ? (array) $_POST['categorie'] : [];
@@ -82,7 +82,7 @@ try {
                 $tmpName = $_FILES['immagine']['tmp_name'];
                 $originalName = basename($_FILES['immagine']['name']);
                 $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
-                $allowed = ['jpg', 'jpeg', 'png'];
+                $allowed = ['jpg', 'jpeg', 'png', 'webp'];
                 if (in_array($extension, $allowed, true)) {
                     $uploadDir = __DIR__ . '/img';
                     if (!is_dir($uploadDir)) {
@@ -97,14 +97,14 @@ try {
             }
 
             if ($immaginePath === '') {
-                $messaggio = '<p class="errore">Carica un\'immagine valida (jpg o png).</p>';
+                $messaggio = '<p class="errore">Carica un\'immagine valida (jpg, png o webp).</p>';
             } elseif ($titolo === '' || empty($categorie) || $durata <= 0 || $modalita === '' || $breveDesc === '' || $descCompleta === '') {
                 $messaggio = '<p class="errore">Compila tutti i campi obbligatori.</p>';
             } elseif (fmod($costo, 5) !== 0.0) {
                 $messaggio = '<p class="errore">Il costo deve essere un multiplo di 5.</p>';
             } else {
                 $ok = $connessione->addCorso($titolo, $immaginePath, $categorie, $durata, $costo, $modalita, $breveDesc, $descCompleta);
-                $messaggio = $ok ? '<p>Corso aggiunto.</p>' : '<p class="errore">Errore durante l\'inserimento del corso.</p>';
+                $messaggio = $ok ? '<p class="admin-msg">Corso aggiunto.</p>' : '<p class="errore">Errore durante l\'inserimento del corso.</p>';
             }
         }
     }

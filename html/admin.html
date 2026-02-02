@@ -48,14 +48,15 @@
 
     <main id="main">
         <button id="back-to-top">&#8593;</button>
+        <!--{start-admin-message}-->
+        <!--{end-admin-message}-->
         <section id="welcome-profile" class="first-sec alt3">
             <h1 id="title-profile">Area amministratore</h1>
             <h2>Benvenuto <strong>{username}</strong>!</h2>
             <p>Utilizza il pannello di controllo per gestire utenti, corsi, messaggi e acquisti.</p>
         </section>
         
-        <!--{start-admin-message}-->
-        <!--{end-admin-message}-->
+        
         <!--{start-admin-confirm}-->
         <!--{end-admin-confirm}-->
         <section id="control-sec" class="alt3">
@@ -86,8 +87,8 @@
                             <input type="text" id="titolo" name="titolo" required>
                         </div>
                         <div class="default-form-group">
-                            <label for="immagine">Carica immagine (.jpg o .webp):</label>
-                            <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.webp" required>
+                            <label for="immagine">Carica immagine (.jpg, .jpeg, .png o .webp):</label>
+                            <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.webp,.png" required>
                         </div>
                         <div class="default-form-group">
                             <label for="categorie">Categoria:</label>                            

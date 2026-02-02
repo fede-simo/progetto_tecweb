@@ -49,6 +49,12 @@ try {
             if ($rating > 0 && $descrizione !== '') {
                 $connessione->addRecensione($_SESSION['user'], $id, $rating, $descrizione);
             }
+        } else if ($action === 'cancella' && !empty($_SESSION['is_admin'])) {
+            $ok = $connessione->cancellaCorso($id);
+            if ($ok) {
+                header("Location: ./corsi.php");
+                exit();
+            }
         }
     }
 
@@ -59,19 +65,6 @@ try {
     $connessione->closeConnection();
 } catch (Throwable $e) {
     header("location: ./html/500.html");
-    /*
-    $paginaHTML = str_replace('{titolo}', 'Errore', $paginaHTML);
-    $paginaHTML = str_replace('{immagine}', './img/foto-corso-1.jpg', $paginaHTML);
-    $paginaHTML = str_replace('{breve_desc}', 'Si è verificato un errore. Riprova più tardi.', $paginaHTML);
-    $paginaHTML = str_replace('{categoria}', '--', $paginaHTML);
-    $paginaHTML = str_replace('{prezzo}', '--', $paginaHTML);
-    $paginaHTML = str_replace('{tipologia}', '--', $paginaHTML);
-    $paginaHTML = str_replace('{durata}', '--', $paginaHTML);
-    $paginaHTML = str_replace('{desc_completa}', 'Nessun dettaglio disponibile.', $paginaHTML);
-    replaceContent("azione-corso", '', $paginaHTML);
-    replaceContent("recensioni", '<p>Nessuna recensione disponibile.</p>', $paginaHTML);
-    replaceContent("form-recensione", '', $paginaHTML);
-    echo $paginaHTML;*/
     exit();
 }
 
@@ -113,6 +106,10 @@ if (empty($_SESSION['is_admin'])) {
     }
 } else {
     $paginaHTML = str_replace('{azione-titolo-corso}', 'Prenota ora', $paginaHTML);
+    $azioneHtml = '<form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" onsubmit="return confirm(\'Sei sicuro di voler eliminare questo corso?\');">
+                        <input type="hidden" name="action" value="cancella">
+                        <button type="submit" class="default-form-confirm-button">Elimina corso</button>
+                        </form>';
 }
 
 if (!empty($azioneHtml)) {

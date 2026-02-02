@@ -599,6 +599,18 @@ class DBAccess {
 		return $ok;
 	}
 
+	public function cancellaCorso($id) : bool {
+		$query = "DELETE FROM Corso WHERE id = ?";
+		$stmt = $this->connection->prepare($query);
+		if ($stmt === false) {
+			return false;
+		}
+		$stmt->bind_param("i", $id);
+		$ok = $stmt->execute();
+		$stmt->close();
+		return $ok;
+	}
+
 	public function modificaRecensione($user, $id, $rating, $descrizione) : bool {
 		$query = "UPDATE Recensione SET rating = ?, descrizione = ? WHERE id = ? AND id_user = ?";
 		$stmt = $this->connection->prepare($query);
