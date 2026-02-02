@@ -123,6 +123,7 @@ try {
 }
 
 $lista = '<form action="./admin.php" method="POST" id="utenti-form">';
+$lista .= '<fieldset id="role-form-fieldset"><legend class="visually-hidden" aria-hidden="true">Seleziona gli utenti amministratori</legend>';
 $lista .= '<input type="hidden" name="action" value="preview-admin">';
 $lista .= '<p id="sum-users" class="visually-hidden">La tabella, ordinata per colonne, mostra tutti gli utenti registrati, con l\'indicazione se sono amministratori o meno, e permette di modificare i loro ruoli.</p>';
 $lista .= '<table class="tabella-default" aria-describedby="sum-users">
@@ -130,25 +131,39 @@ $lista .= '<table class="tabella-default" aria-describedby="sum-users">
                 <thead>
                     <tr>
                     <th scope="col" lang="en">Username</th>
-                    <th scope="col">Admin</th>
+                    <th scope="col">Ruolo</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Data</th>
                     </tr>
                 </thead>
                 <tbody>';
+
 foreach ($utenti as $utente) {
     $isAdmin = !empty($utente['isAdmin']);
-    $mark = $isAdmin ? 'V' : 'X';
-    $lista .= '<tr data-utente="' . htmlspecialchars($utente['username']) . '" data-data="' . htmlspecialchars($utente['data_di_nascita']) . '">';
-    $lista .= '<th data-title="Username" scope="row">' . htmlspecialchars($utente['username']) . '</th>';
-    $lista .= '<td data-title="Admin: Si(V) No(X) "><input type="checkbox" name="admin_users[]" value="' . htmlspecialchars($utente['username']) . '"' . ($isAdmin ? ' checked' : '') . '> ' . $mark . '</td>';
-    $lista .= '<td data-title="Nome">' . htmlspecialchars($utente['nome']) . '</td>';
-    $lista .= '<td data-title="Cognome">' . htmlspecialchars($utente['cognome']) . '</td>';
-    $lista .= '<td data-title="Data di nascita">' . htmlspecialchars($utente['data_di_nascita']) . '</td>';
+    $username = htmlspecialchars($utente['username']);
+    $dataNascita = htmlspecialchars($utente['data_di_nascita']);
+
+    $checkboxId = 'admin-' . $username;
+    $lista .= '<tr data-utente="' . $username . '" data-data="' . $dataNascita . '">';
+    $lista .= '<th scope="row">' . $username . '</th>';
+    $lista .= '<td>';
+    $lista .= '<label for="' . $checkboxId . '">Amministratore</label>';
+    $lista .= '<input 
+        type="checkbox" 
+        id="' . $checkboxId . '" 
+        name="admin_users[]" 
+        value="' . $username . '"' .
+        ($isAdmin ? ' checked' : '') .
+    '>';
+    $lista .= '</td>';
+    $lista .= '<td>' . htmlspecialchars($utente['nome']) . '</td>';
+    $lista .= '<td>' . htmlspecialchars($utente['cognome']) . '</td>';
+    $lista .= '<td>' . $dataNascita . '</td>';
     $lista .= '</tr>';
 }
-$lista .= '</tbody></table>';
+
+$lista .= '</tbody></table></fieldset>';
 $lista .= '<button type="submit" class="default-form-confirm-button">Anteprima cambiamenti</button>';
 $lista .= '</form>';
 
