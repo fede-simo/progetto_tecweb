@@ -51,7 +51,7 @@
         width: auto;
         height: auto;
         padding: 0.5em 1em;
-        background-color: var(--background-color);
+        background: var(--background-color);
         color: var(--text-color);
         text-decoration: underline;
         clip: auto;
