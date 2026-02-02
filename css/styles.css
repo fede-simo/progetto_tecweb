@@ -384,6 +384,10 @@
         border-top: 1px solid;
     }
 
+    #role-form-fieldset {
+        border: 0;
+    }
+
     .default-form-group {
         display: flex;
         flex-direction: column;
