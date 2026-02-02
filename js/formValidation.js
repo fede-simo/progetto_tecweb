@@ -6,10 +6,10 @@
 **/
 
     var dettagli_form = { 
-        "nome": ["Esempio: Mario",/^[a-zA-Z' ]{2,}$/,"Inserire un nome di lunghezza almeno 2. Non sono ammessi numeri."],
-        "cognome": ["Esempio: Rossi",/^[a-zA-Z' ]{2,}$/,"Inserire un cognome di lunghezza almeno 2. Non sono ammessi numeri."],
+        "nome": ["Esempio: Mario",/^[a-zA-Z' ]{2,30}$/,"Inserire un nome di lunghezza compresa fra 2 e 30 caratteri. Non sono ammessi numeri."],
+        "cognome": ["Esempio: Rossi",/^[a-zA-Z' ]{2,30}$/,"Inserire un cognome di lunghezza compresa fra 2 e 30 caratteri. Non sono ammessi numeri."],
         "data_di_nascita": ["",/^\d{4}-\d{2}-\d{2}$/,"Inserire una data corretta"],
-        "username": ["Esempio: Mario04",/^[a-zA-Z0-9]{2,}$/,"Inserire un nome utente di lunghezza almeno 2. Non sono ammessi spazi."],
+        "username": ["Esempio: Mario04",/^[a-zA-Z0-9]{2,30}$/,"Inserire un nome utente di lunghezza compresa fra 2 e 30 caratteri. Non sono ammessi spazi."],
         "password": ["Almeno 8 caratteri, 1 numero e 1 carattere speciale",/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Inserire una password di almeno 8 caratteri, di cui almeno un numero e un carattere speciale."],
         "password_confirm": ["",/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Le password non coincidono."],
     };
