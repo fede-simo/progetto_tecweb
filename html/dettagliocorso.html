@@ -54,17 +54,17 @@
                 <h1>{titolo}</h1>
                 <img src="{immagine}" alt="">
                 <ul class="lista-info-corso">
-                    <li>{categoria}</li>
-                    <li>€ {prezzo}</li>
-                    <li>{tipologia}</li>
-                    <li>{durata} ore</li>
+                    <li><span class="visually-hidden">Categoria: </span>{categoria}</li>
+                    <li><span class="visually-hidden">Durata: </span>{durata} ore</li>
+                    <li><span class="visually-hidden">Costo: </span>€ {prezzo}</li>
+                    <li><span class="visually-hidden">Modalità: </span>{tipologia}</li>
                 </ul>
                 <h2>Dettagli del corso</h2>
                 <p>{desc_completa}</p>
             </section> 
             <aside id="corso-side-box" class="default-form">
                 <h3>{azione-titolo-corso}</h3>
-                <dl>
+                <dl aria-hidden="true">
                     <dt>Categoria:</dt>
                     <dd>{categoria}</dd>
                     <dt>Durata:</dt>

@@ -51,10 +51,10 @@ if (!empty($corsi)) {
             <h3 class="titolo-container"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="container-link">' . allyModTesto(htmlspecialchars($corso['titolo'])) . '</a></h3>
             <p class="descrizione-container">' . allyModTesto(htmlspecialchars($corso['breve_desc'])) . '<p>
             <ul class="lista-info-corso">
-                <li>' . htmlspecialchars($corso['categoria']) . '</li>
-                <li>' . htmlspecialchars($corso['durata']) . ' ore</li>
-                <li>€ ' . htmlspecialchars($corso['costo']) . '</li>
-                <li>' . allyModCorso(htmlspecialchars($corso['modalita'])) . '</li>
+                <li><span class="visually-hidden">Categoria: </span>' . htmlspecialchars($corso['categoria']) . '</li>
+                <li><span class="visually-hidden">Durata: </span>' . htmlspecialchars($corso['durata']) . ' ore</li>
+                <li><span class="visually-hidden">Costo: </span>€ ' . htmlspecialchars($corso['costo']) . '</li>
+                <li><span class="visually-hidden">Modalità: </span>' . allyModCorso(htmlspecialchars($corso['modalita'])) . '</li>
             </ul>
         </div>';
     }
