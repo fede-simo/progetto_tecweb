@@ -190,14 +190,14 @@
     }
 
     .highlight-button {
+        box-sizing: border-box;
         border: 2px solid var(--border-color);
-        font-weight: 500;
+        font-weight: var(--weight-bold);
         border-radius: 10px;
         padding: 0.5rem;
         background-color: var(--a-background-color);
         color: var(--a-text-color);
         text-decoration: none;
-        white-space: nowrap;
         transition: 0.3s;
     }
 
