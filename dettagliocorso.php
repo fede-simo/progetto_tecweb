@@ -135,14 +135,14 @@ replaceContent("recensioni", $recensioniHtml, $paginaHTML);
 $formRecensione = '';
 if (isset($_SESSION['user']) && empty($_SESSION['is_admin']) && $haAcquistato && !$haRecensito) {
     $formRecensione = '
-            <form action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="default-form">       
+            <form id="rec-form" action="./dettagliocorso.php?id=' . urlencode($id) . '" method="POST" class="default-form">       
                 <input type="hidden" name="action" value="recensisci">
                 <h3>Aggiungi una recensione:</h3>
                 <fieldset class="default-form-fieldset"> 
                     <legend class="recensione-legend">Dati Recensione</legend>    
 
                         <div class="default-form-group">
-                            <label class="default-form-label" for="rating">Voto (1-5)</label>
+                            <label class="default-form-label" for="rating">Voto</label>
                             <input class="default-form-field" type="number" id="rating" name="rating" min="1" max="5" step="0.5" required>
                         </div>
 
