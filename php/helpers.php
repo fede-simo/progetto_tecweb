@@ -43,6 +43,7 @@ function allyModTesto($testo): string {
 		'PIP' => '<abbr title="Piani Individuali Pensionistici">PIP</abbr>',
 		'long-term' => '<span lang="en">long-term</span>',
 		'budget' => '<span lang="en">budget</span>',
+		'Budget' => '<span lang="en">Budget</span>',
 		'minimal' => '<span lang="en">minimal</span>',
 		'envelope' => '<span lang="en">envelope</span>'
 	];
