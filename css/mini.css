@@ -1,19 +1,8 @@
     :root{
-        --weight-bold: 600;
-        --weight-regular: 400;
-        --weight-light: 300;
-
-        --text-size-normal: 1rem;
-        --text-size-small: 0.875rem;
-        --text-size-large: 1.625rem;
-        --text-size-link: 1.25rem;
-
-        --background-color: linear-gradient(135deg, #04060A 0%, #17243A 30%, #04060A 100%);
-        --text-color: #fff;
         --dark-text-color: #17243A;
         
         --a-highlight-text-color: #17243A;
-        --a-highlight-visited-text-color: #17243A; /*DA DEFINIRE*/
+        --a-highlight-visited-text-color: #7030b0;
 
         --border-color: #46DBF5;
     }
@@ -22,8 +11,6 @@
     #breadcrumb,
     main,
     footer {
-        /*padding-left: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));
-        padding-right: clamp(4%, calc((100vw - 800px) / 2), calc((100vw - 800px) / 2));*/
         padding-left: 4%;
         padding-right: 4%;
     }
@@ -313,7 +300,7 @@
         }
 
         th a:visited {
-            color: var(--a-highlight-text-color);
+            color: var(--a-highlight-visited-text-color);
         }
 
         td {
