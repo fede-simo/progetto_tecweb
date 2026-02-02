@@ -43,8 +43,6 @@
     </nav>
     
     <main id="main">
-        <button id="back-to-top">&#8593;</button>
-
         <form id="login-form" class="default-form" name="login-form" action="./accedi.php" method="POST" autocomplete="on">
             <h1>Accedi su <span lang="en">Prophit</span>!</h1>
             <div class="default-form-error">
@@ -78,9 +76,9 @@
         <div>
             <h2>Contatti</h2>
             <ul>
-                <li><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
-                <li><a href="tel:+391234567890">+39 123 456 7890</a></li>
-                <li><p>Via Trieste, 63, 35121 Padova (PD)</p></li>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
             </ul>
         </div>
         <div>
@@ -107,6 +105,7 @@
         <div class="copyright">
             <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
         </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
     </footer>
 </body>
 </html>
