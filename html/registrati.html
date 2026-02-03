@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Registrati | Area personale | Prophit</title> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Registra il tuo account su Prophit e partecipa ai corsi di finanza personale su azioni, ETF e crypto!"> 
+    <meta name="keywords" content="Prophit, registrazione, registrati, register, signup, crea account, area personale, area riservata">
+    
+    <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="./css/print.css" media="print">
+    <script src="./js/buttonsManager.js" defer></script>
+    <script src="./js/formValidation.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body onload="caricamentoReg();">
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1 class="logo" lang="en">Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="./index.php">Home</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li><a href="./corsi.php">Corsi</a></li>
+                <li lang="en"><a href="./news.php">News</a></li>
+                <li><a href="./contatti.php">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>   
+
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / <a class="breadcrumb-link" href="./areapersonale.php">Area personale</a> / Registrati </p>
+    </nav>
+
+    <main id="main">
+        <!--{start-form-registrazione}-->
+
+        <form id="register-form" class="default-form" name="register-form" action="./registrati.php" method="POST" autocomplete="on">
+            <h1>Registrati su <span lang="en">Prophit</span>!</h1>
+
+            <fieldset class="default-form-fieldset" id="Dati-personali">
+                <legend>Dati personali</legend>      
+
+                <div class="default-form-group">
+                    <label for="nome" class="register-label">Nome:</label>
+                    <input type="text" name="nome" id="nome" value="{nome}">
+                </div>
+                <div class="default-form-group">
+                    <label for="cognome">Cognome:</label>
+                    <input type="text" name="cognome" id="cognome" value="{cognome}">
+                </div>
+                <div class="default-form-group">
+                    <label for="data_di_nascita">Data di nascita:</label>
+                    <input type="date" name="data_di_nascita" id="data_di_nascita" value="{data_di_nascita}">
+                </div>
+            </fieldset>
+
+            <fieldset class="default-form-fieldset" id="Dati-di-accesso">
+                <legend>Dati di accesso</legend>      
+
+                <div class="default-form-group">
+                    <label for="username">Nome utente:</label>
+                    <input type="text" name="username" id="username" autocomplete="username" value="{username}">
+                </div>
+                <div class="default-form-group">
+                    <label for="password" lang="en">Password:</label>
+                    <input type="password" name="password" id="password" autocomplete="new-password">
+                </div>
+                <div class="default-form-group">
+                    <label for="password_confirm">Conferma <span lang="en">password</span>:</label>
+                    <input type="password" name="password_confirm" id="password_confirm" autocomplete="new-password">
+                </div>
+            </fieldset>            
+            <div>
+                <button class="default-form-confirm-button" type="submit" aria-label="Registrati su Prophit">Registrati</button>
+                <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                <p class="default-form-login-link">Hai già un <span lang="en">account</span>? <a href="./accedi.php">Accedi</a></p>
+            </div>
+            <div class="default-form-error">
+            <!--{start-errore-registrazione}-->
+
+            <!--{end-errore-registrazione}-->
+            </div>   
+        </form>
+   
+        <!--{end-form-registrazione}-->
+
+    </main>
+
+    <footer id="footer">
+        <div>
+            <h2 lang="en">Prophit</h2>
+            <p>Formazione finanziaria per investire in modo consapevole e costruire il tuo futuro economico con metodo e responsabilità.</p>
+        </div>
+        <div>
+            <h2>Contatti</h2>
+            <ul>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
+            </ul>
+        </div>
+        <div>
+            <h2 lang="en">Social Media</h2>
+            <ul>
+                <li lang="en"><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li lang="en"><a href="https://www.facebook.com/">Facebook</a></li>
+                <li lang="en"><a href="https://www.instagram.com/">Instagram</a></li>
+                <li lang="en"><a href="https://x.com/">X</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><span lang="en">Link</span> utili</h2>
+            <nav aria-label="Menù inferiore di navigazione">
+                <ul>
+                    <li lang="en"><a href="./index.php">Home</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./corsi.php">Corsi</a></li>
+                    <li lang="en"><a href="./news.php">News</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./areapersonale.php">Area personale</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
+        </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
+    </footer>
+</body>
+</html>

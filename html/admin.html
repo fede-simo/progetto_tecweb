@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Area amministratore | Prophit</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Entra nell'area amministratore di Prophit per gestire utenti, corsi, messaggi e acquisti.">
+    <meta name="keywords" content="Prophit, area amministratore, pannello di controllo, admin, profilo, gestione, utenti, corsi, messaggi, acquisti">
+
+    <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="./css/print.css" media="print">
+    <script src="./js/buttonsManager.js" defer></script>
+    <script src="./js/filtersManager.js" defer></script>
+    <script src="./js/formValidation.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body onload="caricamentoCorsi();">
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1 class="logo" lang="en">Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="./index.php">Home</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li><a href="./corsi.php">Corsi</a></li>
+                <li lang="en"><a href="./news.php">News</a></li>
+                <li><a href="./contatti.php">Contatti</a></li>
+            </ul>
+            <div>
+                <a href="./logout.php" aria-label="Esci dall'account">Esci</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / Area amministratore </p>
+    </nav>
+
+    <main id="main">
+        <!--{start-admin-message}-->
+        <!--{end-admin-message}-->
+        <section id="welcome-profile" class="first-sec alt3">
+            <h1 id="title-profile">Area amministratore</h1>
+            <h2>Benvenuto nel tuo profilo <strong>{username}</strong>!</h2>
+            <p>Utilizza il <strong>pannello di controllo</strong> per la <strong>gestione</strong> di utenti, corsi, messaggi e acquisti.</p>
+        </section>
+        
+        
+        <!--{start-admin-confirm}-->
+        <!--{end-admin-confirm}-->
+        <section id="control-sec" class="alt3">
+            <h3>Pannello di controllo</h3>
+            <details>
+                <summary>Elenco degli utenti registrati</summary>
+                <div class="default-form">
+                    <div class="default-form-group">
+                        <label for="user-filter">Filtra per nome utente:</label>
+                        <input type="text" id="user-filter">
+                    </div>
+                    <div id="modifica-utente-buttons" class="default-form-group">
+                        <button type="button" id="order-toggle" class="default-form-confirm-button">Ordina per nome</button>
+                        <button type="button" id="order-dir" class="default-form-confirm-button" aria-label="Inverti l'ordine dell'elenco utenti">↑</button>
+                    </div>
+                </div>
+                <!--{start-utenti-list}-->
+                <!--{end-utenti-list}-->
+            </details>
+            <details>
+                <summary>Aggiungi un nuovo corso</summary>
+                <form id="corsi-form" class="default-form" action="./admin.php" method="POST" enctype="multipart/form-data">
+                    <fieldset class="default-form-fieldset">
+                        <legend>Dati del corso</legend> 
+                        <input type="hidden" name="action" value="add-corso">
+                        <div class="default-form-group">
+                            <label for="titolo">Titolo:</label>
+                            <input type="text" id="titolo" name="titolo" required>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="immagine">Immagine:</label>
+                            <input type="file" id="immagine" name="immagine" accept=".jpg,.jpeg,.webp,.png" required>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="categorie">Categoria:</label>                            
+                                <!--{start-categorie-list}-->
+                                <!--{end-categorie-list}-->    
+                        </div>
+                        <div class="default-form-group">
+                            <label for="durata">Durata:</label>
+                            <input type="number" id="durata" name="durata" min="1" required>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="costo">Costo:</label>
+                            <input type="number" id="costo" name="costo" min="0" step="5" required>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="modalita">Modalità:</label>
+                            <select id="modalita" name="modalita" required>
+                                <option value="" disabled selected>Seleziona modalità</option>
+                                <option value="In aula">In aula</option>
+                                <option value="Online live" lang="en">Online live</option>
+                                <option value="Online registrata">Online registrata</option>
+                            </select>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="breve_desc">Breve descrizione:</label>
+                            <input type="text" id="breve_desc" name="breve_desc" maxlength="200" required>
+                        </div>
+                        <div class="default-form-group">
+                            <label for="desc_completa">Descrizione completa:</label>
+                            <textarea id="desc_completa" name="desc_completa" rows="6" required></textarea>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <button class="default-form-confirm-button" type="submit" >Aggiungi corso</button>
+                        <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                    </div>
+                </form>
+            </details>
+            <details>
+                <summary>Elenco dei messaggi ricevuti <!--{start-messaggi-count}--><!--{end-messaggi-count}--></summary>
+                <!--{start-contatti-list}-->
+                <!--{end-contatti-list}-->                
+            </details>
+
+            <details>
+                <summary>Elenco degli acquisti</summary>
+                <div id="acquisti-form" class="default-form">
+                    <div class="default-form-group">
+                        <label for="acquisti-filter">Filtra per nome utente:</label>
+                        <input type="text" id="acquisti-filter">
+                    </div>
+                </div>
+                <div>
+                    <!--{start-acquisti-list}-->
+                    <!--{end-acquisti-list}-->
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div>
+            <h2 class="logo" lang="en">Prophit</h2>
+            <p>Formazione finanziaria per investire in modo consapevole e costruire il tuo futuro economico con metodo e responsabilità.</p>
+        </div>
+        <div>
+            <h2>Contatti</h2>
+            <ul>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
+            </ul>
+        </div>
+        <div>
+            <h2 lang="en">Social Media</h2>
+            <ul>
+                <li lang="en"><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li lang="en"><a href="https://www.facebook.com/">Facebook</a></li>
+                <li lang="en"><a href="https://www.instagram.com/">Instagram</a></li>
+                <li lang="en"><a href="https://x.com/">X</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><span lang="en">Link</span> utili</h2>
+            <nav aria-label="Menù inferiore di navigazione">
+                <ul>
+                    <li lang="en"><a href="./index.php">Home</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./corsi.php">Corsi</a></li>
+                    <li lang="en"><a href="./news.php">News</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
+        </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
+    </footer>
+</body>
+</html>

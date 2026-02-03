@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Contatti | Prophit</title> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Contatta Prophit per informazioni sui corsi o per supporto tecnico."> 
+    <meta name="keywords" content="Prophit, contatti, assistenza, supporto, informazioni corsi, email, telefono, indirizzo">
+    
+    <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="./css/print.css" media="print">
+    <script src="./js/buttonsManager.js" defer></script>
+    <script src="./js/formValidation.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body onload="caricamentoContatti();">
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1 class="logo" lang="en">Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="./index.php">Home</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li><a href="./corsi.php">Corsi</a></li>
+                <li lang="en"><a href="./news.php">News</a></li>
+                <li class="current-page">Contatti</li>
+            </ul>
+            <div>
+                <a href="./areapersonale.php">Area personale</a>
+            </div>
+        </nav>
+    </header>   
+
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / Contatti </p>
+    </nav>
+
+    <main id="main">
+        <section id="contatti-hero-sec" class="first-sec">
+            <div class="content">
+                <h1>Contatta <span lang="en">Prophit</span></h1>
+                <h2>Siamo qui per te, parla con noi!</h2>
+                <p>Contattaci se hai bisogno di <strong>supporto tecnico</strong> o hai bisogno di maggiori <strong>informazioni sui corsi</strong>.</p>
+            </div>
+            <div id="contatti-img" class="img decoration-img">
+                <img src="./img/contatti.jpg" alt=""> 
+            </div>
+        </section>
+
+        <section id="contatti">
+            <div>
+                <h3 lang="en">Email:</h3>
+                <p><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></p>
+            </div>
+            <div>
+                <h3>Telefono:</h3>
+                <p><a href="tel:+391234567890">+39 123 456 7890</a></p>
+            </div>
+            <div>
+                <h3>Indirizzo:</h3>
+                <p>Via Trieste, 63, 35121 Padova (PD)</p>
+            </div>
+        </section>
+        <!--{start-contatti-message}-->
+        <!--{end-contatti-message}-->
+        <section id="form-messaggio">
+            <form id="contati-form" action="./contatti.php" class="default-form" method="POST" autocomplete="on">              
+                <h3>Invia un messaggio al <span lang="en">team</span></h3>
+                
+                <fieldset class="default-form-fieldset">
+                    <legend>Dati personali</legend>
+                    
+                    <div class="default-form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="default-form-group">
+                        <label for="email" lang="en">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                </fieldset>
+                <fieldset class="default-form-fieldset">
+                    <legend>Dati messaggio</legend>
+                    <div class="default-form-group">
+                        <label for="oggetto">Oggetto</label>
+                        <input type="text" id="oggetto" name="oggetto" required>
+                    </div>
+                    <div class="default-form-group">
+                        <label for="messaggio">Messaggio</label>
+                        <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
+                    </div>
+                </fieldset>
+                <div>
+                    <button class="default-form-confirm-button" type="submit" aria-label="Invia il messaggio">Invia</button>
+                    <button class="default-form-confirm-button" type="reset" aria-label="Pulisci campi form">Pulisci campi</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div>
+            <h2 lang="en">Prophit</h2>
+            <p>Formazione finanziaria per investire in modo consapevole e costruire il tuo futuro economico con metodo e responsabilità.</p>
+        </div>
+        <div>
+            <h2>Contatti</h2>
+            <ul>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
+            </ul>
+        </div>
+        <div>
+            <h2 lang="en">Social Media</h2>
+            <ul>
+                <li lang="en"><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li lang="en"><a href="https://www.facebook.com/">Facebook</a></li>
+                <li lang="en"><a href="https://www.instagram.com/">Instagram</a></li>
+                <li lang="en"><a href="https://x.com/">X</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><span lang="en">Link</span> utili</h2>
+            <nav aria-label="Menù inferiore di navigazione">
+                <ul>
+                    <li lang="en"><a href="./index.php">Home</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./corsi.php">Corsi</a></li>
+                    <li lang="en"><a href="./news.php">News</a></li>
+                    <li><a href="./areapersonale.php">Area personale</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
+        </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,322 @@
+    :root{
+        --dark-text-color: #17243A;
+        
+        --a-highlight-text-color: #17243A;
+        --a-highlight-visited-text-color: #7030b0;
+
+        --border-color: #46DBF5;
+    }
+    
+    header,
+    #breadcrumb,
+    main,
+    footer {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+
+    /*
+    #######################################################################
+    HEADER
+    #######################################################################
+    */
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 1rem;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    #menu, footer {
+        width: 100%;
+    }
+
+    #menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menu ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0;
+    }
+
+    #menu li,
+    #menu a {
+        text-align: center;
+        padding: 0.4rem 0;
+    }
+
+    #menu div {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.8rem;
+    }
+
+    /*
+    #######################################################################
+    MAIN
+    #######################################################################
+    */
+
+    #back-to-top {
+        bottom: 1rem;
+        right: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    #desc-index-img {
+        display: none;
+    }
+
+    #index-hero-img {
+        width: 80%;
+        margin-top: 2rem;
+    }
+
+    .content {
+        width: auto;
+    }
+
+    #intro-index .content {
+        text-align: center;
+    }
+
+    #index-ending-img {
+        display: none;
+    }
+
+    #index-ending-sec {
+        text-align: center;
+    }
+
+    #lista-prophit {
+        padding-left: 1rem;
+    }
+
+
+    /*
+    #######################################################################
+    CHI SIAMO
+    #######################################################################
+    */
+
+    .first-sec {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .first-sec .content {
+        text-align: center;
+    }
+
+    #chisiamo-hero-img {
+        margin-top: 2rem;
+        width: 80%;
+    }
+
+    #img-team {
+        display: none;
+    }
+
+    #team-section {
+        align-items: center;
+    }
+
+    #chisiamo-last-sec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chisiamo-last-sec .content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    #chisiamo-last-sec .img {
+        width: 80%;
+    }
+
+    /*
+    #######################################################################
+    CORSI
+    #######################################################################
+    */
+
+    #catalog {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #desc-catalog {
+        margin-bottom: 0rem;
+    }
+
+    .label-filtro {
+        text-align: center;
+        font-weight: 500;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .filtro-catalog {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .content-container{
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    /*
+    #######################################################################
+    DETTAGLIO CORSO
+    #######################################################################
+    */
+
+    #corso-content {
+        flex-direction: column;
+    }
+
+    #corso-appearance {
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #corso-side-box{
+        margin-top: 0rem;
+        width: 80%;
+    }
+    
+
+    /*
+    #######################################################################
+    MODIFICA-RECENSIONE
+    #######################################################################
+    */
+
+    .default-form {
+        width: 80%;
+    }
+
+    #modifica-recensione-form {
+        width: 80%;
+    }
+
+    /*
+    #######################################################################
+    CONTATTI
+    #######################################################################
+    */ 
+
+    #contatti {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #contatti-hero-sec {
+        margin-bottom: 0rem;
+    }
+
+    #contatti-img {
+        padding-top: 2rem;
+        width: 70%;
+    }
+
+    .alt3 {
+        margin-bottom: 0rem;
+    }
+
+    /*
+    #######################################################################
+    AREA ADMIN
+    #######################################################################
+    */
+
+    #welcome-profile {
+        align-items: center;
+    }
+    
+    #welcome-profile p, #welcome-profile h2 {
+        text-align: center;
+    }
+
+    /*
+    #######################################################################
+    AREA USER
+    #######################################################################
+    */
+
+    @media screen and (max-width: 768px) {
+
+        thead {
+            display: none;
+        }
+
+        tr, th, td{
+            display: block;
+            text-align: left;
+            white-space: normal;
+            border-collapse: collapse;
+            border: none;
+            text-align: center;
+        }
+
+        tr {
+            border: 2px solid var(--border-color);
+        }
+
+        th{
+            background-color: var(--border-color);
+            color: var(--dark-text-color);
+            padding-top: 0.5rem;
+        }
+
+        th a {
+            color: var(--a-highlight-text-color);
+        }
+
+        th a:visited {
+            color: var(--a-highlight-visited-text-color);
+        }
+
+        td {
+            padding-top: 0.5rem;
+        }
+
+        th[data-title]:before, td[data-title]:before {
+            content: attr(data-title) ":\00A0";
+            font-weight: bold;
+        }
+
+        td form {
+            display: inline-flex;
+        }
+
+        footer {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }

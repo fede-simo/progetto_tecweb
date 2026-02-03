@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Corsi | Prophit</title> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Esplora il catalogo dei corsi di finanza personale di Prophit su azioni, ETF e crypto">
+    <meta name="keywords" content="corsi Prophit, corsi finanza personale, corsi investimento, strategie di investimento, azioni, ETF, crypto">
+    
+    <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="./css/print.css" media="print">
+    <script src="./js/buttonsManager.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1 class="logo" lang="en">Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="./index.php">Home</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li class="current-page">Corsi</li>
+                <li lang="en"><a href="./news.php">News</a></li>
+                <li><a href="./contatti.php">Contatti</a></li>
+            </ul>
+            <div>
+                <a href="./areapersonale.php">Area personale</a>
+            </div>
+        </nav>
+    </header>   
+
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a href="./index.php" lang="en" class="breadcrumb-link">Home</a> / Corsi</p>
+    </nav>
+
+    <main id="main">
+        <section class="first-sec alt3">
+            <h1>Catalogo dei corsi offerti da <span lang="en">Prophit</span></h1>
+            <h2>Scopri percorsi formativi pensati per aiutarti a comprendere i mercati finanziari.</h2>
+            <p>Costruiamo <strong>strategie di investimento</strong> personalizzate, partendo dalle basi fino ai livelli più avanzati.</p>
+            
+            <form action="./corsi.php" method="get" class="default-form">
+                <div class="default-form-group">
+                    <label for="categoria">Filtra per categoria:</label>
+                    <select name="categoria" id="categoria">
+                        <!--{start-select-categoria}-->
+                        <option value="all" selected>Tutti</option>
+                        <option value="Investimenti">Investimenti</option>
+                        <option value="Risparmio">Risparmio</option>
+                        <option value="Previdenza">Previdenza</option>
+                        <!--{end-select-categoria}-->
+                    </select>
+                </div>
+                <button class="default-form-confirm-button" type="submit" aria-label="Conferma filtro">Filtra</button>
+            </form>
+        </section>
+
+        <section class="content-container">
+
+        <!--{start-section-corsi}-->
+          
+        <!--{end-section-corsi}-->
+            
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <div>
+            <h2 lang="en">Prophit</h2>
+            <p>Formazione finanziaria per investire in modo consapevole e costruire il tuo futuro economico con metodo e responsabilità.</p>
+        </div>
+        <div>
+            <h2>Contatti</h2>
+            <ul>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
+            </ul>
+        </div>
+        <div>
+            <h2 lang="en">Social Media</h2>
+            <ul>
+                <li lang="en"><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li lang="en"><a href="https://www.facebook.com/">Facebook</a></li>
+                <li lang="en"><a href="https://www.instagram.com/">Instagram</a></li>
+                <li lang="en"><a href="https://x.com/">X</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><span lang="en">Link</span> utili</h2>
+            <nav aria-label="Menù inferiore di navigazione">
+                <ul>
+                    <li lang="en"><a href="./index.php">Home</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li lang="en"><a href="./news.php">News</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                    <li><a href="./areapersonale.php">Area personale</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
+        </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
+    </footer>
+</body>
+</html>

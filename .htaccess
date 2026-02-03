@@ -1,0 +1,4 @@
+DirectoryIndex index.php
+
+ErrorDocument 404 /mmarcon/html/404.html
+ErrorDocument 500 /mmarcon/html/500.html

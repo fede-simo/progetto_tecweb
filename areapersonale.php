@@ -1,0 +1,106 @@
+<?php
+
+session_start();
+
+
+if (!isset($_SESSION['user'])) {
+    header("Location: ./accedi.php");
+    exit();
+}
+
+
+$paginaHTML = file_get_contents('./html/areapersonale.html');
+$username = htmlspecialchars($_SESSION['user'], ENT_QUOTES);
+$paginaHTML = str_replace('{username}', $username, $paginaHTML);
+
+require_once "./php/dbConnection.php";
+require_once "./php/helpers.php";
+
+
+if (!empty($_SESSION['is_admin'])) {
+    header("Location: ./admin.php");
+    exit();
+}
+ 
+$corsiHtml = '';
+$corsi = [];
+$noCorsi ='
+    <section class="alt3">
+        <h3>Corsi</h3>
+        <p>Non hai ancora acquistato alcun corso, <a href="./corsi.php">rimedia</a>.</p>
+    </section>';
+
+$recensioni = [];
+$recensioniHtml = '';
+$noRecensioni ='
+    <section class="alt3">
+        <h3>Recensioni</h3>
+        <p>Non hai alcuna recensione pubblicata.</p>
+    </section>';
+
+
+try {
+    $db = new DB\DBAccess();
+    $conn = $db->openConnection();
+
+    if (!$conn) {
+        throw new RuntimeException('DB connection failed');
+    }
+
+    $corsi = $db->getCorsiByUser($_SESSION['user']);
+    $recensioni = $db->getRecensioniByUser($_SESSION['user']);
+
+    $db->closeConnection();
+} catch (Throwable $e) {
+    error_log($e->__toString());
+    throw $e;
+} 
+
+
+if (!empty($corsi)) {    
+    foreach ($corsi as $corso) {
+        $modalita = allyModCorso($corso['modalita']);
+        $corsiHtml .=
+        '<tr>
+            <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($corso['id']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($corso['titolo']) . '</strong></a></th>
+            <td data-title="Categoria">' . htmlspecialchars($corso['categoria']) . '</td>
+            <td data-title="Durata">' . htmlspecialchars($corso['durata']) . ' ore</td>
+            <td data-title="Prezzo">€ ' . htmlspecialchars($corso['costo']) . '</td>
+            <td data-title="Modalità">' . $modalita . '</td>
+            <td data-title="Data acquisto">' . htmlspecialchars($corso['data_acquisto']) . '</td>
+        </tr>';
+    }
+    replaceContent("miei-corsi-table", $corsiHtml, $paginaHTML);
+} else {
+    replaceContent("miei-corsi-section", $noCorsi, $paginaHTML);
+}
+
+if (!empty($recensioni)) {   
+    foreach ($recensioni as $recensione) {
+        $recensioniHtml .=
+        '<tr>
+            <th scope="row"><a href="./dettagliocorso.php?id=' . urlencode($recensione['id_corso']) . '" class="corso-link-tabella"><strong>' . htmlspecialchars($recensione['titolo']) . '</strong></a></th>
+            <td data-title="Voto">' . htmlspecialchars($recensione['rating']) . '</td>
+            <td data-title="Descrizione">' . htmlspecialchars($recensione['descrizione']) . '</td>
+            <td data-title="Modifica">
+                <form action="./modificarecensione.php" method="GET">
+                    <input type="hidden" name="id" value="' . $recensione['id'] . '">
+                    <button type="submit" class="action-btn" aria-label="Modifica recensione del corso ' . htmlspecialchars($recensione['titolo']) . '">Modifica</button>
+                </form>
+            </td>
+            <td data-title="Elimina">
+                <form action="./eliminarecensione.php?id=' . urlencode($recensione['id']) . '" method="POST"
+                onsubmit="return confirm(\'Sei sicuro di voler eliminare questa recensione?\');">
+                    <button type="submit" class="action-btn action-btn-danger" aria-label="Elimina recensione del corso ' . htmlspecialchars($recensione['titolo']) . '">Elimina</button>
+                </form>
+            </td>
+        </tr>';
+    }
+    replaceContent("mie-recensioni-table", $recensioniHtml, $paginaHTML);
+} else {
+    replaceContent("mie-recensioni-section", $noRecensioni, $paginaHTML);
+}
+
+echo $paginaHTML;
+
+?>

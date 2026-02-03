@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <title>Area personale | Prophit</title> 
+    <meta charset="UTF-8">
+    <meta name="description" content="Entra nella tua area personale su Prophit per monitorare il tuo profilo personale, visualizzare i corsi acquistati e modificare le recensioni."> 
+    <meta name="keywords" content="Prophit, area personale, area riservata, account utente, corsi acquistati, recensioni, profilo">
+    
+    <link rel="stylesheet" href="./css/styles.css" media="screen">
+    <link rel="stylesheet" href="./css/mini.css" media="screen and (max-width: 800px)">
+    <link rel="stylesheet" href="./css/print.css" media="print">
+    <script src="./js/buttonsManager.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav aria-label="Aiuti alla navigazione">
+            <a href="#main" class="visually-hidden show-on-focus">Salta al contenuto</a>
+            <a href="#footer" class="visually-hidden show-on-focus">Salta al <span lang="en">footer</span></a>
+        </nav>
+
+        <h1 class="logo" lang="en">Prophit</h1>
+        <nav id="menu" aria-label="Menù di navigazione">
+            <a href="#main" class="visually-hidden show-on-focus" >Salta il menù di navigazione</a>
+            <ul>
+                <li lang="en"><a href="./index.php">Home</a></li>
+                <li><a href="./chisiamo.php">Chi siamo</a></li>
+                <li><a href="./corsi.php">Corsi</a></li>
+                <li lang="en"><a href="./news.php">News</a></li>
+                <li><a href="./contatti.php">Contatti</a></li>
+            </ul>
+            <div>
+                <a href="./logout.php" aria-label="Esci dall'account">Esci</a>
+            </div>
+        </nav>
+    </header>   
+
+    <nav id="breadcrumb" aria-label="Percorso">
+        <p>Ti trovi in: <a class="breadcrumb-link" href="./index.php" lang="en">Home</a> / Area personale</p>
+    </nav>
+
+    <main id="main">
+        <section id="welcome-profile" class="alt3">
+            <h1 id="title-profile">Area personale</h1>
+            <h2>Benvenuto nel tuo profilo <strong>{username}</strong>!</h2>
+            <p>Visualizza i <strong>corsi acquistati</strong> e le <strong>recensioni</strong> che hai pubblicato:</p>
+        </section>
+        <!--{start-miei-corsi-section}-->
+        <section class="alt3">
+            <!--{start-tabella-corsi-acquistati}-->
+            <span id="sumAcquisti" class="visually-hidden">In questa tabella organizzata per colonne vengono riassunte le informazioni dei corsi acquistati: titolo, categoria, durata, prezzo, modalità e data di acquisto.</span>
+            <table aria-describedby="sumAcquisti">
+                <caption>Corsi</caption>
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" abbr="Corso">Titolo del corso</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Durata</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">Modalità</th>
+                        <!--<th scope="col">BREVE DESCRIZIONE</th>-->
+                        <th scope="col" abbr="Data acquisto">Data di acquisto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{start-miei-corsi-table}-->
+                    <!--{end-miei-corsi-table}-->
+                </tbody>
+            </table>  
+            <!--{end-tabella-corsi-acquistati}-->  
+        </section>
+        <!--{end-miei-corsi-section}-->
+
+        <!--{start-mie-recensioni-section}-->
+        <section class="alt3">
+            <!--{start-tabella-recensioni}-->
+            <span id="sumRecensioni" class="visually-hidden">In questa tabella organizzata per colonne vengono riassunte le recensioni pubblicate: titolo del corso, voto, descrizione, bottone modifica recensione, bottone elimina recensione.</span>
+            <table aria-describedby="sumRecensioni">
+                <caption>Recensioni</caption>
+                <colgroup>
+                    <col class="rec-titolo">
+                    <col class="rec-voto">
+                    <col class="rec-descrizione">
+                    <col class="rec-modifica">
+                    <col class="rec-elimina">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" abbr="Corso">Titolo del corso</th>
+                        <th scope="col">Voto</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">Modifica</th>
+                        <th scope="col">Elimina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{start-mie-recensioni-table}-->
+                    <!--{end-mie-recensioni-table}-->
+                </tbody>
+            </table> 
+            <!--{end-tabella-recensioni}-->
+        </section>
+        <!--{end-mie-recensioni-section}-->
+    </main>
+
+    <footer id="footer">
+        <div>
+            <h2 lang="en">Prophit</h2>
+            <p>Formazione finanziaria per investire in modo consapevole e costruire il tuo futuro economico con metodo e responsabilità.</p>
+        </div>
+        <div>
+            <h2>Contatti</h2>
+            <ul>
+                <li><span class="visually-hidden" lang="en">Email: </span><a href="mailto:matteo.marcon.5@studenti.unipd.it">matteo.marcon.5@studenti.unipd.it</a></li>
+                <li><span class="visually-hidden">Telefono: </span><a href="tel:+391234567890">+39 123 456 7890</a></li>
+                <li><span class="visually-hidden">Indirizzo: </span>Via Trieste, 63, 35121 Padova (PD)</li>
+            </ul>
+        </div>
+        <div>
+            <h2 lang="en">Social Media</h2>
+            <ul>
+                <li lang="en"><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                <li lang="en"><a href="https://www.facebook.com/">Facebook</a></li>
+                <li lang="en"><a href="https://www.instagram.com/">Instagram</a></li>
+                <li lang="en"><a href="https://x.com/">X</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2><span lang="en">Link</span> utili</h2>
+            <nav aria-label="Menù inferiore di navigazione">
+                <ul>
+                    <li lang="en"><a href="./index.php">Home</a></li>
+                    <li><a href="./chisiamo.php">Chi siamo</a></li>
+                    <li><a href="./corsi.php">Corsi</a></li>
+                    <li lang="en"><a href="./news.php">News</a></li>
+                    <li><a href="./contatti.php">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 <span lang="en">Prophit. All rights Reserved</span>.</p>
+        </div>
+        <button id="back-to-top" aria-label="Torna su">&#8593;</button>
+    </footer>
+</body>
+</html>
