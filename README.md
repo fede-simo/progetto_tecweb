@@ -7,8 +7,6 @@ Sito demo per formazione finanziaria con gestione corsi, area personale e pannel
 - Admin: `admin` / `admin`
 - Utente: `user` / `user`
 
-Le credenziali devono essere così sennò sminchiamo gli strumenti automatici alla Gaggi.
-
 ## Avvio rapido
 
 1) Avvio server PHP:
