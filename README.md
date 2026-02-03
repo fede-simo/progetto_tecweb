@@ -39,6 +39,5 @@ php -S localhost:8000 -t .
 ## Note DB
 
 Lo schema completo e i dati di default sono in:
-- `sql/reset_default.sql`
 - `sql/prophit.sql`
 - `sql/dump.sql`
