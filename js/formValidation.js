@@ -21,7 +21,7 @@
 
     var dettagli_form_rec = { 
         "rating": ["Da 1 a 5",/^(?:[1-4](?:\.[0-9])?|5(?:\.0)?)$/,"Inserire una valutazione da 1 a 5"],
-        "descrizione": ["Esempio: Ottimo corso",/^.{2,500}$/,"Inserire una descrizione di lunghezza compresa fra 2 e 500 caratteri."],
+        "descrizione": ["Esempio: Ottimo corso",/^.{2,500}$/,"Inserire una recensione di lunghezza compresa fra 2 e 500 caratteri."],
     };
 
     var dettagli_form_contatti = { 
