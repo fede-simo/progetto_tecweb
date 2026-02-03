@@ -20,7 +20,7 @@
     };
 
     var dettagli_form_rec = { 
-        "rating": ["Da 1 a 5",/^(?:[1-4](?:\.[0-9])?|5(?:\.0)?)$/,"Inserire una valutazione da 1 a 5"],
+        "rating": ["Da 1 a 5",/^(?:[1-4](?:\.[0-9])?|5(?:\.0)?)$/,"Inserire una valutazione da 1 a 5. Massimo una cifra decimale."],
         "descrizione": ["Esempio: Ottimo corso",/^.{2,500}$/,"Inserire una recensione di lunghezza compresa fra 2 e 500 caratteri."],
     };
 
@@ -35,7 +35,7 @@
         "titolo": ["Esempio: Corso di finanza",/^.{2,100}$/,"Inserire un titolo di lunghezza compresa fra 2 e 100 caratteri."],
         "immagine": ["(.jpg, .jpeg, .png, .webp)",/.*/,"Selezionare un file immagine valido con estensione .jpg, .jpeg, .png o .webp."],
         "categorie": ["",/^.{2,100}$/,"Inserire una categoria valida."],
-        "durata": ["Durata in ore. Esempio: 10",/^[1-9][0-9]*$/,"Inserire una durata in ore maggiore di 0."],
+        "durata": ["Durata in ore. Esempio: 10",/^[1-9][0-9]*$/,"Inserire una durata in ore maggiore di 0. Non sono ammesse cifre decimali."],
         "costo": ["Costo in euro. Minimo 0 e solo multipli di 5. Esempio: 100",/^(0|[5]|[1-9][0-9]*[05])$/,"Inserire un costo in euro. Minimo 0 e solo multipli di 5."],
         "modalita": ["",/^.{2,100}$/,"Inserire una modalità valida."],
         "breve_desc": ["Esempio: Corso di finanza",/^.{2,200}$/,"Inserire una breve descrizione di lunghezza compresa fra 2 e 200 caratteri."],
