@@ -124,7 +124,7 @@
             p.removeChild(p.children[2]);
         }
 
-        if (text.search(regex)!=0) {
+        if (!regex.test(text)) {
             messaggio(input, 1, dettagli_form);
             return false;
         }
@@ -140,7 +140,7 @@
         return true;
     }
         
-    function validazioneForm(dettagli_form) {
+    function validazioneForm(form, dettagli_form) {
         var errori = true;
         for (var key in dettagli_form) {
             var input = document.getElementById(key);
